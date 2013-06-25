@@ -2,5 +2,4 @@
 composer.lock
 .DS_Store
 /app/theme/.sass-cache/*
-/app/config/*
 /app/storage/files/
