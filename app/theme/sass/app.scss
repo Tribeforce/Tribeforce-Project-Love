@@ -1,0 +1,467 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you don't want to use normalize
+@import "normalize";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+
+@import "custom";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "foundation/components/global"; // *always required
+// @import "foundation/components/grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+// @import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+
+/*******************************************************************************
+Global Styles
+*******************************************************************************/
+
+/* Set box-sizing globally to handle padding and border widths */
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+html,
+body {
+  font-size: $base-font-size;
+}
+
+/* Default body styles */
+body {
+  background: $body-bg;
+  color: $body-font-color;
+  padding: 0;
+  margin: 0;
+  font-family: $body-font-family;
+  font-weight: $body-font-weight;
+  font-style: $body-font-style;
+  line-height: 1.5em;
+  position: relative;
+}
+
+/* Override outline from normalize, we don't like it */
+a:focus {
+  outline: none;
+}
+
+/* Grid Defaults to get images and embeds to work properly */
+img,
+object,
+embed {
+  max-width: 100%; height: auto;
+}
+
+object,
+embed {
+  height: 100%;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+#map_canvas,
+.map_canvas {
+  img,
+  embed,
+  object {
+    max-width: none !important;
+  }
+}
+
+/* Miscellaneous useful HTML classes */
+.left         { float: left !important; }
+.right        { float: right !important; }
+.text-left    { text-align: left !important; }
+.text-right   { text-align: right !important; }
+.text-center  { text-align: center !important; }
+.text-justify { text-align: justify !important; }
+.hide         { display: none; }
+
+/* Font smoothing */
+/* Antialiased font smoothing works best for light text on a dark background. */
+/* Apply to single elements instead of globally to body. */
+/* Note this only applies to webkit-based desktop browsers on the Mac. */
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Get rid of gap under images by making them display: inline-block; by default */
+img {
+  display: inline-block;
+}
+
+/* Make sure textarea takes on height automatically */
+textarea {
+  height: auto;
+  min-height: 50px;
+}
+
+/* Make select elements 100% width by default */
+select {
+  width: 100%;
+}
+
+
+/*******************************************************************************
+Custom Styles
+*******************************************************************************/
+
+/*** GENERAL ***/
+div.ajax {
+  display: none;
+}
+
+
+/*** HEADER ***/
+
+.top-bar {
+  .name {
+    margin: 0 auto;
+    width: 100px;
+    img {
+      display: block;
+      position: absolute;
+      height: $topbar-height - 2*$gutter;
+      margin-top: $gutter;
+      margin-bottom: $gutter;
+    }
+  }
+}
+
+@media all and (min-width: $small-screen) {
+  .top-bar .name {
+    margin-left: 100px;
+  }
+}
+
+@media all and (min-width: $large-screen) {
+  .top-bar .name {
+    margin-left: $gutter;
+  }
+}
+
+.toggle-sidebar.menu-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  margin-top: -16px;
+  a {
+    text-indent: 24px;
+    line-height: 33px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8125em;
+    display: block;
+    height: 33px;
+  }
+  span {
+    display: block;
+    width: 16px;
+    height: 0;
+    @include box-shadow(0 10px 0 1px #FFF, 0 16px 0 1px #FFF, 0 22px 0 1px #FFF);
+  }
+}
+
+.top-bar-section ul.right {
+  background: inherit;
+}
+
+section[role="main"] {
+  margin-top: 2*$gutter;
+}
+
+
+div.switch {
+  width: emCalc(100px);
+  label {
+    text-align: right;
+  }
+  input:last-of-type + label {
+    text-align: left;
+  }
+
+}
+
+
+
+/*** MESSAGES ***/
+
+#messages {
+  .status {
+    @include alert($green_light);
+  }
+  .warning {
+    @include alert($yellow_light);
+  }
+  .error {
+    @include alert($red_light);
+  }
+  .help {
+    @include alert($orange_light);
+  }
+  .close {
+    @include alert-close;
+  }
+}
+
+
+
+/*** FORM FIELDS ***/
+form .actions {
+  a:not([class*="foundicon-"]) {
+    display: block;
+  }
+}
+
+fieldset {
+  @include transition;
+
+  legend {
+    cursor: pointer;
+  }
+
+  &.collapsed {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+[class*=form-field].mandatory {
+  label::after {
+    content: '*';
+  }
+}
+
+.form-field-image {
+  img {
+    float: right;
+    width: emCalc(100px);
+  }
+}
+
+.picker {
+  div,
+  select {
+    box-sizing: content-box;
+  }
+}
+
+
+
+/*******************************************************************************
+PAGES
+*******************************************************************************/
+
+#login {
+  .header {
+    margin-bottom: emCalc($gutter);
+  }
+}
+
+#dashboard {
+  text-align: center;
+  text-transform: uppercase;
+
+  a {
+    display: block;
+    background-repeat: no-repeat;
+    @include shadow;
+    @include border-radius;
+    @include gradient($grey_light, $grey_medium);
+    @include transition(background-position 0.2s ease-in);
+    &:hover {
+      background-position-y: 200px;
+    }
+  }
+
+  i {
+    display: block;
+    font-size: emCalc(54px);
+  }
+}
+
+
+#tribe-index {
+  $thumb_width: emCalc(100px);
+  li {
+    border-bottom: 1px solid $section-border-color;
+    padding: 0;
+  }
+
+  .avatar {
+    width: $thumb_width;
+    height: $thumb_width;
+    float: left;
+    margin-right: $gutter;
+  }
+
+  img {
+    height: 100%;
+    width: auto;
+    margin: auto;
+    display: block;
+  }
+}
+
+
+
+
+
+// FIX BUG WITH NESTED SECTIONS
+.section-container.auto .content .section-container.auto .content  {
+  top: 0px;
+  &.active {
+    top: -1px;
+  }
+}
+
+
+
+
+#tribe-index {
+  section .content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  li {
+    padding-right: $gutter;
+    position: relative;
+
+    & > .actions {
+      display: none;
+      position: absolute;
+      bottom: $gutter;
+      right: $gutter;
+    }
+
+    div.ajax {
+      position: absolute;
+      bottom: $gutter;
+      right: $gutter;
+    }
+
+    textarea {
+      height: emCalc(70px);
+    }
+
+    textarea,
+    form {
+      margin-bottom: 0;
+    }
+
+    .actions * {
+      margin-bottom: 0;
+    }
+
+    .full_name,
+    .occupation,
+    div.ajax {
+      margin-left: emCalc(110px);
+    }
+
+    &:hover {
+      background: $grey_light;
+      & > .actions {
+        display: block;
+      }
+    }
+  }
+
+
+}
+
+
+/// GOALS
+ul {
+  list-style: none;
+}
+
+[class^=goal-],
+[class^=feedback-] {
+  border: 1px solid $grey_medium;
+  clear: both;
+  overflow: hidden;
+  &:not(:first-child) {
+    border-top: none;
+  }
+}
+
+.post-info {
+  clear: both;
+  overflow: hidden;
+  span {
+    float: left;
+    margin-right: $gutter;
+    &:first-child {
+      clear: left;
+    }
+    &:last-child {
+      clear: right;
+    }
+  }
+}
+
+.agrees {
+  .count {
+    float: left;
+    margin-right: $gutter;
+  }
+  ul {
+    float: left;
+    clear: right;
+  }
+}
+
+.feedbacks {
+  clear: both;
+  margin: 0 2*$gutter;
+}
+
+//
