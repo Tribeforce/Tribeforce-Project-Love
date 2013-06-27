@@ -3,6 +3,7 @@
 This template expects following variables:
 - Mandatory
   $d: the object holding the goal
+  $p: the object describing the permissions
 - Optional
 */
 
@@ -11,6 +12,10 @@ $child = $d->child;
 ?>
 
 @include('field', array('name' => 'name'))
+  {{ link_to_route('goals.create', trans('ui.goals.new'),
+     array('original' => $d->id),
+     array('class' => 'ajax button small')) }}
+
 @if(isset($parent))
   <div class="parent left">
     {{ link_to_route('goals.show', trans('ui.goals.parent'), $parent->id) }}

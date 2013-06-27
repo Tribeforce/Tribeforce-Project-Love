@@ -46,6 +46,7 @@ return array(
     'create' => 'Create a goal',
     'empty' => 'Your goal should not be empty',
     'success' => 'Your goal has been saved',
+    'new' => 'Make a new version',
   ),
   'agrees' => array(
     'count' => ':count people agree with this',

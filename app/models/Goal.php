@@ -2,7 +2,7 @@
 
 class Goal extends Eloquent {
 
-  protected $fillable = array('name', 'description');
+  protected $fillable = array('name', 'description', 'child_id');
 
   /**
    * Validates input against validation rules.

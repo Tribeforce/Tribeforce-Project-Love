@@ -25,7 +25,7 @@ $classes = $d->trashed() ? ' class="disabled"': '';
     // automatically, here we add it manually
     ?>
     @if($d->trashed())
-    {{ Form::open(array('route' => array('feedback.update', $d->id), 'class' => 'ajax'), 'PUT') }}
+      {{ Form::open(array('route' => array('feedback.update', $d->id), 'class' => 'ajax'), 'PUT') }}
         {{ Form::hidden('_method' , 'PUT')  }}
         @include('form.field', array('type' => 'submit', 'name' => 'restore', 'size' => 'tiny'))
       {{ Form::close() }}

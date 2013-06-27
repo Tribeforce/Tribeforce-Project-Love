@@ -95,8 +95,9 @@ $(document).ready(function() {
             $(selector + ' div.ajax').slideDown();
             break;
           case 'before':
+          console.log(data);
             $(selector).before(data[i].html);
-            $(selector + ' div.ajax').slideDown();
+            $(selector).prev('div.ajax').hide().slideDown();
             break;
           case 'hide':
             setTimeout(function(s) { s.slideUp(); }, timer, $(selector));
@@ -124,6 +125,8 @@ $(document).ready(function() {
     url = $(this).attr('href');
     // A cancel has to remove what has been added by AJAX
     if($(this).hasClass('cancel')) {
+      $(this).parents('.ajax').next().softShow();  // If method was before
+      $(this).parents('.ajax').prev().softShow();  // If method was after
       $(this).parents('.ajax').softRemove();
       $(this).parents('li').find('.actions').softShow();
     } else { // Normal case

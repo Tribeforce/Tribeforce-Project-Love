@@ -67,6 +67,7 @@ return array(
     'create' => 'Een doelstelling aanmaken',
     'empty' => 'Jouw doelstelling zou niet leeg mogen zijn',
     'success' => 'Je doelstelling is opgeslaan',
+    'new' => 'Maak een nieuwe versie',
   ),
   'agrees' => array(
     'count' => ':count mensen gaan hiermee akkoord',

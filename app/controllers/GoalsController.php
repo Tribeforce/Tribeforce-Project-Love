@@ -32,16 +32,38 @@ class GoalsController extends \BaseController {
    */
   public function create() {
     if(Request::ajax()) {
-      $commands[] = array(
-        'method' => 'hide',
-        'selector' => "#create > .actions",
-      );
+      if(isset($_GET['original'])) {
+        $selector = "#goal-".$_GET['original'];
 
-      $commands[] = array(
-        'method' => 'append',
-        'selector' => "#create",
-        'html' => html4ajax(View::make('goals.create')),
-      );
+        $html = View::make('goals.create')->with(array(
+          'original' => $_GET['original'],
+        ));
+        $html = '<li class="new-version">'.$html.'</li>';
+        $html = html4ajax($html);
+
+        $commands[] = array(
+          'method' => 'before',
+          'selector' => $selector,
+          'html' => $html,
+        );
+
+        $commands[] = array(
+          'method' => 'hide',
+          'selector' => $selector,
+        );
+      } else {
+        $commands[] = array(
+          'method' => 'hide',
+          'selector' => "#create > .actions",
+        );
+
+        $commands[] = array(
+          'method' => 'append',
+          'selector' => "#create",
+          'html' => html4ajax(View::make('goals.create')),
+        );
+
+      }
 
       return Response::json($commands);
     }
@@ -60,10 +82,19 @@ class GoalsController extends \BaseController {
     if(Request::ajax()) {
       if(!empty($input['goalname'])) {
         // TODO: Add validation
-        $goal = new Goal(array('name' => $input['goalname']));
         $cu = User::current();
+        $goal = new Goal(array('name' => $input['goalname']));
         $cu->goals()->save($goal);
         $commands = Messages::show('status', 'ui.goals.success');
+
+        // If this is a new version, the old version needs to be updated with
+        // the child id
+        if(isset($input['original'])) {
+          $original = Goal::find($input['original']);
+          $original->child_id = $goal->id;
+          $original->save();
+        }
+
       } else {
         $commands = Messages::show('warning', 'ui.goals.empty');
       }
