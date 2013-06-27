@@ -12,9 +12,11 @@ $child = $d->child;
 ?>
 
 @include('field', array('name' => 'name'))
+  @if($p['own_page'])
   {{ link_to_route('goals.create', trans('ui.goals.new'),
      array('original' => $d->id),
      array('class' => 'ajax button small')) }}
+  @endif
 
 @if(isset($parent))
   <div class="parent left">
