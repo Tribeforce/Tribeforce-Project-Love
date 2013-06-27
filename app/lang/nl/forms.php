@@ -1,6 +1,7 @@
 <?php
 
 return array(
+  'agree'                 => 'Akkoord',
   'id'                    => 'ID',
   'avatar'                => 'Avatar',
   'email'                 => 'E-Mail',
@@ -30,6 +31,7 @@ return array(
   'edit'                  => 'Wijzig',
   'save'                  => 'Bewaar',
   'cancel'                => 'Annuleer',
+  'goalname'              => 'Geef uw doelstelling hier in...',
   'add'                   => 'Voeg toe',
   'filter'                => 'Filter',
   'search'                => 'Zoek',

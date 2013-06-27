@@ -1,6 +1,7 @@
 <?php
 
 return array(
+  'agree'                 => 'I agree',
   'id'                    => 'ID',
   'email'                 => 'E-Mail',
   'password'              => 'Password',
@@ -23,6 +24,7 @@ return array(
   'edit'                  => 'Edit',
   'save'                  => 'Save',
   'cancel'                => 'Cancel',
+  'goalname'              => 'Enter your goal here...',
   'fb_connect'            => 'Connect with Facebook',
   'fb_login'              => 'Login with Facebook',
   'fb_forget'             => 'Disconnect from Facebook',

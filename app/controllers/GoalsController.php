@@ -1,6 +1,10 @@
 <?php
 
 class GoalsController extends \BaseController {
+  public function __construct() {
+    $this->beforeFilter('auth');
+    $this->beforeFilter('csrf', array('on' => array('post', 'put')));
+  }
 
   /**
    * Display a listing of the resource.
@@ -8,13 +12,15 @@ class GoalsController extends \BaseController {
    * @return Response
    */
   public function index() {
-   $d = Goal::where('user_id', '=', User::current()->id)
+   $cu = User::current();
+   $d = Goal::where('user_id', '=', $cu->id)
             ->where('child_id', '=', 0)
             ->get();
 
     return View::make('goals.index')->with(array(
       'title' => trans('ui.goals.title_index'),
       'd' => $d,
+      'p' => array('add_goal' => true),
     ));
   }
 
@@ -23,9 +29,24 @@ class GoalsController extends \BaseController {
    *
    * @return Response
    */
-  public function create()
-  {
-    //
+  public function create() {
+    if(Request::ajax()) {
+      $commands[] = array(
+        'method' => 'hide',
+        'selector' => "#create > .actions",
+      );
+
+      $commands[] = array(
+        'method' => 'append',
+        'selector' => "#create",
+        'html' => html4ajax(View::make('goals.create')),
+      );
+
+      return Response::json($commands);
+    }
+
+
+
   }
 
   /**
@@ -33,9 +54,56 @@ class GoalsController extends \BaseController {
    *
    * @return Response
    */
-  public function store()
-  {
-    //
+  public function store() {
+    $input = Input::all();
+    if(Request::ajax()) {
+      if(!empty($input['goalname'])) {
+        // TODO: Add validation
+        $goal = new Goal(array('name' => $input['goalname']));
+        $cu = User::current();
+        $cu->goals()->save($goal);
+        $commands = Messages::show('status', 'ui.goals.success');
+      } else {
+        $commands = Messages::show('warning', 'ui.goals.empty');
+      }
+
+      // The selector for the parent object
+      $selector = '#create';
+
+      // Show the button again
+      $commands[] = array(
+        'method' => 'show',
+        'selector' => "$selector .actions",
+      );
+
+      // Remove the form injected by AJAX
+      $commands[] = array(
+        'method' => 'remove',
+        'selector' => "$selector div.ajax",
+      );
+
+      if(isset($goal)) {
+        // Prepare the HTML to be inserted
+        $html = '<li class="goal-' . $goal->id . '">'
+              . View::make('goals.item')->with(array('d' => $goal))
+              . '</li>';
+
+        // Show the button again
+        $commands[] = array(
+          'method' => 'after',
+          'selector' => $selector,
+          'html' => utf8_encode($html),
+        );
+      }
+
+      return $commands;
+
+    } else {
+      // TODO: Code for non AJAX call
+    }
+
+
+
   }
 
   /**

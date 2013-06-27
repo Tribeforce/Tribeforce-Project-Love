@@ -2,7 +2,7 @@
 
 class Feedback extends Eloquent {
 
-  protected $fillable = array('feedback');
+  protected $fillable = array('feedback', 'user_id');
 
   /**
    * Validates input against validation rules.

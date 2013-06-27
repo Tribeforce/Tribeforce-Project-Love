@@ -25,14 +25,23 @@ class FriendsController extends BaseController {
                ->where('child_id', '=', 0)
                ->get();
 
-    // Filter out all the goals accessible to the current user
-    $allowed = $all->filter(function($element){
-      return Right::allowed($element, User::current());
-    });
+    $cu = User::current();
+
+    // For performace:
+    // If the current user corresponds to the $id, no filtering has to be done
+    if($cu->id === $id) {
+      $allowed = $all;
+    } else {
+      // Filter out all the goals accessible to the current user
+      $allowed = $all->filter(function($element){
+        return Right::allowed($element, User::current());
+      });
+    }
 
     return View::make('goals.index')->with(array(
       'title' => trans('ui.goals.title_goals', array('name' => User::find($id)->full_name)),
       'd' => $allowed,
+      'p' => array('add_goal' => $cu->id === $id),
     ));
   }
 

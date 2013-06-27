@@ -7159,18 +7159,22 @@ ul {
   clear: right;
 }
 
-/* line 452, ../../app/theme/sass/app.scss */
+/* line 451, ../../app/theme/sass/app.scss */
+.agrees {
+  clear: both;
+}
+/* line 453, ../../app/theme/sass/app.scss */
 .agrees .count {
   float: left;
   margin-right: 10px;
 }
-/* line 456, ../../app/theme/sass/app.scss */
+/* line 457, ../../app/theme/sass/app.scss */
 .agrees ul {
   float: left;
   clear: right;
 }
 
-/* line 462, ../../app/theme/sass/app.scss */
+/* line 463, ../../app/theme/sass/app.scss */
 .feedbacks {
   clear: both;
   margin: 0 20px;

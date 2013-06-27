@@ -24,21 +24,25 @@ class FeedbackController extends \BaseController {
    * @return Response
    */
   public function create() {
-    $source_id   = isset($_GET['source_id'])   ? $_GET['source_id']   : '';
-    $source_type = isset($_GET['source_type']) ? $_GET['source_type'] : '';
+    $obj_id   = isset($_GET['obj_id'])   ? $_GET['obj_id']   : '';
+    $obj_type = isset($_GET['obj_type']) ? $_GET['obj_type'] : '';
 
     if(Request::ajax()) {
+      $selector = "#create-$obj_id";
+
+      // Hide the actions
       $commands[] = array(
         'method' => 'hide',
-        'selector' => ".$source_type-$source_id .actions",
+        'selector' => "$selector .actions",
       );
 
+      // Append the form
       $commands[] = array(
         'method' => 'append',
-        'selector' => ".$source_type-$source_id",
+        'selector' => "$selector",
         'html' => html4ajax(View::make('feedback.create')->with(array(
-          'source_id'   => $source_id,
-          'source_type' => $source_type,
+          'obj_id'   => $obj_id,
+          'obj_type' => $obj_type,
         ))),
       );
 
@@ -54,20 +58,34 @@ class FeedbackController extends \BaseController {
   public function store() {
     $input = Input::all();
     if(Request::ajax()) {
+      // The selector for the parent object
+      $selector = "#create-" . $input['obj_id'];
+
       if(!empty($input['feedback'])) {
         // TODO: Add validation
-        $feedback = new Feedback(array('feedback' => $input['feedback']));
-        $class = ucfirst(camel_case($input['source_type']));
+        $feedback = new Feedback(array(
+          'feedback' => $input['feedback'],
+          'user_id'  => User::current()->id,
+        ));
+        $class = ucfirst(camel_case($input['obj_type']));
 
         // Only continue if the class exists
         if(class_exists($class)) {
-          $source = $class::find($input['source_id']);
+          $source = $class::find($input['obj_id']);
 
           // The source class needs to be the same as asked for (not empty also)
           if(get_class($source) === $class) {
             // Save the feedback and show a message
             $feedback = $source->feedbacks()->save($feedback);
             $commands = Messages::show('status', 'ui.feedback.success');
+            // Add the newly added feedback
+            $commands[] = array(
+              'method' => 'before',
+              'selector' => $selector,
+              'html' => utf8_encode(View::make('feedback.item')->with(array(
+                'd'   => $feedback,
+              ))),
+            );
           } else {
             $commands = Messages::show('warning', 'ui.feedback.error');
           }
@@ -78,9 +96,6 @@ class FeedbackController extends \BaseController {
       } else {
         $commands = Messages::show('warning', 'ui.feedback.empty');
       }
-
-      // The selector for the parent object
-      $selector = '.' . $input['source_type'] . '-' . $input['source_id'];
 
       // Show the feedback button again
       $commands[] = array(

@@ -28,15 +28,28 @@ return array(
   ),
   '403' => 'Sorry, but this page is not accessible for you.',
   '404' => 'Sorry, but we have not been able to find this page.',
+  'feedback' => array(
+    'name'    => 'Feedback',
+    'empty'   => 'An empty feedback is not saved',
+    'error'   => 'There was a problem saving your feedback',
+    'success' => 'Your feedback has been saved',
+    'create'  => 'Provide feedback',
+  ),
   'goals' => array(
     'title_index' => 'Goals',
     'title_goals' => 'Goals of :name',
     'title_show' => 'Goal',
     'parent' => "Older version",
     'child' => "Newer version",
+    'create' => 'Create a goal',
+    'empty' => 'Your goal should not be empty',
+    'success' => 'Your goal has been saved',
   ),
   'agrees' => array(
     'count' => ':count people agree with this',
+    'once'  => 'You can only agree once',
+    'success' => 'It has been stored you agree with this',
   ),
   'posted' => "Posted by",
+  'you' => 'You',
 );

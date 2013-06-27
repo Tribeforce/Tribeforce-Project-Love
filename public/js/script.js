@@ -84,6 +84,19 @@ $(document).ready(function() {
             $(selector).append(data[i].html);
             $(selector + ' div.ajax').slideDown();
             break;
+          case 'replace':
+//            $(selector).fadeOut();
+            $(selector).replaceWith(data[i].html);
+//            $(selector).fadeIn();
+            break;
+          case 'after':
+            $(selector).after(data[i].html);
+            $(selector + ' div.ajax').slideDown();
+            break;
+          case 'before':
+            $(selector).before(data[i].html);
+            $(selector + ' div.ajax').slideDown();
+            break;
           case 'hide':
             setTimeout(function(s) { s.slideUp(); }, timer, $(selector));
             break;
@@ -98,20 +111,8 @@ $(document).ready(function() {
     }
   });
 
-  $.fn.softRemove = function() {
-    $(this).slideUp(function() {
-      $(this).remove();
-    });
-  };
-
-  $.fn.softShow = function() {
-    $(this).slideDown();
-    // Unset the display so it takes the CSS rules
-    $(this).css('display', '');
-  };
-
   // Make sure all AJAX links are handled using AJAX
-  $('body').delegate('a.ajax', 'click', function(event){
+  $('body').delegate('a.ajax', 'click', function(event) {
     event.preventDefault();
     url = $(this).attr('href');
     // A cancel has to remove what has been added by AJAX
@@ -123,17 +124,39 @@ $(document).ready(function() {
     }
   });
 
+  // Helper functions
+  $.fn.softRemove = function() {
+    $(this).slideUp(function() {
+      $(this).remove();
+    });
+  };
 
-  // TRIBE INDEX
-  $('#tribe-index li')
+  $.fn.softHide = function() {
+    $(this).slideUp();
+  };
+
+  $.fn.softShow = function() {
+    $(this).slideDown();
+//    $(this).css('display', ''); // Unset the display so it takes the CSS rules
+  };
+
+  // Make forms entered through AJAX also submit through AJAX
+  $('body')
     .delegate('.ajax input[type=submit]', 'click', function(event){
       event.preventDefault();
       $form = $(this).parents('form');
       url = $form.attr('action');
       data = $form.serialize();
-
+console.log('ajax form called');
       $.post(url, data);
     });
+
+
+
+
+
+
+
 
 
 });

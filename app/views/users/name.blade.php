@@ -8,7 +8,11 @@ This template expects following variables:
 ?>
 
 @if(isset($d))
-<a href="{{ action('FriendsController@getIndex', $d->id) }}" class="user-{{$d->id}}">
-  @include('field', array('name' => 'full_name'))
-</a>
+  @if($d == $current_user)
+    @lang('ui.you')
+  @else
+    <a href="{{ action('FriendsController@getIndex', $d->id) }}" class="user-{{$d->id}}">
+      @include('field', array('name' => 'full_name'))
+    </a>
+  @endif
 @endif

@@ -2,6 +2,22 @@
 
 class Agree extends Eloquent {
 
+  protected $fillable = array('user_id');
+
+  /**
+   * Have we agreed on the object yet?
+   * @param $obj_id
+   * @param $obj_type
+   * @return boolean
+   */
+  public static function self($obj_id, $obj_type) {
+    return Agree::where('user_id', '=', User::current()->id)
+                  ->where('obj_id', '=', $obj_id)
+                  ->where('obj_type', '=', $obj_type)
+                  ->first();
+  }
+
+
 ///////////////////
 // RELATIONSHIPS //
 ///////////////////

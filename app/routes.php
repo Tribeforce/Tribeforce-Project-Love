@@ -13,8 +13,9 @@ use Illuminate\View\Environment;
 
 Route::resource('users', 'UsersController');
 //Route::resource('files', 'FilesController');
-//Route::resource('feedback', 'FeedbackController');
+Route::resource('feedback', 'FeedbackController');
 Route::resource('goals', 'GoalsController');
+Route::resource('agree', 'AgreeController');
 
 Route::controller('friends/{id}', 'FriendsController');
 Route::controller('tribe', 'TribeController');
