@@ -12,7 +12,7 @@ $child = $d->child;
 ?>
 
 @include('field', array('name' => 'name'))
-  @if($p['own_page'])
+  @if(isset($p['own_page']) and $p['own_page'])
   {{ link_to_route('goals.create', trans('ui.goals.new'),
      array('original' => $d->id),
      array('class' => 'ajax button small')) }}
