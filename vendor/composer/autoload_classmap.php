@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddUsersFields' => $baseDir . '/app/database/migrations/2013_05_24_100043_add_users_fields.php',
     'Agree' => $baseDir . '/app/models/Agree.php',
+    'AgreeController' => $baseDir . '/app/controllers/AgreeController.php',
     'ApplicationController' => $baseDir . '/app/controllers/ApplicationController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/Carbon/Carbon.php',

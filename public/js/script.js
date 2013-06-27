@@ -85,9 +85,10 @@ $(document).ready(function() {
             $(selector + ' div.ajax').slideDown();
             break;
           case 'replace':
-//            $(selector).fadeOut();
-            $(selector).replaceWith(data[i].html);
-//            $(selector).fadeIn();
+            $h = data[i].html;
+            $(selector).fadeOut(function(){
+              $(this).replaceWith($h).hide().fadeIn();
+            });
             break;
           case 'after':
             $(selector).after(data[i].html);
@@ -105,6 +106,12 @@ $(document).ready(function() {
             break;
           case 'remove':
             setTimeout(function(s) { s.softRemove(); }, timer, $(selector));
+            break;
+          case 'addClass':
+            $(selector).addClass(data[i].classes);
+            break;
+          case 'removeClass':
+            $(selector).removeClass(data[i].classes);
             break;
         }
       }

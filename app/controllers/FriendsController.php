@@ -41,7 +41,7 @@ class FriendsController extends BaseController {
     return View::make('goals.index')->with(array(
       'title' => trans('ui.goals.title_goals', array('name' => User::find($id)->full_name)),
       'd' => $allowed,
-      'p' => array('add_goal' => $cu->id === $id),
+      'p' => array('own_page' => $cu->id === $id),
     ));
   }
 

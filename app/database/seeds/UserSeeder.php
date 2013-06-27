@@ -491,165 +491,165 @@ class UserSeeder extends Seeder {
     // FEMI
     Right::create(array(
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle2_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_3_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_4_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $bruno->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_4_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_2_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle2_f->id,
       'permission_type' => 'circle',
     ));
     // STIJN
     Right::create(array(
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle2_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_3_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_4_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $bruno->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_4_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_2_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle2_s->id,
       'permission_type' => 'circle',
     ));
     // BRUNO
     Right::create(array(
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle2_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_3_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_4_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_4_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle1_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $goal_2_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
       'permission_id' => $circle2_b->id,
       'permission_type' => 'circle',
     ));
@@ -659,129 +659,129 @@ class UserSeeder extends Seeder {
     // FEMI
     Right::create(array(
       'obj_id' => $fb_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_2_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_2_2_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_3_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_3_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $bruno->id,
       'permission_type' => 'user',
     ));
     // STIJN
     Right::create(array(
       'obj_id' => $fb_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_2_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_2_2_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_3_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_3_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $bruno->id,
       'permission_type' => 'user',
     ));
     // BRUNO
     Right::create(array(
       'obj_id' => $fb_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $fb_2_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_2_2_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_3_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $fb_3_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
@@ -791,93 +791,93 @@ class UserSeeder extends Seeder {
     // FEMI
     Right::create(array(
       'obj_id' => $en_1_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $circle2_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $en_2_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $circle3_f->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $en_3_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $bruno->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $en_4_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $en_4_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $user4->id,
       'permission_type' => 'user',
     ));
     // STIJN
     Right::create(array(
       'obj_id' => $en_1_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $circle2_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $en_2_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $circle3_s->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $en_3_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $bruno->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $en_4_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $en_4_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $user8->id,
       'permission_type' => 'user',
     ));
     // BRUNO
     Right::create(array(
       'obj_id' => $en_1_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $circle2_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $en_2_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $circle3_b->id,
       'permission_type' => 'circle',
     ));
     Right::create(array(
       'obj_id' => $en_3_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $stijn->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $en_4_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $femi->id,
       'permission_type' => 'user',
     ));
     Right::create(array(
       'obj_id' => $en_4_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
       'permission_id' => $user6->id,
       'permission_type' => 'user',
     ));
@@ -889,219 +889,219 @@ class UserSeeder extends Seeder {
       'feedback' => 'Some feedback text 1',
       'user_id' => $user2->id,
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some other feedback text 1',
       'user_id' => $user3->id,
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some great feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user1->id,
       'obj_id' => $goal_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $goal_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $goal_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $goal_3_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $goal_4_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user2->id,
       'obj_id' => $goal_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user2->id,
       'obj_id' => $goal_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $goal_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     // STIJN
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some other feedback text 1',
       'user_id' => $user7->id,
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some great feedback text 1',
       'user_id' => $user8->id,
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user9->id,
       'obj_id' => $goal_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $goal_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $goal_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $goal_3_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $goal_4_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user7->id,
       'obj_id' => $goal_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user8->id,
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user8->id,
       'obj_id' => $goal_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $goal_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     // BRUNO
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some other feedback text 1',
       'user_id' => $user5->id,
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some great feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user7->id,
       'obj_id' => $goal_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $goal_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $goal_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $goal_3_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $goal_4_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $goal_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user5->id,
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $goal_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user5->id,
       'obj_id' => $goal_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
 
 
@@ -1112,183 +1112,183 @@ class UserSeeder extends Seeder {
       'feedback' => 'Some feedback text 1',
       'user_id' => $user3->id,
       'obj_id' => $fb_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $fb_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user2->id,
       'obj_id' => $fb_1_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user3->id,
       'obj_id' => $fb_1_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user2->id,
       'obj_id' => $fb_1_1_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $fb_1_1_1_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $fb_2_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $fb_2_2_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $fb_3_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $fb_3_f->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     // STIJN
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user7->id,
       'obj_id' => $fb_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user8->id,
       'obj_id' => $fb_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user7->id,
       'obj_id' => $fb_1_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $fb_1_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user7->id,
       'obj_id' => $fb_1_1_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user8->id,
       'obj_id' => $fb_1_1_1_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $fb_2_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $fb_2_2_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $fb_3_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $fb_3_s->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     // BRUNO
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $fb_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user5->id,
       'obj_id' => $fb_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $fb_1_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user5->id,
       'obj_id' => $fb_1_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $fb_1_1_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user5->id,
       'obj_id' => $fb_1_1_1_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $fb_2_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $fb_2_2_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $fb_3_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $fb_3_b->id,
-      'obj_type' => 'feedbackable',
+      'obj_type' => 'Feedbackable',
     ));
 
     // Set feedback on endorsements
@@ -1298,183 +1298,183 @@ class UserSeeder extends Seeder {
       'feedback' => 'Some feedback text 1',
       'user_id' => $user1->id,
       'obj_id' => $en_1_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $en_1_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $en_1_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user5->id,
       'obj_id' => $en_2_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $en_2_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $en_3_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 2',
       'user_id' => $bruno->id,
       'obj_id' => $en_3_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $en_4_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $en_4_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $en_4_f->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     // STIJN
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user9->id,
       'obj_id' => $en_1_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $en_1_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $en_1_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user3->id,
       'obj_id' => $en_2_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user4->id,
       'obj_id' => $en_2_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $en_3_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 2',
       'user_id' => $bruno->id,
       'obj_id' => $en_3_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $en_4_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user8->id,
       'obj_id' => $en_4_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $bruno->id,
       'obj_id' => $en_4_s->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     // BRUNO
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user7->id,
       'obj_id' => $en_1_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $en_1_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $en_1_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user3->id,
       'obj_id' => $en_2_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user8->id,
       'obj_id' => $en_2_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $stijn->id,
       'obj_id' => $en_3_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 2',
       'user_id' => $stijn->id,
       'obj_id' => $en_3_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $en_4_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $user6->id,
       'obj_id' => $en_4_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
     Feedback::create(array(
       'feedback' => 'Some feedback text 1',
       'user_id' => $femi->id,
       'obj_id' => $en_4_b->id,
-      'obj_type' => 'endorsement',
+      'obj_type' => 'Endorsement',
     ));
 
     // Set agree on goals
@@ -1483,184 +1483,184 @@ class UserSeeder extends Seeder {
     Agree::create(array(
       'user_id' => $user2->id,
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user3->id,
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user4->id,
       'obj_id' => $goal_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user2->id,
       'obj_id' => $goal_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user3->id,
       'obj_id' => $goal_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user4->id,
       'obj_id' => $goal_1_1_1_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user1->id,
       'obj_id' => $goal_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $bruno->id,
       'obj_id' => $goal_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $bruno->id,
       'obj_id' => $goal_2_2_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $stijn->id,
       'obj_id' => $goal_3_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $stijn->id,
       'obj_id' => $goal_4_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $bruno->id,
       'obj_id' => $goal_4_f->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     // STIJN
     Agree::create(array(
       'user_id' => $user6->id,
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user7->id,
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user8->id,
       'obj_id' => $goal_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user7->id,
       'obj_id' => $goal_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user6->id,
       'obj_id' => $goal_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user7->id,
       'obj_id' => $goal_1_1_1_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user9->id,
       'obj_id' => $goal_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $bruno->id,
       'obj_id' => $goal_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $bruno->id,
       'obj_id' => $goal_2_2_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $femi->id,
       'obj_id' => $goal_3_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $femi->id,
       'obj_id' => $goal_4_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $bruno->id,
       'obj_id' => $goal_4_s->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     // BRUNO
     Agree::create(array(
       'user_id' => $user4->id,
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user5->id,
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user6->id,
       'obj_id' => $goal_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user5->id,
       'obj_id' => $goal_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user4->id,
       'obj_id' => $goal_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user5->id,
       'obj_id' => $goal_1_1_1_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $user7->id,
       'obj_id' => $goal_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $femi->id,
       'obj_id' => $goal_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $femi->id,
       'obj_id' => $goal_2_2_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $stijn->id,
       'obj_id' => $goal_3_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $stijn->id,
       'obj_id' => $goal_4_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
     Agree::create(array(
       'user_id' => $femi->id,
       'obj_id' => $goal_4_b->id,
-      'obj_type' => 'goal',
+      'obj_type' => 'Goal',
     ));
 
 

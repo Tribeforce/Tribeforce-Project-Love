@@ -125,6 +125,28 @@ function html4ajax($html, $timestamp = null) {
 }
 
 
+/**
+ * Get the object corresponding to an ID and type
+ * @param integer $obj_id
+ * @param string  $obj_type
+ * @return object
+ */
+function get_poly_object($obj_id, $class_name) {
+  // Only continue if the class exists
+  if(class_exists($class_name)) {
+    $object = $class_name::find($obj_id);
+
+    // The object class needs to be the same as asked for (not empty also)
+    if(get_class($object) === $class_name) return $object;
+  }
+
+  return null;
+}
+
+function make_html_class($string) {
+  return strtolower($string);
+}
+
 /******************
 PRIVATE
 ******************/

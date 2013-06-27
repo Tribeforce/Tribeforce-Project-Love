@@ -423,13 +423,16 @@ ul {
   list-style: none;
 }
 
-[class^=goal-],
-[class^=feedback-] {
+[id^=goal-],
+[id^=feedback-] {
   border: 1px solid $grey_medium;
   clear: both;
   overflow: hidden;
   &:not(:first-child) {
     border-top: none;
+  }
+  &.disabled {
+    color: $grey_medium;
   }
 }
 
@@ -450,6 +453,7 @@ ul {
 
 .agrees {
   clear: both;
+  overflow: hidden;
   .count {
     float: left;
     margin-right: $gutter;

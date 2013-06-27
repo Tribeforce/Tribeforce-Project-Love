@@ -67,32 +67,23 @@ class FeedbackController extends \BaseController {
           'feedback' => $input['feedback'],
           'user_id'  => User::current()->id,
         ));
-        $class = ucfirst(camel_case($input['obj_type']));
 
-        // Only continue if the class exists
-        if(class_exists($class)) {
-          $source = $class::find($input['obj_id']);
-
-          // The source class needs to be the same as asked for (not empty also)
-          if(get_class($source) === $class) {
-            // Save the feedback and show a message
-            $feedback = $source->feedbacks()->save($feedback);
-            $commands = Messages::show('status', 'ui.feedback.success');
-            // Add the newly added feedback
-            $commands[] = array(
-              'method' => 'before',
-              'selector' => $selector,
-              'html' => utf8_encode(View::make('feedback.item')->with(array(
-                'd'   => $feedback,
-              ))),
-            );
-          } else {
-            $commands = Messages::show('warning', 'ui.feedback.error');
-          }
+        $object = get_poly_object($input['obj_id'], $input['obj_type']);
+        if(isset($object)) {
+          // Save the feedback and show a message
+          $feedback = $object->feedbacks()->save($feedback);
+          $commands = Messages::show('status', 'ui.feedback.success');
+          // Add the newly added feedback
+          $commands[] = array(
+            'method' => 'before',
+            'selector' => $selector,
+            'html' => utf8_encode(View::make('feedback.item')->with(array(
+              'd'   => $feedback,
+            ))),
+          );
         } else {
           $commands = Messages::show('warning', 'ui.feedback.error');
         }
-
       } else {
         $commands = Messages::show('warning', 'ui.feedback.empty');
       }
@@ -145,9 +136,31 @@ class FeedbackController extends \BaseController {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
-  {
-    //
+  public function update($id) {
+    // Restore the feedback
+    $feedback = Feedback::withTrashed()->find($id);
+    $feedback->restore();
+
+    // Show success message
+    $commands = Messages::show('status', 'ui.feedback.restored');
+
+    // We undo the greyed out (removeclass)
+    $selector = "#feedback-$id";
+
+    // Prepare the parameter to see if we are on an object we own
+    $own_page = $feedback->obj->owner == User::current();
+    $html = View::make('feedback.item')->with(array(
+      'd' => $feedback,
+      'p' => array('own_page' => $own_page),
+    ));
+
+    $commands[] = array(
+      'method' => 'replace',
+      'selector' => $selector,
+      'html' => utf8_encode($html),
+    );
+
+    return $commands;
   }
 
   /**
@@ -156,9 +169,49 @@ class FeedbackController extends \BaseController {
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
-  {
-    //
+  public function destroy($id) {
+    // Get the feedback
+    $feedback = Feedback::find($id);
+
+    // Get the object we gave feedback on
+    $object   = $feedback->obj;
+    $obj_id   = $object->id;
+    $obj_type = snake_case(get_class($object));
+
+    // Delete the feedback
+    $feedback->delete();
+
+    // Show success message
+    $commands = Messages::show('status', 'ui.feedback.destroy');
+
+    // If we are looking at feedback of an object of our own, we grey the
+    // feedback out (adding a class). Otherwise, we remove it from the DOM
+    $selector = "#feedback-$id";
+
+    if($object->owner == User::current()) {
+      // The restore function doesn't update the object. This is why we call it again
+      $feedback = Feedback::withTrashed()->find($id);
+
+      // Prepare the parameters
+      $own_page = $feedback->obj->owner == User::current();
+      $html = View::make('feedback.item')->with(array(
+        'd' => $feedback,
+        'p' => array('own_page' => $own_page),
+      ));
+
+      $commands[] = array(
+        'method' => 'replace',
+        'selector' => $selector,
+        'html' => utf8_encode($html),
+      );
+    } else {
+      $commands[] = array(
+        'method' => 'remove',
+        'selector' => $selector,
+      );
+    }
+
+    return $commands;
   }
 
 }

@@ -9,7 +9,6 @@ class AgreeController extends \BaseController {
    */
   public function index()
   {
-    dpm('i');
     //
   }
 
@@ -20,7 +19,6 @@ class AgreeController extends \BaseController {
    */
   public function create()
   {
-    dpm('c');
     //
   }
 
@@ -39,34 +37,26 @@ class AgreeController extends \BaseController {
       if(Agree::self($input['obj_id'], $input['obj_type'])) {
         $commands = Messages::show('status', 'ui.agrees.once');
       } else {
-        $agree = new Agree(array('user_id'  => $cu->id));
-        $class = ucfirst(camel_case($input['obj_type']));
-
-        // Only continue if the class exists
-        if(class_exists($class)) {
-          $object = $class::find($input['obj_id']);
-
-          // The object class needs to be the same as asked for (not empty also)
-          if(get_class($object) === $class) {
-            // Save the agree and show a message
-            $agree = $object->agrees()->save($agree);
-            $commands = Messages::show('status', 'ui.agrees.success');
-            // Add the newly added agree
-            $selector ='.'.$input['obj_type'].'-'.$input['obj_id'].' > .agrees';
-            $commands[] = array(
-              'method' => 'replace',
-              'selector' => $selector,
-              'html' => utf8_encode(View::make('agrees.widget')->with(array(
-                'd'   => $object->agrees,
-                'obj_id'   => $input['obj_id'],
-                'obj_type' => $input['obj_type'],
-              ))),
-            );
-          } else {
-            $commands = Messages::show('warning', 'ui.feedback.error');
-          }
+        $agree = Agree::recycle($input['obj_id'], $input['obj_type']);
+        $object = get_poly_object($input['obj_id'], $input['obj_type']);
+        if(isset($object)) {
+          // Save the agree and show a message
+          $agree = $object->agrees()->save($agree);
+          $commands = Messages::show('status', 'ui.agrees.success');
+          // Replace the agree widget
+          $selector = '#'.$input['obj_type'].'-'.$input['obj_id'].' > .agrees';
+          $selector = make_html_class($selector);
+          $commands[] = array(
+            'method' => 'replace',
+            'selector' => $selector,
+            'html' => utf8_encode(View::make('agrees.widget')->with(array(
+              'd'   => $object->agrees,
+              'obj_id'   => $input['obj_id'],
+              'obj_type' => $input['obj_type'],
+            ))),
+          );
         } else {
-          $commands = Messages::show('warning', 'ui.feedback.error');
+          $commands = Messages::show('warning', 'ui.agree.error');
         }
       }
 
@@ -87,7 +77,6 @@ class AgreeController extends \BaseController {
    */
   public function show($id)
   {
-    dpm('s');
     //
   }
 
@@ -99,7 +88,6 @@ class AgreeController extends \BaseController {
    */
   public function edit($id)
   {
-    dpm('e');
     //
   }
 
@@ -111,7 +99,6 @@ class AgreeController extends \BaseController {
    */
   public function update($id)
   {
-    dpm('u');
     //
   }
 
@@ -122,11 +109,34 @@ class AgreeController extends \BaseController {
    * @return Response
    */
   public function destroy($id) {
-    dpm('sdfdsfds');
-
+    // Get the agree
     $agree = Agree::find($id);
+
+    // Get the object we agreed on
+    $object   = $agree->obj;
+    $obj_id   = $object->id;
+    $obj_type = get_class($object);
+
+    // Delete the agree
     $agree->delete();
 
+    // Show success message
+    $commands = Messages::show('status', 'ui.agrees.destroy');
+
+    // Replace the agree widget
+    $selector = "#$obj_type-$obj_id > .agrees";
+    $selector = make_html_class($selector);
+    $commands[] = array(
+      'method' => 'replace',
+      'selector' => $selector,
+      'html' => utf8_encode(View::make('agrees.widget')->with(array(
+        'd'   => $object->agrees,
+        'obj_id'   => $obj_id,
+        'obj_type' => $obj_type,
+      ))),
+    );
+
+    return $commands;
   }
 
 }

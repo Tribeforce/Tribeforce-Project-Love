@@ -15,12 +15,13 @@ class GoalsController extends \BaseController {
    $cu = User::current();
    $d = Goal::where('user_id', '=', $cu->id)
             ->where('child_id', '=', 0)
+            ->orderBy('created_at', 'desc')
             ->get();
 
     return View::make('goals.index')->with(array(
       'title' => trans('ui.goals.title_index'),
       'd' => $d,
-      'p' => array('add_goal' => true),
+      'p' => array('own_page' => true),
     ));
   }
 

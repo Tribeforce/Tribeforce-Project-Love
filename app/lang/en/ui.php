@@ -34,6 +34,8 @@ return array(
     'error'   => 'There was a problem saving your feedback',
     'success' => 'Your feedback has been saved',
     'create'  => 'Provide feedback',
+    'destroy' => "Your feedback has been removed",
+    'restored'=> "Your feedback has been restored",
   ),
   'goals' => array(
     'title_index' => 'Goals',
@@ -49,6 +51,7 @@ return array(
     'count' => ':count people agree with this',
     'once'  => 'You can only agree once',
     'success' => 'It has been stored you agree with this',
+    'destroy' => "You don't agree anymore",
   ),
   'posted' => "Posted by",
   'you' => 'You',

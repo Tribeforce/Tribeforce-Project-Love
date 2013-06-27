@@ -17,7 +17,7 @@ This template expects following variables:
 @section('main')
 <div id="goal-index">
   <ul>
-    @if($p['add_goal'])
+    @if($p['own_page'])
       <li id="create">
         <div class="actions">
           {{ link_to_route('goals.create', trans('ui.goals.create'), null,
@@ -26,7 +26,7 @@ This template expects following variables:
       </li>
     @endif
     @foreach($d as $goal)
-      <li class="goal-{{$goal->id}}">
+      <li id="goal-{{$goal->id}}">
         @include('goals.item', array('d' => $goal))
       </li>
     @endforeach

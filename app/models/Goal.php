@@ -28,7 +28,9 @@ class Goal extends Eloquent {
    * @return The relationship
    */
     public function feedbacks() {
-      return $this->morphMany('Feedback', 'obj');
+      return $this->morphMany('Feedback', 'obj')
+                  ->withTrashed()
+                  ->orderBy('created_at', 'asc');
     }
 
   /**
