@@ -508,6 +508,7 @@ ul {
 .dropdown {
   display: none;
   z-index: 10;
+  text-align: left;
   background-color: rgba($grey_medium, .9);
   &.open {
     display: block;

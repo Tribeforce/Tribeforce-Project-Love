@@ -128,12 +128,16 @@ class GoalsController extends \BaseController {
           'selector' => $selector,
         );
 
-        // Replace the HTML
-        $commands[] = array(
-          'method' => 'replace',
-          'selector' => $selector,
-          'html' => utf8_encode($html),
-        );
+        // If a new goal has been created, replace the old one
+        if(isset($goal)) {
+          // Replace the HTML
+          $commands[] = array(
+            'method' => 'replace',
+            'selector' => $selector,
+            'html' => utf8_encode($html),
+          );
+        }
+
       } else {
         // The selector for the parent object
         $selector = '#create';

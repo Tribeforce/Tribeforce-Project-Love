@@ -14,7 +14,7 @@ $classes = $d->trashed() ? 'disabled': '';
 <li id="feedback-{{$d->id}}" class="{{$classes}}">
   <div class="row">
     <div class="columns small-3">
-      @include('field', array('name' => 'avatar'))
+      @include('field', array('name' => 'avatar', 'd' => $d->owner))
     </div>
     <div class="columns small-9">
       <small>@include('field', array('name' => 'created_at'))</small>

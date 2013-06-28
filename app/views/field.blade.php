@@ -15,7 +15,7 @@ if(!method_exists($d, 'getAttribute')) exit;
 
 $val = nl2br($d->getAttribute($name));
 
-if($name === 'full_name') {
+if($name === 'full_name' && $d->id === $current_user->id) {
   $val = trans('ui.you');
 }
 

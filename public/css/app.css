@@ -7213,33 +7213,34 @@ ul {
 .dropdown {
   display: none;
   z-index: 10;
+  text-align: left;
   background-color: rgba(239, 239, 239, 0.9);
 }
-/* line 512, ../../app/theme/sass/app.scss */
+/* line 513, ../../app/theme/sass/app.scss */
 .dropdown.open {
   display: block;
 }
 
-/* line 518, ../../app/theme/sass/app.scss */
+/* line 519, ../../app/theme/sass/app.scss */
 .name-element .avatar {
   width: 2em;
 }
-/* line 522, ../../app/theme/sass/app.scss */
+/* line 523, ../../app/theme/sass/app.scss */
 .name-element .avatar,
 .name-element .full_name {
   display: inline-block;
 }
-/* line 525, ../../app/theme/sass/app.scss */
+/* line 526, ../../app/theme/sass/app.scss */
 .name-element .full_name {
   padding-right: 0.3125em;
 }
 
-/* line 530, ../../app/theme/sass/app.scss */
+/* line 531, ../../app/theme/sass/app.scss */
 a.image {
   position: relative;
   display: block;
 }
-/* line 533, ../../app/theme/sass/app.scss */
+/* line 534, ../../app/theme/sass/app.scss */
 a.image .image-overlay {
   position: absolute;
   top: 0;
