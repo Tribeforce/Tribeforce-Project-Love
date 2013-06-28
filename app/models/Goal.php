@@ -19,6 +19,21 @@ class Goal extends Eloquent {
   }
 
 
+  /**
+   * Checks if the current user is in the list of people who agree
+   * @return boolean
+   */
+  // TODO: Restructure classes so we can inheritate instead of
+  //       copying logic with Goal
+  public function iAgree() {
+    foreach($this->agrees as $agree) {
+      if($agree->owner == User::current()) return true;
+    }
+    return false;
+  }
+
+
+
 ///////////////////
 // RELATIONSHIPS //
 ///////////////////

@@ -115,7 +115,7 @@ Make sure we only access what is from our company
 Route::filter('own', function($route, $request, $value) {
   switch($value) {
     case 'files':
-      $route->getParameter('files');
+      $filename = $route->getParameter('files');
 
       $user_id = explode('.', $filename)[1];
       $user = User::find($user_id);

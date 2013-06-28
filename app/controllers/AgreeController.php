@@ -53,6 +53,7 @@ class AgreeController extends \BaseController {
               'd'   => $object->agrees,
               'obj_id'   => $input['obj_id'],
               'obj_type' => $input['obj_type'],
+              'i_agree'  => true,
             ))),
           );
         } else {
@@ -134,6 +135,7 @@ class AgreeController extends \BaseController {
         'd'   => $object->agrees,
         'obj_id'   => $obj_id,
         'obj_type' => $obj_type,
+        'i_agree'  => false,
       ))),
     );
 

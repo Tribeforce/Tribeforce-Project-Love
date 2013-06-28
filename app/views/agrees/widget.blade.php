@@ -5,12 +5,15 @@ This template expects following variables:
   $d: the object holding the agrees
   $obj_id   : The id of the object the agrees belong to
   $obj_type : The type of the object the agrees belong to
+  $i_agree
 - Optional
   $trashed
 */
 
 $agree = Agree::self($obj_id, $obj_type);
 $html_id = make_html_class("agrees-$obj_type-$obj_id");
+
+
 ?>
 
 @if(isset($d))
@@ -34,13 +37,7 @@ $html_id = make_html_class("agrees-$obj_type-$obj_id");
     </div>
     <div class="columns small-2 actions">
       @if(!isset($trashed) or !$trashed)
-        @if(empty($agree))
-          {{ Form::open(array('route' => 'agree.store', 'class' => 'ajax')) }}
-            {{ Form::hidden('obj_id'  , $obj_id)   }}
-            {{ Form::hidden('obj_type', $obj_type) }}
-              @include('form.field', array('type' => 'submit', 'name' => 'agree', 'size' => 'tiny', 'icon' => 'heart'))
-          {{ Form::close() }}
-        @else
+        @if($i_agree)
           <?php
           // There seems to be a bug in Laravel. The hidden field should be added
           // automatically, here we add it manually
@@ -48,6 +45,12 @@ $html_id = make_html_class("agrees-$obj_type-$obj_id");
           {{ Form::open(array('route' => array('agree.destroy', $agree->id), 'class' => 'ajax'), 'DELETE') }}
             {{ Form::hidden('_method' , 'DELETE')  }}
             @include('form.field', array('type' => 'submit', 'name' => 'dont-agree', 'size' => 'tiny', 'icon' => 'heart-empty'))
+          {{ Form::close() }}
+        @else
+          {{ Form::open(array('route' => 'agree.store', 'class' => 'ajax')) }}
+            {{ Form::hidden('obj_id'  , $obj_id)   }}
+            {{ Form::hidden('obj_type', $obj_type) }}
+              @include('form.field', array('type' => 'submit', 'name' => 'agree', 'size' => 'tiny', 'icon' => 'heart'))
           {{ Form::close() }}
         @endif
       @endif

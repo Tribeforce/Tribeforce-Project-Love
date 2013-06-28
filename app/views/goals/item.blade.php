@@ -13,7 +13,7 @@ $child = $d->child;
 
 @include('field', array('name' => 'name'))
 
-@include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => 'Goal'))
+@include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => 'Goal', 'i_agree' => $d->iAgree()))
 
 @include('feedback.index', array('d' => $d->feedbacks, 'obj_id' => $d->id, 'obj_type' => 'Goal'))
 

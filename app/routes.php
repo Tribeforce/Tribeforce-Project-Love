@@ -12,7 +12,7 @@ use Illuminate\View\Environment;
 */
 
 Route::resource('users', 'UsersController');
-//Route::resource('files', 'FilesController');
+Route::resource('files', 'FilesController');
 Route::resource('feedback', 'FeedbackController');
 Route::resource('goals', 'GoalsController');
 Route::resource('agree', 'AgreeController');

@@ -8,6 +8,13 @@ This template expects following variables:
 */
 
 $classes = $d->trashed() ? 'disabled': '';
+$agrees_options = array(
+  'd' => $d->agrees,
+  'obj_id' => $d->id,
+  'obj_type' => 'Feedback',
+  'trashed' => $d->trashed(),
+  'i_agree' => $d->iAgree(),
+);
 ?>
 
 @if(!$d->trashed() or $p['own_page'])
@@ -42,7 +49,7 @@ $classes = $d->trashed() ? 'disabled': '';
       @endif
     </div>
     <div class="columns small-10">
-      @include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => 'Feedback', 'trashed' => $d->trashed()))
+      @include('agrees.widget', $agrees_options)
     </div>
   </div>
 </li>
