@@ -58,4 +58,6 @@ return array(
   ),
   'posted' => "Posted by",
   'you' => 'You',
+  'about' => 'About me',
+  'updated' => ':name has been updated',
 );

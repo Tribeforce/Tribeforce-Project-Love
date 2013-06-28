@@ -8,6 +8,7 @@ return array(
   'password_confirmation' => 'Repeat password',
   'first_name'            => 'First name',
   'last_name'             => 'Last name',
+  'birth_date'            => 'Birth date',
   'activated'             => 'Status',
   'last_login'            => 'Last login',
   'groups'                => 'Groups',

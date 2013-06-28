@@ -47,6 +47,7 @@ return array(
   'connect_with'          => 'Verbind met',
   'ready'                 => 'Klaar',
   'feedback'              => 'Geef uw feedback',
+  'settings_name'         => 'Instellingen',
   'settings[language]'    => 'Taal',
   'settings[timezone]'    => 'Tijzone',
   'settings[locale]'      => 'Regio',

@@ -8,13 +8,16 @@ $(document).ready(function() {
   $('input#birth_date').pickadate({
     max: new Date(today.getFullYear()-18, today.getMonth(), today.getDate()),
     min: new Date(1900,1,1),
-    selectYears: 100
+    selectYears: 100,
+    format:"dddd d mmmm yyyy",
+    formatSubmit:"yyyy/mm/dd"
   });
-
   $('input#hire_date').pickadate({
     max: new Date(today.getFullYear()+1, today.getMonth(), today.getDate()),
     min: new Date(today.getFullYear()-50, today.getMonth(), today.getDate()),
-    selectYears: 100
+    selectYears: 100,
+    format:"dddd d mmmm yyyy",
+    formatSubmit:"yyyy/mm/dd"
   });
 
 
