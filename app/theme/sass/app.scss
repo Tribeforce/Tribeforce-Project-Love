@@ -431,21 +431,22 @@ ul {
   margin-bottom: $gutter;
   clear: both;
   overflow: hidden;
-  position: relative;
   padding: $gutter;
-  &:not(:first-child) {
-//    border-top: none;
-  }
-  & > .controls {
-    display: none;
-    position: absolute;
-    background-color: rgba($grey_medium, .9);
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  &:hover {
+
+  .columns {
+    position: relative;
     & > .controls {
+      display: none;
+      position: absolute;
+      background-color: rgba($grey_medium, .9);
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &:hover {
+    & .columns > .controls {
       display: block;
     }
   }
@@ -459,7 +460,6 @@ ul {
 [id^=feedback-] {
   &:not([id*=index]) {
     border-top: 1px solid $grey_medium;
-    margin-bottom: $gutter;
     position: relative;
     &.disabled {
       color: lighten($black, 50%);
@@ -486,18 +486,14 @@ ul {
 
 .agrees {
   .text {
-    line-height: emCalc(48px);
+    line-height: emCalc(32px);
     text-align: right;
+    font-size: 80%;
   }
 }
 
-.feedbacks {
-  clear: both;
-  margin-left: 20%;
-}
-
 [class*=icon-] {
-  font-size: emCalc(32px);
+  font-size: emCalc(24px);
   line-height: emCalc(24px);
   cursor: pointer;
   & + input[type=submit] {

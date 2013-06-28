@@ -149,7 +149,7 @@ class FeedbackController extends \BaseController {
     $feedback->restore();
 
     // Show success message
-    $commands = Messages::show('status', 'ui.feedback.restored');
+//    $commands = Messages::show('status', 'ui.feedback.restored');
 
     // We undo the greyed out (removeclass)
     $selector = "#feedback-$id";
@@ -189,7 +189,7 @@ class FeedbackController extends \BaseController {
     $feedback->delete();
 
     // Show success message
-    $commands = Messages::show('status', 'ui.feedback.destroy');
+//    $commands = Messages::show('status', 'ui.feedback.destroy');
 
     // If we are looking at feedback of an object of our own, we grey the
     // feedback out (adding a class). Otherwise, we remove it from the DOM

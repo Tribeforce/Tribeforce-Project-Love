@@ -7137,11 +7137,14 @@ ul {
   margin-bottom: 10px;
   clear: both;
   overflow: hidden;
-  position: relative;
   padding: 10px;
 }
-/* line 439, ../../app/theme/sass/app.scss */
-[id^=goal-] > .controls {
+/* line 436, ../../app/theme/sass/app.scss */
+[id^=goal-] .columns {
+  position: relative;
+}
+/* line 438, ../../app/theme/sass/app.scss */
+[id^=goal-] .columns > .controls {
   display: none;
   position: absolute;
   background-color: rgba(239, 239, 239, 0.9);
@@ -7149,19 +7152,18 @@ ul {
   left: 0;
   right: 0;
 }
-/* line 448, ../../app/theme/sass/app.scss */
-[id^=goal-]:hover > .controls {
+/* line 449, ../../app/theme/sass/app.scss */
+[id^=goal-]:hover .columns > .controls {
   display: block;
 }
-/* line 452, ../../app/theme/sass/app.scss */
+/* line 453, ../../app/theme/sass/app.scss */
 [id^=goal-] .name {
   min-height: 3em;
 }
 
-/* line 460, ../../app/theme/sass/app.scss */
+/* line 461, ../../app/theme/sass/app.scss */
 [id^=feedback-]:not([id*=index]) {
   border-top: 1px solid #efefef;
-  margin-bottom: 10px;
   position: relative;
 }
 /* line 464, ../../app/theme/sass/app.scss */
@@ -7188,59 +7190,54 @@ ul {
 
 /* line 488, ../../app/theme/sass/app.scss */
 .agrees .text {
-  line-height: 3em;
+  line-height: 2em;
   text-align: right;
+  font-size: 80%;
 }
 
-/* line 494, ../../app/theme/sass/app.scss */
-.feedbacks {
-  clear: both;
-  margin-left: 20%;
-}
-
-/* line 499, ../../app/theme/sass/app.scss */
+/* line 495, ../../app/theme/sass/app.scss */
 [class*=icon-] {
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1.5em;
   cursor: pointer;
 }
-/* line 503, ../../app/theme/sass/app.scss */
+/* line 499, ../../app/theme/sass/app.scss */
 [class*=icon-] + input[type=submit] {
   display: none;
 }
 
-/* line 508, ../../app/theme/sass/app.scss */
+/* line 504, ../../app/theme/sass/app.scss */
 .dropdown {
   display: none;
   z-index: 10;
   text-align: left;
   background-color: rgba(239, 239, 239, 0.9);
 }
-/* line 513, ../../app/theme/sass/app.scss */
+/* line 509, ../../app/theme/sass/app.scss */
 .dropdown.open {
   display: block;
 }
 
-/* line 519, ../../app/theme/sass/app.scss */
+/* line 515, ../../app/theme/sass/app.scss */
 .name-element .avatar {
   width: 2em;
 }
-/* line 523, ../../app/theme/sass/app.scss */
+/* line 519, ../../app/theme/sass/app.scss */
 .name-element .avatar,
 .name-element .full_name {
   display: inline-block;
 }
-/* line 526, ../../app/theme/sass/app.scss */
+/* line 522, ../../app/theme/sass/app.scss */
 .name-element .full_name {
   padding-right: 0.3125em;
 }
 
-/* line 531, ../../app/theme/sass/app.scss */
+/* line 527, ../../app/theme/sass/app.scss */
 a.image {
   position: relative;
   display: block;
 }
-/* line 534, ../../app/theme/sass/app.scss */
+/* line 530, ../../app/theme/sass/app.scss */
 a.image .image-overlay {
   position: absolute;
   top: 0;

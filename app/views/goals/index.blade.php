@@ -26,7 +26,7 @@ This template expects following variables:
       </li>
     @endif
     @foreach($d as $goal)
-      <li id="goal-{{$goal->id}}">
+      <li id="goal-{{$goal->id}}" class="row">
         @include('goals.item', array('d' => $goal))
       </li>
     @endforeach
