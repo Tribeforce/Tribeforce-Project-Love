@@ -70,7 +70,8 @@ return array(
     'new' => 'Maak een nieuwe versie',
   ),
   'agrees' => array(
-    'count' => ':count mensen gaan hiermee akkoord',
+    'count' => ':count persoon|:count personen',
+    'agree' => 'gaat hiermee akkoord|gaan hiermee akkoord',
     'once'  => 'Je kan maar 1 keer akkoord gaan',
     'success' => 'We hebben opgeslagen dat je hiermee akkoord gaat',
     'destroy' => 'Je gaat niet meer akkoord',
