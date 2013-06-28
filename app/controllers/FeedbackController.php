@@ -88,6 +88,13 @@ class FeedbackController extends \BaseController {
         $commands = Messages::show('warning', 'ui.feedback.empty');
       }
 
+      // Flush the input field
+      $commands[] = array(
+        'method' => 'flush',
+        'selector' => $selector,
+      );
+
+/*
       // Show the feedback button again
       $commands[] = array(
         'method' => 'show',
@@ -99,7 +106,7 @@ class FeedbackController extends \BaseController {
         'method' => 'remove',
         'selector' => "$selector div.ajax",
       );
-
+*/
       return $commands;
 
     } else {

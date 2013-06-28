@@ -34,12 +34,14 @@ class GoalsController extends \BaseController {
     if(Request::ajax()) {
       if(isset($_GET['original'])) {
         $selector = "#goal-".$_GET['original'];
+        $timestamp = $_GET['original'];
 
         $html = View::make('goals.create')->with(array(
           'original' => $_GET['original'],
         ));
-        $html = '<li class="new-version">'.$html.'</li>';
-        $html = html4ajax($html);
+        $html = '<li id="goal-' . $_GET['original']
+              . '-new-version">'.$html.'</li>';
+        $html = html4ajax($html, $timestamp);
 
         $commands[] = array(
           'method' => 'before',
@@ -99,34 +101,66 @@ class GoalsController extends \BaseController {
         $commands = Messages::show('warning', 'ui.goals.empty');
       }
 
-      // The selector for the parent object
-      $selector = '#create';
 
-      // Show the button again
-      $commands[] = array(
-        'method' => 'show',
-        'selector' => "$selector .actions",
-      );
-
-      // Remove the form injected by AJAX
-      $commands[] = array(
-        'method' => 'remove',
-        'selector' => "$selector div.ajax",
-      );
-
+      // THE AJAX COMMANDS
       if(isset($goal)) {
         // Prepare the HTML to be inserted
-        $html = '<li class="goal-' . $goal->id . '">'
+        $html = '<li id="goal-' . $goal->id . '">'
               . View::make('goals.item')->with(array('d' => $goal))
               . '</li>';
+      } else {
+        $html = '';
+      }
+
+      if(isset($input['original'])) {
+        // The selector for the parent object
+        $selector = '#goal-' . $input['original'];
+
+        // Remove the form injected by AJAX
+        $commands[] = array(
+          'method' => 'remove',
+          'selector' => "div.ajax.ts-" . $input['original'],
+        );
+
+        // Show the original
+        $commands[] = array(
+          'method' => 'show',
+          'selector' => $selector,
+        );
+
+        // Replace the HTML
+        $commands[] = array(
+          'method' => 'replace',
+          'selector' => $selector,
+          'html' => utf8_encode($html),
+        );
+      } else {
+        // The selector for the parent object
+        $selector = '#create';
 
         // Show the button again
+        $commands[] = array(
+          'method' => 'show',
+          'selector' => "$selector .actions",
+        );
+
+        // Remove the form injected by AJAX
+        $commands[] = array(
+          'method' => 'remove',
+          'selector' => "$selector div.ajax",
+        );
+
+        // Insert the HTML
         $commands[] = array(
           'method' => 'after',
           'selector' => $selector,
           'html' => utf8_encode($html),
         );
       }
+
+
+
+
 
       return $commands;
 

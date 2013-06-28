@@ -250,9 +250,12 @@ div.switch {
 
 
 /*** FORM FIELDS ***/
-form .actions {
-  a:not([class*="foundicon-"]) {
-    display: block;
+form {
+  margin: 0;
+  .actions {
+    a:not([class*="foundicon-"]) {
+      display: block;
+    }
   }
 }
 
@@ -423,50 +426,118 @@ ul {
   list-style: none;
 }
 
-[id^=goal-],
-[id^=feedback-] {
-  border: 1px solid $grey_medium;
+[id^=goal-] {
+  border: 1px solid $blue;
+  margin-bottom: $gutter;
   clear: both;
   overflow: hidden;
+  position: relative;
+  padding: $gutter;
   &:not(:first-child) {
-    border-top: none;
+//    border-top: none;
   }
-  &.disabled {
-    color: $grey_medium;
+  & > .controls {
+    display: none;
+    position: absolute;
+    background-color: rgba($grey_medium, .9);
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  &:hover {
+    & > .controls {
+      display: block;
+    }
+  }
+  .name {
+    min-height: emCalc(48px);
   }
 }
 
-.post-info {
-  clear: both;
-  overflow: hidden;
-  span {
-    float: left;
-    margin-right: $gutter;
-    &:first-child {
-      clear: left;
+
+
+[id^=feedback-] {
+  &:not([id*=index]) {
+    border-top: 1px solid $grey_medium;
+    margin-bottom: $gutter;
+    position: relative;
+    &.disabled {
+      color: lighten($black, 50%);
+      .image-overlay {
+        background-color: rgba($grey_light, .9);
+      }
     }
-    &:last-child {
-      clear: right;
+    & > .controls {
+      display: none;
+      position: absolute;
+      background-color: rgba($grey_medium, .9);
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
+    &:hover {
+      & > .controls {
+        display: block;
+      }
+    }
+
   }
 }
 
 .agrees {
-  clear: both;
-  overflow: hidden;
-  .count {
-    float: left;
-    margin-right: $gutter;
-  }
-  ul {
-    float: left;
-    clear: right;
+  .text {
+    line-height: emCalc(48px);
+    text-align: right;
   }
 }
 
 .feedbacks {
   clear: both;
-  margin: 0 2*$gutter;
+  margin-left: 20%;
+}
+
+[class*=icon-] {
+  font-size: emCalc(32px);
+  line-height: emCalc(24px);
+  cursor: pointer;
+  & + input[type=submit] {
+    display: none;
+  }
+}
+
+.dropdown {
+  display: none;
+  z-index: 10;
+  background-color: rgba($grey_medium, .9);
+  &.open {
+    display: block;
+  }
+}
+
+.name-element {
+  .avatar {
+    width: emCalc(32px);
+  }
+  .avatar,
+  .full_name {
+    display: inline-block;
+  }
+  .full_name {
+    padding-right: emCalc($gutter/2);
+  }
+}
+
+a.image {
+  position: relative;
+  display: block;
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: transparent;
+  }
 }
 
 //

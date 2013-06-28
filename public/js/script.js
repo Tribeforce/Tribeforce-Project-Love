@@ -95,7 +95,6 @@ $(document).ready(function() {
             $(selector + ' div.ajax').slideDown();
             break;
           case 'before':
-          console.log(data);
             $(selector).before(data[i].html);
             $(selector).prev('div.ajax').hide().slideDown();
             break;
@@ -113,6 +112,13 @@ $(document).ready(function() {
             break;
           case 'removeClass':
             $(selector).removeClass(data[i].classes);
+            break;
+          case 'flush':
+            $(selector).find('textarea').val('');
+            $(selector).find('input:not([type=submit])').val('');
+            break;
+          case 'focus':
+            $(selector).find('input').focus();
             break;
         }
       }
@@ -157,10 +163,19 @@ $(document).ready(function() {
       $form = $(this).parents('form');
       url = $form.attr('action');
       data = $form.serialize();
-console.log('ajax form called');
       $.post(url, data);
     });
 
+  //
+  $('[class*=icon-]').click(function(){
+//    $(this).next('input[type=submit]').click();
+  });
+
+  // Simulate submit buttons and make sure the buttons added through AJAX
+  // also have the simulate functionality
+  $('body').delegate('[class*=icon-]', 'click', function(event){
+    $(this).next('input[type=submit]').click();
+  });
 
 
 
@@ -174,6 +189,5 @@ console.log('ajax form called');
 /**** GLOBAL FUNCTIONS ****/
 accordeonSlide = function(options) {
 //  $('.section-container .content').slideUp();
-  console.log(this);
   $('.section-container .active .content').css('display', 'none').slideDown();
 };

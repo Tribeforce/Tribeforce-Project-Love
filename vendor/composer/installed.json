@@ -598,12 +598,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/cartalyst/sentry.git",
-            "reference": "b771fdbc9720c31054925d36b5f6e7dd88aac32b"
+            "reference": "4891982c04d3aa61a9d964585b904859a5b55bc1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/b771fdbc9720c31054925d36b5f6e7dd88aac32b",
-            "reference": "b771fdbc9720c31054925d36b5f6e7dd88aac32b",
+            "url": "https://api.github.com/repos/cartalyst/sentry/zipball/4891982c04d3aa61a9d964585b904859a5b55bc1",
+            "reference": "4891982c04d3aa61a9d964585b904859a5b55bc1",
             "shasum": ""
         },
         "require": {
@@ -620,7 +620,7 @@
             "illuminate/database": "Default sentry user, group and throttling implementations.",
             "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support."
         },
-        "time": "2013-06-18 19:54:39",
+        "time": "2013-06-27 22:49:59",
         "type": "library",
         "extra": {
             "component": "package",

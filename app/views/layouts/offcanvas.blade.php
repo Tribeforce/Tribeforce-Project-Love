@@ -14,10 +14,8 @@
     <title>Tribeforce - {{ $title }}</title>
 
     <!-- Included CSS Files -->
-    {{HTML::style('/css/foundation/icons/general_foundicons.css')}}
-    {{HTML::style('/css/foundation/icons/general_enclosed_foundicons.css')}}
-    {{HTML::style('/css/foundation/icons/social_foundicons.css')}}
-    {{HTML::style('/css/foundation/icons/accessibility_foundicons.css')}}
+    {{HTML::style('/css/fontello/fontello.css')}}
+    {{HTML::style('/css/fontello/animation.css')}}
     {{HTML::style('/css/offcanvas.css')}}
     {{HTML::style('/css/pickdate/default.css')}}
     {{HTML::style('/css/pickdate/default.date.css')}}
@@ -80,7 +78,7 @@
     @endif
     {{HTML::script('/js/script.js')}}
     <script>
-      $(document).foundation('alerts topbar section',
+      $(document).foundation('alerts topbar section tooltips dropdown',
                              { deep_linking: true,
                                one_up: false,
                                callback: accordeonSlide,

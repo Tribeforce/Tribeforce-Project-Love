@@ -8,11 +8,10 @@ This template expects following variables:
 ?>
 
 @if(isset($d))
-  @if($d == $current_user)
-    @lang('ui.you')
-  @else
+  <div class="name-element">
     <a href="{{ action('FriendsController@getIndex', $d->id) }}" class="user-{{$d->id}}">
+      @include('field', array('name' => 'avatar'))
       @include('field', array('name' => 'full_name'))
     </a>
-  @endif
+  </div>
 @endif

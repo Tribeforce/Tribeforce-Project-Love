@@ -15,7 +15,7 @@ This template expects following variables:
 @endsection
 
 @section('main')
-<div id="goal-index">
+<div id="goals-index">
   <ul>
     @if($p['own_page'])
       <li id="create">

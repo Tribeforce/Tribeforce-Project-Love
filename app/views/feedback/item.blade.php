@@ -7,36 +7,43 @@ This template expects following variables:
 - Optional
 */
 
-$classes = $d->trashed() ? ' class="disabled"': '';
+$classes = $d->trashed() ? 'disabled': '';
 ?>
 
 @if(!$d->trashed() or $p['own_page'])
-<li id="feedback-{{$d->id}}"{{$classes}}>
-  @include('field', array('name' => 'feedback'))
-  <small class="post-info">
-    <span>@lang('ui.posted')</span>
-    <span>@include('users.name', array('d' => $d->owner))</span>
-    <span>on</span>
-    <span>@include('field', array('name' => 'created_at'))</span>
-  </small>
-  @if($d->deletable())
-    <?php
-    // There seems to be a bug in Laravel. The hidden field should be added
-    // automatically, here we add it manually
-    ?>
-    @if($d->trashed())
-      {{ Form::open(array('route' => array('feedback.update', $d->id), 'class' => 'ajax'), 'PUT') }}
-        {{ Form::hidden('_method' , 'PUT')  }}
-        @include('form.field', array('type' => 'submit', 'name' => 'restore', 'size' => 'tiny'))
-      {{ Form::close() }}
-    @else
-      {{ Form::open(array('route' => array('feedback.destroy', $d->id), 'class' => 'ajax'), 'DELETE') }}
-        {{ Form::hidden('_method' , 'DELETE')  }}
-        @include('form.field', array('type' => 'submit', 'name' => 'destroy', 'size' => 'tiny'))
-      {{ Form::close() }}
-    @endif
-  @endif
-
-  @include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => 'Feedback'))
+<li id="feedback-{{$d->id}}" class="{{$classes}}">
+  <div class="row">
+    <div class="columns small-3">
+      @include('field', array('name' => 'avatar'))
+    </div>
+    <div class="columns small-9">
+      <small>@include('field', array('name' => 'created_at'))</small>
+      @include('field', array('name' => 'feedback'))
+    </div>
+  </div>
+  <div class="controls row">
+    <div class="columns small-2">
+      @if($d->deletable())
+        <?php
+        // There seems to be a bug in Laravel. The hidden field should be added
+        // automatically, here we add it manually
+        ?>
+        @if($d->trashed())
+          {{ Form::open(array('route' => array('feedback.update', $d->id), 'class' => 'ajax'), 'PUT') }}
+            {{ Form::hidden('_method' , 'PUT')  }}
+            @include('form.field', array('type' => 'submit', 'name' => 'restore', 'size' => 'tiny', 'icon' => 'arrows-cw' ))
+          {{ Form::close() }}
+        @else
+          {{ Form::open(array('route' => array('feedback.destroy', $d->id), 'class' => 'ajax'), 'DELETE') }}
+            {{ Form::hidden('_method' , 'DELETE')  }}
+            @include('form.field', array('type' => 'submit', 'name' => 'destroy', 'size' => 'tiny', 'icon' => 'cancel'))
+          {{ Form::close() }}
+        @endif
+      @endif
+    </div>
+    <div class="columns small-10">
+      @include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => 'Feedback', 'trashed' => $d->trashed()))
+    </div>
+  </div>
 </li>
 @endif

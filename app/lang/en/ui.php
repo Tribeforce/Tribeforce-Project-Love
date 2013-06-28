@@ -49,10 +49,12 @@ return array(
     'new' => 'Make a new version',
   ),
   'agrees' => array(
-    'count' => ':count people agree with this',
+    'count' => ':count person|:count persons',
+    'agree' => 'agrees with this|agree with this',
     'once'  => 'You can only agree once',
     'success' => 'It has been stored you agree with this',
     'destroy' => "You don't agree anymore",
+    'first' => 'Be the first to agree with this',
   ),
   'posted' => "Posted by",
   'you' => 'You',

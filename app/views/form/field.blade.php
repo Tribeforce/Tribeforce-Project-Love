@@ -84,6 +84,9 @@ if($type === 'switch') {
     {{ Form::file($name) }}
 
   @elseif($type === 'submit')
+    @if(isset($icon))
+    <i title="@lang('forms.'.$name)" class="icon-{{$icon}}"></i>
+    @endif
     {{ Form::$type(trans("forms.$name"), array('class' => 'button right' . $size)) }}
   @endif
 

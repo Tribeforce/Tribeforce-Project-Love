@@ -6955,23 +6955,27 @@ div.switch input:last-of-type + label {
 }
 
 /*** FORM FIELDS ***/
-/* line 254, ../../app/theme/sass/app.scss */
+/* line 253, ../../app/theme/sass/app.scss */
+form {
+  margin: 0;
+}
+/* line 256, ../../app/theme/sass/app.scss */
 form .actions a:not([class*="foundicon-"]) {
   display: block;
 }
 
-/* line 259, ../../app/theme/sass/app.scss */
+/* line 262, ../../app/theme/sass/app.scss */
 fieldset {
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
 }
-/* line 262, ../../app/theme/sass/app.scss */
+/* line 265, ../../app/theme/sass/app.scss */
 fieldset legend {
   cursor: pointer;
 }
-/* line 266, ../../app/theme/sass/app.scss */
+/* line 269, ../../app/theme/sass/app.scss */
 fieldset.collapsed {
   border-left: none;
   border-right: none;
@@ -6980,18 +6984,18 @@ fieldset.collapsed {
   padding-bottom: 0;
 }
 
-/* line 276, ../../app/theme/sass/app.scss */
+/* line 279, ../../app/theme/sass/app.scss */
 [class*=form-field].mandatory label::after {
   content: '*';
 }
 
-/* line 282, ../../app/theme/sass/app.scss */
+/* line 285, ../../app/theme/sass/app.scss */
 .form-field-image img {
   float: right;
   width: 6.25em;
 }
 
-/* line 290, ../../app/theme/sass/app.scss */
+/* line 293, ../../app/theme/sass/app.scss */
 .picker div,
 .picker select {
   box-sizing: content-box;
@@ -7000,17 +7004,17 @@ fieldset.collapsed {
 /*******************************************************************************
 PAGES
 *******************************************************************************/
-/* line 302, ../../app/theme/sass/app.scss */
+/* line 305, ../../app/theme/sass/app.scss */
 #login .header {
   margin-bottom: 0.625em;
 }
 
-/* line 307, ../../app/theme/sass/app.scss */
+/* line 310, ../../app/theme/sass/app.scss */
 #dashboard {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 311, ../../app/theme/sass/app.scss */
+/* line 314, ../../app/theme/sass/app.scss */
 #dashboard a {
   display: block;
   background-repeat: no-repeat;
@@ -7032,29 +7036,29 @@ PAGES
   -o-transition: background-position 0.2s ease-in;
   transition: background-position 0.2s ease-in;
 }
-/* line 318, ../../app/theme/sass/app.scss */
+/* line 321, ../../app/theme/sass/app.scss */
 #dashboard a:hover {
   background-position-y: 200px;
 }
-/* line 323, ../../app/theme/sass/app.scss */
+/* line 326, ../../app/theme/sass/app.scss */
 #dashboard i {
   display: block;
   font-size: 3.375em;
 }
 
-/* line 332, ../../app/theme/sass/app.scss */
+/* line 335, ../../app/theme/sass/app.scss */
 #tribe-index li {
   border-bottom: 1px solid #cccccc;
   padding: 0;
 }
-/* line 337, ../../app/theme/sass/app.scss */
+/* line 340, ../../app/theme/sass/app.scss */
 #tribe-index .avatar {
   width: 6.25em;
   height: 6.25em;
   float: left;
   margin-right: 10px;
 }
-/* line 344, ../../app/theme/sass/app.scss */
+/* line 347, ../../app/theme/sass/app.scss */
 #tribe-index img {
   height: 100%;
   width: auto;
@@ -7062,126 +7066,185 @@ PAGES
   display: block;
 }
 
-/* line 357, ../../app/theme/sass/app.scss */
+/* line 360, ../../app/theme/sass/app.scss */
 .section-container.auto .content .section-container.auto .content {
   top: 0px;
 }
-/* line 359, ../../app/theme/sass/app.scss */
+/* line 362, ../../app/theme/sass/app.scss */
 .section-container.auto .content .section-container.auto .content.active {
   top: -1px;
 }
 
-/* line 368, ../../app/theme/sass/app.scss */
+/* line 371, ../../app/theme/sass/app.scss */
 #tribe-index section .content {
   padding-top: 0;
   padding-bottom: 0;
 }
-/* line 373, ../../app/theme/sass/app.scss */
+/* line 376, ../../app/theme/sass/app.scss */
 #tribe-index li {
   padding-right: 10px;
   position: relative;
 }
-/* line 377, ../../app/theme/sass/app.scss */
+/* line 380, ../../app/theme/sass/app.scss */
 #tribe-index li > .actions {
   display: none;
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
-/* line 384, ../../app/theme/sass/app.scss */
+/* line 387, ../../app/theme/sass/app.scss */
 #tribe-index li div.ajax {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
-/* line 390, ../../app/theme/sass/app.scss */
+/* line 393, ../../app/theme/sass/app.scss */
 #tribe-index li textarea {
   height: 4.375em;
 }
-/* line 395, ../../app/theme/sass/app.scss */
+/* line 398, ../../app/theme/sass/app.scss */
 #tribe-index li textarea,
 #tribe-index li form {
   margin-bottom: 0;
 }
-/* line 399, ../../app/theme/sass/app.scss */
+/* line 402, ../../app/theme/sass/app.scss */
 #tribe-index li .actions * {
   margin-bottom: 0;
 }
-/* line 405, ../../app/theme/sass/app.scss */
+/* line 408, ../../app/theme/sass/app.scss */
 #tribe-index li .full_name,
 #tribe-index li .occupation,
 #tribe-index li div.ajax {
   margin-left: 6.875em;
 }
-/* line 409, ../../app/theme/sass/app.scss */
+/* line 412, ../../app/theme/sass/app.scss */
 #tribe-index li:hover {
   background: #fafafa;
 }
-/* line 411, ../../app/theme/sass/app.scss */
+/* line 414, ../../app/theme/sass/app.scss */
 #tribe-index li:hover > .actions {
   display: block;
 }
 
-/* line 422, ../../app/theme/sass/app.scss */
+/* line 425, ../../app/theme/sass/app.scss */
 ul {
   list-style: none;
 }
 
-/* line 427, ../../app/theme/sass/app.scss */
-[id^=goal-],
-[id^=feedback-] {
-  border: 1px solid #efefef;
+/* line 429, ../../app/theme/sass/app.scss */
+[id^=goal-] {
+  border: 1px solid #43698f;
+  margin-bottom: 10px;
   clear: both;
   overflow: hidden;
+  position: relative;
+  padding: 10px;
 }
-/* line 431, ../../app/theme/sass/app.scss */
-[id^=goal-]:not(:first-child),
-[id^=feedback-]:not(:first-child) {
-  border-top: none;
-}
-/* line 434, ../../app/theme/sass/app.scss */
-[id^=goal-].disabled,
-[id^=feedback-].disabled {
-  color: #efefef;
-}
-
 /* line 439, ../../app/theme/sass/app.scss */
-.post-info {
-  clear: both;
-  overflow: hidden;
-}
-/* line 442, ../../app/theme/sass/app.scss */
-.post-info span {
-  float: left;
-  margin-right: 10px;
-}
-/* line 445, ../../app/theme/sass/app.scss */
-.post-info span:first-child {
-  clear: left;
+[id^=goal-] > .controls {
+  display: none;
+  position: absolute;
+  background-color: rgba(239, 239, 239, 0.9);
+  top: 0;
+  left: 0;
+  right: 0;
 }
 /* line 448, ../../app/theme/sass/app.scss */
-.post-info span:last-child {
-  clear: right;
+[id^=goal-]:hover > .controls {
+  display: block;
+}
+/* line 452, ../../app/theme/sass/app.scss */
+[id^=goal-] .name {
+  min-height: 3em;
 }
 
-/* line 454, ../../app/theme/sass/app.scss */
-.agrees {
-  clear: both;
-  overflow: hidden;
+/* line 460, ../../app/theme/sass/app.scss */
+[id^=feedback-]:not([id*=index]) {
+  border-top: 1px solid #efefef;
+  margin-bottom: 10px;
+  position: relative;
 }
-/* line 457, ../../app/theme/sass/app.scss */
-.agrees .count {
-  float: left;
-  margin-right: 10px;
+/* line 464, ../../app/theme/sass/app.scss */
+[id^=feedback-]:not([id*=index]).disabled {
+  color: #d0d0d0;
 }
-/* line 461, ../../app/theme/sass/app.scss */
-.agrees ul {
-  float: left;
-  clear: right;
+/* line 466, ../../app/theme/sass/app.scss */
+[id^=feedback-]:not([id*=index]).disabled .image-overlay {
+  background-color: rgba(250, 250, 250, 0.9);
+}
+/* line 470, ../../app/theme/sass/app.scss */
+[id^=feedback-]:not([id*=index]) > .controls {
+  display: none;
+  position: absolute;
+  background-color: rgba(239, 239, 239, 0.9);
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* line 479, ../../app/theme/sass/app.scss */
+[id^=feedback-]:not([id*=index]):hover > .controls {
+  display: block;
 }
 
-/* line 467, ../../app/theme/sass/app.scss */
+/* line 488, ../../app/theme/sass/app.scss */
+.agrees .text {
+  line-height: 3em;
+  text-align: right;
+}
+
+/* line 494, ../../app/theme/sass/app.scss */
 .feedbacks {
   clear: both;
-  margin: 0 20px;
+  margin-left: 20%;
+}
+
+/* line 499, ../../app/theme/sass/app.scss */
+[class*=icon-] {
+  font-size: 2em;
+  line-height: 1.5em;
+  cursor: pointer;
+}
+/* line 503, ../../app/theme/sass/app.scss */
+[class*=icon-] + input[type=submit] {
+  display: none;
+}
+
+/* line 508, ../../app/theme/sass/app.scss */
+.dropdown {
+  display: none;
+  z-index: 10;
+  background-color: rgba(239, 239, 239, 0.9);
+}
+/* line 512, ../../app/theme/sass/app.scss */
+.dropdown.open {
+  display: block;
+}
+
+/* line 518, ../../app/theme/sass/app.scss */
+.name-element .avatar {
+  width: 2em;
+}
+/* line 522, ../../app/theme/sass/app.scss */
+.name-element .avatar,
+.name-element .full_name {
+  display: inline-block;
+}
+/* line 525, ../../app/theme/sass/app.scss */
+.name-element .full_name {
+  padding-right: 0.3125em;
+}
+
+/* line 530, ../../app/theme/sass/app.scss */
+a.image {
+  position: relative;
+  display: block;
+}
+/* line 533, ../../app/theme/sass/app.scss */
+a.image .image-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: transparent;
 }

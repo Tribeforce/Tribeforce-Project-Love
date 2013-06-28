@@ -5,8 +5,8 @@
 @endsection
 
 @section('main')
-<div id="goal-show">
-  <div class="goal-{{$d->id}}">
+<div id="goals-show">
+  <div id="goal-{{$d->id}}">
     @include('goals.item')
   </div>
 </div>

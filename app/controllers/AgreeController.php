@@ -42,9 +42,9 @@ class AgreeController extends \BaseController {
         if(isset($object)) {
           // Save the agree and show a message
           $agree = $object->agrees()->save($agree);
-          $commands = Messages::show('status', 'ui.agrees.success');
+//          $commands = Messages::show('status', 'ui.agrees.success');
           // Replace the agree widget
-          $selector = '#'.$input['obj_type'].'-'.$input['obj_id'].' > .agrees';
+          $selector = '#agrees-'.$input['obj_type'].'-'.$input['obj_id'].'-div';
           $selector = make_html_class($selector);
           $commands[] = array(
             'method' => 'replace',
@@ -112,6 +112,7 @@ class AgreeController extends \BaseController {
     // Get the agree
     $agree = Agree::find($id);
 
+
     // Get the object we agreed on
     $object   = $agree->obj;
     $obj_id   = $object->id;
@@ -121,10 +122,10 @@ class AgreeController extends \BaseController {
     $agree->delete();
 
     // Show success message
-    $commands = Messages::show('status', 'ui.agrees.destroy');
+//    $commands = Messages::show('status', 'ui.agrees.destroy');
 
     // Replace the agree widget
-    $selector = "#$obj_type-$obj_id > .agrees";
+    $selector = "#agrees-$obj_type-$obj_id-div";
     $selector = make_html_class($selector);
     $commands[] = array(
       'method' => 'replace',

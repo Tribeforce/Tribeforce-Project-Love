@@ -15,6 +15,10 @@ if(!method_exists($d, 'getAttribute')) exit;
 
 $val = nl2br($d->getAttribute($name));
 
+if($name === 'full_name') {
+  $val = trans('ui.you');
+}
+
 
 switch($name) {
   case 'avatar':
@@ -29,23 +33,24 @@ switch($name) {
 ?>
 
 @if($type === 'image')
-  <div class="{{$name}}">
+  <a href="{{ action('FriendsController@getIndex', $d->id) }}" class="image {{$name}}">
   @if(empty($val))
-    <image src="/images/{{$name}}.png">
+    <img src="/images/{{$name}}.png" title="{{$d->full_name}}">
   @else
-    <image src="/files/{{$val}}.small">
+    <img src="/files/{{$val}}.small">
   @endif
-  </div>
+    <div class="image-overlay"></div>
+  </a>
 @else
   @if(!empty($val))
   <div class="{{$name}}">
     @if(isset($label) && $label)
-    <h5>@lang("forms.$name")</h5>
+      <h5>@lang("forms.$name")</h5>
     @endif
     @if($type === 'email')
-    {{HTML::mailto($val, null, array('target' => '_blank'))}}
+      {{HTML::mailto($val, null, array('target' => '_blank'))}}
     @else
-    {{$val}}
+      {{$val}}
     @endif
   </div>
   @endif
