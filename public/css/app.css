@@ -7176,6 +7176,7 @@ ul {
 }
 /* line 470, ../../app/theme/sass/app.scss */
 [id^=feedback-]:not([id*=index]) > .controls {
+  display: none;
   position: absolute;
   background-color: rgba(239, 239, 239, 0.9);
   bottom: 0;
