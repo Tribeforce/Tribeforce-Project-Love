@@ -468,7 +468,7 @@ ul {
       }
     }
     & > .controls {
-      display: none;
+//      display: none;
       position: absolute;
       background-color: rgba($grey_medium, .9);
       bottom: 0;
@@ -482,6 +482,10 @@ ul {
     }
 
   }
+}
+
+.controls .columns {
+  padding: 0;
 }
 
 .agrees {
