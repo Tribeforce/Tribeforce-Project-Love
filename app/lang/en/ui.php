@@ -50,11 +50,11 @@ return array(
   ),
   'agrees' => array(
     'count' => ':count person|:count persons',
-    'agree' => 'agrees with this|agree with this',
+    'agree' => 'agrees|agree',
     'once'  => 'You can only agree once',
     'success' => 'It has been stored you agree with this',
     'destroy' => "You don't agree anymore",
-    'first' => 'Be the first to agree with this',
+    'first' => 'Be the first to agree',
   ),
   'posted' => "Posted by",
   'you' => 'You',

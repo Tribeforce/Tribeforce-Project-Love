@@ -17,14 +17,14 @@ $html_id = make_html_class("agrees-$obj_type-$obj_id");
 ?>
 
 @if(isset($d))
-  <div class="agrees row" id="{{$html_id}}-div">
-    <div class="columns small-10 text">
+  <div class="agrees" id="{{$html_id}}-div">
+    <div class="text">
       @if(count($d) > 0)
         <a href='#' data-dropdown="{{$html_id}}">
           @choice('ui.agrees.count', count($d), array('count' => count($d)))
         </a>
         <span>@choice('ui.agrees.agree', count($d))</span>
-        <ul id="{{$html_id}}" class="dropdown">
+        <ul id="{{$html_id}}" class="dropdown large">
           @foreach($d as $agree)
             <li>
             @include('users.name', array('d' => $agree->owner))
@@ -35,7 +35,7 @@ $html_id = make_html_class("agrees-$obj_type-$obj_id");
         @lang('ui.agrees.first')
       @endif
     </div>
-    <div class="columns small-2 actions">
+    <div class="actions">
       @if(!isset($trashed) or !$trashed)
         @if($i_agree)
           <?php

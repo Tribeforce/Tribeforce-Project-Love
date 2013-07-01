@@ -163,7 +163,7 @@ div.ajax {
     img {
       display: block;
       position: absolute;
-      height: $topbar-height - 2*$gutter;
+      height: emCalc($topbar-height) - 2*$gutter;
       margin-top: $gutter;
       margin-bottom: $gutter;
     }
@@ -303,7 +303,7 @@ PAGES
 
 #login {
   .header {
-    margin-bottom: emCalc($gutter);
+    margin-bottom: $gutter;
   }
 }
 
@@ -340,7 +340,7 @@ PAGES
   .avatar {
     width: $thumb_width;
     height: $thumb_width;
-    float: left;
+//    float: left;
     margin-right: $gutter;
   }
 
@@ -427,72 +427,73 @@ ul {
 }
 
 [id^=goal-] {
-  border: 1px solid $blue;
+  border-bottom: 1px solid $blue;
   margin-bottom: $gutter;
-  clear: both;
-  overflow: hidden;
   padding: $gutter;
 
-  .columns {
-    position: relative;
-    & > .controls {
-      display: none;
-      position: absolute;
-      background-color: rgba($grey_medium, .9);
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-  }
-
   &:hover {
-    & .columns > .controls {
-      display: block;
+    & > .columns > .controls {
+      visibility: visible;
     }
-  }
-  .name {
-    min-height: emCalc(48px);
   }
 }
-
 
 
 [id^=feedback-] {
   &:not([id*=index]) {
     border-top: 1px solid $grey_medium;
-    position: relative;
     &.disabled {
       color: lighten($black, 50%);
       .image-overlay {
         background-color: rgba($grey_light, .9);
       }
     }
-    & > .controls {
-      display: none;
-      position: absolute;
-      background-color: rgba($grey_medium, .9);
-      bottom: 0;
-      left: 0;
-      right: 0;
+
+    .controls {
+      & > form {
+        position: absolute;
+        width: $icon_size;
+        top: 0;
+      }
     }
+
     &:hover {
-      & > .controls {
-        display: block;
+      .controls {
+        visibility: visible;
       }
     }
 
   }
 }
 
-.controls .columns {
-  padding: 0;
+.controls {
+  height: $icon_size;
+  visibility: hidden;
+  position: relative;
+  background-color: rgba($grey_medium, .9);
 }
 
+
+
 .agrees {
+  height: $icon_size;
+  position: relative;
   .text {
-    line-height: emCalc(32px);
+    line-height: $icon_size;
     text-align: right;
+    padding: 0 $gutter;
     font-size: 80%;
+    left: $icon_size;
+    right: $icon_size;
+  }
+  .text,
+  .actions {
+    position: absolute;
+    top: 0;
+  }
+  .actions {
+    width: $icon_size;
+    right: 0;
   }
 }
 
@@ -510,6 +511,7 @@ ul {
   z-index: 10;
   text-align: left;
   background-color: rgba($grey_medium, .9);
+  min-width: 50%;
   &.open {
     display: block;
   }
@@ -517,14 +519,15 @@ ul {
 
 .name-element {
   .avatar {
-    width: emCalc(32px);
+    width: $icon_size;
   }
   .avatar,
   .full_name {
     display: inline-block;
   }
   .full_name {
-    padding-right: emCalc($gutter/2);
+    padding-right: $gutter/2;
+    white-space: nowrap;
   }
 }
 

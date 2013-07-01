@@ -71,11 +71,11 @@ return array(
   ),
   'agrees' => array(
     'count' => ':count persoon|:count personen',
-    'agree' => 'gaat hiermee akkoord|gaan hiermee akkoord',
+    'agree' => 'gaat akkoord|gaan akkoord',
     'once'  => 'Je kan maar 1 keer akkoord gaan',
     'success' => 'We hebben opgeslagen dat je hiermee akkoord gaat',
     'destroy' => 'Je gaat niet meer akkoord',
-    'first' => 'Ga hier als eerste mee akkoord',
+    'first' => 'Ga als eerste akkoord',
   ),
   'posted' => "Gepost door",
   'you' => 'Jijzelf',

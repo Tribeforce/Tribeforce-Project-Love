@@ -15,7 +15,7 @@ $child = $d->child;
 
   @include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => 'Goal', 'i_agree' => $d->iAgree()))
 
-  <div class="row controls">
+  <div class="controls">
     <div class="columns small-4">
       @if(isset($parent))
         <div class="parent left">

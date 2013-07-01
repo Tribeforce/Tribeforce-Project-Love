@@ -62,10 +62,10 @@ $success-color: $green_light;
 $sprites: url(../images/sprites.png) no-repeat;
 
 // Gutters
-$gutter: 10px;
+$gutter: emCalc(10px);
 
 // Icon
-$icon_size: 32px;
+$icon_size: emCalc(32px);
 
 // Various global styles
 
