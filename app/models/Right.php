@@ -6,12 +6,14 @@ class Right extends Eloquent {
    *                                                              (user, circle)
    * @return boolean TRUE if the object can be viewed
    */
-  public static function allowed($obj, $permission_obj) {
+  public static function allowed($obj, $permission_obj = null) {
+    $cu = User::current();
+    if(!isset($permission_obj)) $permission_obj = $cu;
     $obj_type = snake_case(get_class($obj));
     $permission_type = snake_case(get_class($permission_obj));
 
     // We always have the right to see our own stuff
-    if($obj->owner == User::current()) return true;
+    if($obj->owner == $cu) return true;
 
     // First we check directly to "permission objects". If at least 1 entry is
     // returned, the right is granted

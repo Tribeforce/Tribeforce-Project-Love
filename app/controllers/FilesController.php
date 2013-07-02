@@ -11,7 +11,7 @@ class FilesController extends \BaseController {
         'show',
         'edit',
         'update',
-        'destroy'
+        'destroy',
       )));
     self::$dir = storage_path() . '/files';
   }

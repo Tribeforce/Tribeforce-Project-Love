@@ -9,6 +9,10 @@ This template expects following variables:
 
 $parent = $d->parent;
 $child = $d->child;
+
+//dpm($d);
+//dpm($parent);
+//dpm($child);
 ?>
 <div class="columns small-12 large-6">
   @include('field', array('name' => 'name'))

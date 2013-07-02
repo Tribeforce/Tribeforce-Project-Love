@@ -147,8 +147,13 @@ Route::filter('own', function($route, $request, $value) {
           throw new Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
         }
       }
-
-
       break;
+    case 'goal':
+      $id = $route->getParameter('goals');
+      $goal = Goal::find($id);
+
+      if(!Right::allowed($goal)) {
+        throw new Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+      }
   }
 });

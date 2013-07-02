@@ -7,10 +7,6 @@ class FriendsController extends BaseController {
     $this->beforeFilter('csrf', array('on' => array('post', 'put')));
   }
 
-  private function allowed($element) {
-    return Right::allowed($elemet, User::current());
-  }
-
   public function getIndex($id) {
     $d = User::find($id);
     return View::make('tribe.details')->with(array(
@@ -33,8 +29,8 @@ class FriendsController extends BaseController {
       $allowed = $all;
     } else {
       // Filter out all the goals accessible to the current user
-      $allowed = $all->filter(function($element){
-        return Right::allowed($element, User::current());
+      $allowed = $all->filter(function($element) {
+        return Right::allowed($element);
       });
     }
 

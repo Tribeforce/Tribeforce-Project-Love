@@ -7159,12 +7159,16 @@ ul {
   width: 2em;
   top: 0;
 }
-/* line 461, ../../app/theme/sass/app.scss */
+/* line 458, ../../app/theme/sass/app.scss */
+[id^=feedback-]:not([id*=index]) .controls .agrees {
+  margin-left: 2em;
+}
+/* line 464, ../../app/theme/sass/app.scss */
 [id^=feedback-]:not([id*=index]):hover .controls {
   visibility: visible;
 }
 
-/* line 469, ../../app/theme/sass/app.scss */
+/* line 472, ../../app/theme/sass/app.scss */
 .controls {
   height: 2em;
   visibility: hidden;
@@ -7172,12 +7176,12 @@ ul {
   background-color: rgba(239, 239, 239, 0.9);
 }
 
-/* line 478, ../../app/theme/sass/app.scss */
+/* line 481, ../../app/theme/sass/app.scss */
 .agrees {
   height: 2em;
   position: relative;
 }
-/* line 481, ../../app/theme/sass/app.scss */
+/* line 484, ../../app/theme/sass/app.scss */
 .agrees .text {
   line-height: 2em;
   text-align: right;
@@ -7186,30 +7190,30 @@ ul {
   left: 2em;
   right: 2em;
 }
-/* line 490, ../../app/theme/sass/app.scss */
+/* line 493, ../../app/theme/sass/app.scss */
 .agrees .text,
 .agrees .actions {
   position: absolute;
   top: 0;
 }
-/* line 494, ../../app/theme/sass/app.scss */
+/* line 497, ../../app/theme/sass/app.scss */
 .agrees .actions {
   width: 2em;
   right: 0;
 }
 
-/* line 500, ../../app/theme/sass/app.scss */
+/* line 503, ../../app/theme/sass/app.scss */
 [class*=icon-] {
   font-size: 1.5em;
   line-height: 1.5em;
   cursor: pointer;
 }
-/* line 504, ../../app/theme/sass/app.scss */
+/* line 507, ../../app/theme/sass/app.scss */
 [class*=icon-] + input[type=submit] {
   display: none;
 }
 
-/* line 509, ../../app/theme/sass/app.scss */
+/* line 512, ../../app/theme/sass/app.scss */
 .dropdown {
   display: none;
   z-index: 10;
@@ -7217,32 +7221,32 @@ ul {
   background-color: rgba(239, 239, 239, 0.9);
   min-width: 50%;
 }
-/* line 515, ../../app/theme/sass/app.scss */
+/* line 518, ../../app/theme/sass/app.scss */
 .dropdown.open {
   display: block;
 }
 
-/* line 521, ../../app/theme/sass/app.scss */
+/* line 524, ../../app/theme/sass/app.scss */
 .name-element .avatar {
   width: 2em;
 }
-/* line 525, ../../app/theme/sass/app.scss */
+/* line 528, ../../app/theme/sass/app.scss */
 .name-element .avatar,
 .name-element .full_name {
   display: inline-block;
 }
-/* line 528, ../../app/theme/sass/app.scss */
+/* line 531, ../../app/theme/sass/app.scss */
 .name-element .full_name {
   padding-right: 0.3125em;
   white-space: nowrap;
 }
 
-/* line 534, ../../app/theme/sass/app.scss */
+/* line 537, ../../app/theme/sass/app.scss */
 a.image {
   position: relative;
   display: block;
 }
-/* line 537, ../../app/theme/sass/app.scss */
+/* line 540, ../../app/theme/sass/app.scss */
 a.image .image-overlay {
   position: absolute;
   top: 0;

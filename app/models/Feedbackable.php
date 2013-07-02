@@ -2,7 +2,7 @@
 
 class Feedbackable extends Eloquent {
 
-  protected $fillable = array('name', 'description', 'type');
+  protected $fillable = array('name', 'description', 'child_id');
 
   /**
    * Validates input against validation rules.
@@ -19,6 +19,17 @@ class Feedbackable extends Eloquent {
     return Validator::make($input, input_rules($input, $rules));
   }
 
+  /**
+   * Checks if the current user is in the list of people who agree
+   * @return boolean
+   */
+  public function iAgree() {
+    foreach($this->agrees as $agree) {
+      if($agree->owner == User::current()) return true;
+    }
+    return false;
+  }
+
 
 ///////////////////
 // RELATIONSHIPS //
@@ -29,7 +40,9 @@ class Feedbackable extends Eloquent {
    * @return The relationship
    */
     public function feedbacks() {
-      return $this->morphMany('Feedback', 'obj');
+      return $this->morphMany('Feedback', 'obj')
+                  ->withTrashed()
+                  ->orderBy('created_at', 'asc');
     }
 
   /**
@@ -41,7 +54,7 @@ class Feedbackable extends Eloquent {
     }
 
   /**
-   * Set the polymorphic relation with the agree
+   * Set the polymorphic relation with the permission
    * @return The relationship
    */
     public function permissions() {
@@ -49,19 +62,11 @@ class Feedbackable extends Eloquent {
     }
 
   /**
-   * Set the relation with the User this Goal belongs to
+   * Set the relation with the owner this Feedbackable belongs to
    * @return The relationship
    */
     public function owner() {
-      return $this->belongsTo('User');
-    }
-
-  /**
-   * Set the child relation with the next version of the Goal
-   * @return The relationship
-   */
-    public function child() {
-      return $this->hasOne('Feedbackable', 'parent_id');
+      return $this->belongsTo('User', 'user_id');
     }
 
   /**
@@ -69,6 +74,14 @@ class Feedbackable extends Eloquent {
    * @return The relationship
    */
     public function parent() {
-      return $this->belongsTo('Feedbackable');
+      return $this->hasOne(get_class($this), 'child_id');
+    }
+
+  /**
+   * Set the child relation with the next version of the Goal
+   * @return The relationship
+   */
+    public function child() {
+      return $this->belongsTo(get_class($this), 'child_id');
     }
 }
