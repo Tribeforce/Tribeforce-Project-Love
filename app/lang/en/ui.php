@@ -69,6 +69,7 @@ return array(
   ),
   'circles' => array(
     'title_index' => 'My friends',
+    'title_friends' => 'Friends of :name'
   ),
   'posted' => "Posted by",
   'you' => 'You',

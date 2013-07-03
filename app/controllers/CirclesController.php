@@ -14,7 +14,6 @@ class CirclesController extends \BaseController {
       'title' => trans('ui.circles.title_index'),
       'd' => $circles,
     ));
-
   }
 
   /**

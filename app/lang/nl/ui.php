@@ -90,6 +90,7 @@ return array(
   ),
   'circles' => array(
     'title_index' => 'Mijn vrienden',
+    'title_friends' => 'Vrienden van :name'
   ),
   'posted' => "Gepost door",
   'you' => 'Jijzelf',
