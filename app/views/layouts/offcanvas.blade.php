@@ -26,7 +26,7 @@
 
     </head>
     <body class="{{ page_name() }} off-canvas slide-nav">
-      <header id="header" class="row sticky contain-to-grid">
+      <header id="header" class="row">
         @include('header')
       </header>
       <div class="row">

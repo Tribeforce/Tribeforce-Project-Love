@@ -148,6 +148,11 @@ select {
 Custom Styles
 *******************************************************************************/
 
+.fixed {
+  max-width: 62.5em;
+  left: auto;
+}
+
 /*** GENERAL ***/
 div.ajax {
   display: none;
