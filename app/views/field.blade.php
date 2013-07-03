@@ -39,7 +39,7 @@ switch($name) {
   @else
     <img src="/files/{{$val}}.small">
   @endif
-    <div class="image-overlay"></div>
+    <div class="image-overlay" title="{{$d->full_name}}"></div>
   </a>
 @else
   @if(!empty($val))

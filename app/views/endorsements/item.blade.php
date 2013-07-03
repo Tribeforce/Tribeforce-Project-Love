@@ -13,10 +13,16 @@ if(!isset($type)) $type = 'endorsement';
 ?>
 <div class="columns small-12 large-6">
   <div class="row">
-    <div class="columns small-6">
+    <div class="columns small-5">
       @include('field', array('name' => 'avatar', 'd' => $d->creator))
     </div>
-    <div class="columns small-6">
+    <div class="columns small-7">
+      <small>
+        @include('field', array('name' => 'created_at'))
+        <span class="show-for-touch">
+        @include('users.name', array('d' => $d->creator, 'avatar' => false))
+        </span>
+      </small>
       @include('field', array('name' => 'name'))
     </div>
   </div>

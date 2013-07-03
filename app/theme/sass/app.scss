@@ -148,14 +148,20 @@ select {
 Custom Styles
 *******************************************************************************/
 
-.fixed {
-  max-width: 62.5em;
-  left: auto;
-}
 
 /*** GENERAL ***/
 div.ajax {
   display: none;
+}
+
+ul {
+  list-style: none;
+}
+
+// Fix jumping menu
+.fixed {
+  max-width: 62.5em;
+  left: auto;
 }
 
 
@@ -337,15 +343,10 @@ PAGES
 
 #tribe-index {
   $thumb_width: emCalc(100px);
-  li {
-    border-bottom: 1px solid $section-border-color;
-    padding: 0;
-  }
 
   .avatar {
     width: $thumb_width;
     height: $thumb_width;
-//    float: left;
     margin-right: $gutter;
   }
 
@@ -355,30 +356,15 @@ PAGES
     margin: auto;
     display: block;
   }
-}
 
-
-
-
-
-// FIX BUG WITH NESTED SECTIONS
-.section-container.auto .content .section-container.auto .content  {
-  top: 0px;
-  &.active {
-    top: -1px;
-  }
-}
-
-
-
-
-#tribe-index {
   section .content {
     padding-top: 0;
     padding-bottom: 0;
   }
 
   li {
+    border-bottom: 1px solid $section-border-color;
+    padding: 0;
     padding-right: $gutter;
     position: relative;
 
@@ -421,17 +407,27 @@ PAGES
       }
     }
   }
-
-
 }
+
+
+
+
+
+// FIX BUG WITH NESTED SECTIONS
+.section-container.auto .content .section-container.auto .content  {
+  top: 0px;
+  &.active {
+    top: -1px;
+  }
+}
+
+
+
 
 
 /// GOALS
-ul {
-  list-style: none;
-}
-
-[id^=goal-] {
+[id^=goal-],
+[id^=endorsement-] {
   border-bottom: 1px solid $blue;
   margin-bottom: $gutter;
   padding: $gutter;
@@ -443,7 +439,7 @@ ul {
   }
 }
 
-
+/// GOALS
 [id^=feedback-] {
   &:not([id*=index]) {
     border-top: 1px solid $grey_medium;
