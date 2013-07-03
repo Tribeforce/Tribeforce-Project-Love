@@ -19,6 +19,5 @@
     {{link_to_route('users.edit', trans('forms.edit'), $d->id, array('class' => 'button small right'))}}
     </div>
   </div>
-  {{ link_to('tribe', trans('ui.back'), array('class' => 'left')) }}
 </div>
 @endsection

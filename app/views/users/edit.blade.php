@@ -23,9 +23,9 @@
     <div class="actions columns small-6">
     @if($d->id == $current_user->id)
       @if( ! $d->facebook_id)
-      @lang('forms.login_with')
+      @lang('forms.connect_with')
       {{ link_to_action('ApplicationController@getFacebook',
-                   ' ', null, array('class' => 'soc foundicon-facebook')) }}
+                   ' ', null, array('class' => 'icon-facebook')) }}
       @else
         {{ link_to_action('ApplicationController@getForgetFacebook', trans('forms.fb_forget')) }}
       @endif

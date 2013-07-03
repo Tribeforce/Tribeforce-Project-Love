@@ -36,6 +36,7 @@ return array(
   'fb_login'              => 'Login with Facebook',
   'fb_forget'             => 'Disconnect from Facebook',
   'login_with'            => 'Login with',
+  'connect_with'          => 'Connect with',
   'settings_name'         => 'Settings',
   'settings[language]'    => 'Language',
   'settings[timezone]'    => 'Timezone',

@@ -15,7 +15,7 @@ return array(
     'admin' => 'Administer',
     'settings' => 'Settings',
     'logout' => 'Logout',
-    'goals' => 'Doelstellingen',
+    'goals' => 'Goals',
     'endorsements' => 'Endorsements',
     'circles' => 'Friends',
   ),

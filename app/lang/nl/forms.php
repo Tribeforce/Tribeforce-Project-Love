@@ -45,7 +45,6 @@ return array(
   'fb_forget'             => 'Koppel los van Facebook',
   'login_with'            => 'Login met',
   'connect_with'          => 'Verbind met',
-  'connect_with'          => 'Verbind met',
   'ready'                 => 'Klaar',
   'feedback'              => 'Geef uw feedback',
   'settings_name'         => 'Instellingen',

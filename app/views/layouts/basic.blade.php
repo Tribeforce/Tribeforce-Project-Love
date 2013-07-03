@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=0" />
 
     <title>{{ $title }}</title>
-    <link rel="stylesheet" href="/css/foundation/icons/social_foundicons.css" />
-    <link rel="stylesheet" href="/css/app.css" />
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700' rel='stylesheet' type='text/css'>
+    {{HTML::style('/css/fontello/fontello.css')}}
+    {{HTML::style('https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700')}}
+    {{HTML::style('/css/app.css')}}
     <style>
     body {
       padding-top: 10px;

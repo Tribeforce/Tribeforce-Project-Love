@@ -30,6 +30,7 @@
 .icon-left-open-big { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe765;&nbsp;'); }
 .icon-right-open-big { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe766;&nbsp;'); }
 .icon-off { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe78e;&nbsp;'); }
+.icon-facebook { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf09a;&nbsp;'); }
 .icon-angle-left { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf104;&nbsp;'); }
 .icon-angle-right { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf105;&nbsp;'); }
 .icon-flag-checkered { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf11e;&nbsp;'); }
