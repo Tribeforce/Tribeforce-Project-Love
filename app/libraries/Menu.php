@@ -14,29 +14,34 @@ class Menu {
     switch($type) {
       case 'main':
         $menu = array(
-          'roles'    => array(
-            'uri' => 'roles',
-            'icon' => 'gen foundicon-folder',
+          'goals'    => array(
+            'uri' => '/goals',
+            'icon' => 'target',
           ),
-          'recruit'  => array(
-            'uri' => 'recruit',
-            'icon' => 'gen foundicon-flag',
+          'endorsements'  => array(
+            'uri' => '/endorsements',
+            'icon' => 'award',
           ),
-          'admin'    => array(
-            'uri' => 'users',
-            'icon' => 'gen foundicon-settings',
+          'circles'  => array(
+            'uri' => '/circles',
+            'icon' => 'users',
           ),
+#          'admin'    => array(
+#            'uri' => 'users',
+#            'icon' => 'cog',
+#          ),
           'settings'    => array(
             'uri' => URL::action('ApplicationController@getSettings'),
-            'icon' => 'gen foundicon-tools',
+            'icon' => 'cog-alt',
           ),
           'logout'    => array(
             'uri' => URL::action('ApplicationController@getLogout'),
-            'icon' => 'gen foundicon-error',
+            'icon' => 'logout',
           ),
         );
 
         return $menu;
+
       default:
         throw new \InvalidArgumentException('The type argument is invalid.');
     }

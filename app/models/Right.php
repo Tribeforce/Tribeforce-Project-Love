@@ -15,6 +15,9 @@ class Right extends Eloquent {
     // We always have the right to see our own stuff
     if($obj->owner == $cu) return true;
 
+    // We always have the right to see what we created ourselves for endorsement
+    if($obj->creator == $cu) return true;
+
     // First we check directly to "permission objects". If at least 1 entry is
     // returned, the right is granted
     $num_rights = Right::where('obj_id', '=', $obj->id)

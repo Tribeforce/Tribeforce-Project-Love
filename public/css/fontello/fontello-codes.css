@@ -14,6 +14,7 @@
 .icon-export:before { content: '\e715'; } /* '' */
 .icon-comment:before { content: '\e718'; } /* '' */
 .icon-chat:before { content: '\e720'; } /* '' */
+.icon-logout:before { content: '\e741'; } /* '' */
 .icon-left-open:before { content: '\e75d'; } /* '' */
 .icon-right-open:before { content: '\e75e'; } /* '' */
 .icon-arrows-cw:before { content: '\e760'; } /* '' */
@@ -22,4 +23,8 @@
 .icon-off:before { content: '\e78e'; } /* '' */
 .icon-angle-left:before { content: '\f104'; } /* '' */
 .icon-angle-right:before { content: '\f105'; } /* '' */
+.icon-flag-checkered:before { content: '\f11e'; } /* '' */
+.icon-target:before { content: '🎯'; } /* '\1f3af' */
+.icon-award:before { content: '🏉'; } /* '\1f3c9' */
+.icon-users:before { content: '👥'; } /* '\1f465' */
 .icon-wrench:before { content: '🔧'; } /* '\1f527' */

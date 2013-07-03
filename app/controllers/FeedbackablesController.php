@@ -1,6 +1,6 @@
 <?php
 
-class FeedbackableController extends \BaseController {
+class FeedbackablesController extends \BaseController {
   protected $type = 'feedbackable';
 
   public function __construct() {
@@ -21,7 +21,7 @@ class FeedbackableController extends \BaseController {
    */
   public function index() {
     $cu = User::current();
-     $c = ucfirst($this->type);
+    $c = ucfirst($this->type);
 
     $d = $c::where('user_id', '=', $cu->id)
            ->where('child_id', '=', 0)
@@ -32,6 +32,7 @@ class FeedbackableController extends \BaseController {
       'title' => trans('ui.' . $this->type . 's.title_index'),
       'd' => $d,
       'p' => array('own_page' => true),
+      'user_id' => $cu->id,
     ));
   }
 
@@ -43,11 +44,13 @@ class FeedbackableController extends \BaseController {
   public function create() {
     if(Request::ajax()) {
       if(isset($_GET['original'])) {
-        $selector = "#" . $this->type . "-".$_GET['original']; // TODO
+        $selector = "#" . $this->type . "-".$_GET['original'];
         $timestamp = $_GET['original'];
 
         $html = View::make($this->type . 's.create')->with(array(
           'original' => $_GET['original'],
+          'p' => array('own_page' => $_GET['own_page']),
+          'user_id' => $_GET['user_id'],
         ));
         $html = '<li id="' . $this->type . '-' . $_GET['original']
               . '-new-version">'.$html.'</li>';
@@ -63,18 +66,32 @@ class FeedbackableController extends \BaseController {
           'method' => 'hide',
           'selector' => $selector,
         );
+
+        $commands[] = array(
+          'method' => 'focus',
+          'selector' => "$selector-new-version [name=" . $this->type . "name]",
+        );
       } else {
+        $selector = '#create';
+
         $commands[] = array(
           'method' => 'hide',
-          'selector' => "#create > .actions",
+          'selector' => "$selector > .actions",
         );
 
         $commands[] = array(
           'method' => 'append',
-          'selector' => "#create",
-          'html' => html4ajax(View::make($this->type . 's.create')),
+          'selector' => $selector,
+          'html' => html4ajax(View::make($this->type . 's.create')->with(array(
+            'p' => array('own_page' => $_GET['own_page']),
+            'user_id' => $_GET['user_id'],
+          ))),
         );
 
+        $commands[] = array(
+          'method' => 'focus',
+          'selector' => "$selector [name=" . $this->type . "name]",
+        );
       }
 
       return Response::json($commands);
@@ -118,8 +135,11 @@ class FeedbackableController extends \BaseController {
       // THE AJAX COMMANDS
       if(isset($feedbackable)) {
         // Prepare the HTML to be inserted
-        $html = '<li id="' . $this->type . '-' . $feedbackable->id . '">'
-              .View::make($this->type.'s.item')->with(array('d'=>$feedbackable))
+        $html = '<li id="' . $this->type . '-' . $feedbackable->id . '" class="row">'
+              . View::make($this->type.'s.item')->with(array(
+                  'd' => $feedbackable,
+                  'p' => array('own_page' => $input['own_page']),
+                ))
               . '</li>';
       } else {
         $html = '';
@@ -175,18 +195,11 @@ class FeedbackableController extends \BaseController {
         );
       }
 
-
-
-
-
       return $commands;
 
     } else {
       // TODO: Code for non AJAX call
     }
-
-
-
   }
 
   /**

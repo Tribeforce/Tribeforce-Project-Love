@@ -12,6 +12,7 @@ class UserSeeder extends Seeder {
     DB::table('circle_user')->delete();
     DB::table('endorsements')->delete();
     DB::table('feedbackables')->delete();
+    DB::table('personals')->delete();
     DB::table('feedbacks')->delete();
     DB::table('goals')->delete();
     DB::table('rights')->delete();
@@ -313,106 +314,106 @@ class UserSeeder extends Seeder {
 
 
 
-    // Create Feedbackables for femi, stijn and bruno5
-    $this->command->info('Creating feedbackables...');
+    // Create Personals for femi, stijn and bruno5
+    $this->command->info('Creating personals...');
     // FEMI
-    $fb_1_f = Feedbackable::create(array(
+    $fb_1_f = Personal::create(array(
       'type' => 1, // character
       'name' => 'A character name',
       'user_id' => $femi->id,
     ));
-    $fb_1_1_f = Feedbackable::create(array(
+    $fb_1_1_f = Personal::create(array(
       'type' => 1, // character
       'name' => 'A new character name',
       'user_id' => $femi->id,
       'child_id' => $fb_1_f->id,
     ));
-    $fb_1_1_1_f = Feedbackable::create(array(
+    $fb_1_1_1_f = Personal::create(array(
       'type' => 1, // character
       'name' => 'Newest character name',
       'user_id' => $femi->id,
       'child_id' => $fb_1_1_f->id,
     ));
-    $fb_2_f = Feedbackable::create(array(
+    $fb_2_f = Personal::create(array(
       'type' => 2, // destiny
       'name' => 'A destiny name',
       'user_id' => $femi->id,
     ));
-    $fb_2_2_f = Feedbackable::create(array(
+    $fb_2_2_f = Personal::create(array(
       'type' => 2, // destiny
       'name' => 'Newest destiny name',
       'user_id' => $femi->id,
       'child_id' => $fb_2_f->id,
     ));
-    $fb_3_f = Feedbackable::create(array(
+    $fb_3_f = Personal::create(array(
       'type' => 3, // vision
       'name' => 'A vision name',
       'user_id' => $femi->id,
     ));
     // STIJN
-    $fb_1_s = Feedbackable::create(array(
+    $fb_1_s = Personal::create(array(
       'type' => 1, // character
       'name' => 'A character name',
       'user_id' => $stijn->id,
     ));
-    $fb_1_1_s = Feedbackable::create(array(
+    $fb_1_1_s = Personal::create(array(
       'type' => 1, // character
       'name' => 'A new character name',
       'user_id' => $stijn->id,
       'child_id' => $fb_1_s->id,
     ));
-    $fb_1_1_1_s = Feedbackable::create(array(
+    $fb_1_1_1_s = Personal::create(array(
       'type' => 1, // character
       'name' => 'Newest character name',
       'user_id' => $stijn->id,
       'child_id' => $fb_1_1_s->id,
     ));
-    $fb_2_s = Feedbackable::create(array(
+    $fb_2_s = Personal::create(array(
       'type' => 2, // destiny
       'name' => 'A destiny name',
       'user_id' => $stijn->id,
     ));
-    $fb_2_2_s = Feedbackable::create(array(
+    $fb_2_2_s = Personal::create(array(
       'type' => 2, // destiny
       'name' => 'Newest destiny name',
       'user_id' => $stijn->id,
       'child_id' => $fb_2_s->id,
     ));
-    $fb_3_s = Feedbackable::create(array(
+    $fb_3_s = Personal::create(array(
       'type' => 3, // vision
       'name' => 'A vision name',
       'user_id' => $stijn->id,
     ));
     // BRUNO
-    $fb_1_b = Feedbackable::create(array(
+    $fb_1_b = Personal::create(array(
       'type' => 1, // character
       'name' => 'A character name',
       'user_id' => $bruno->id,
     ));
-    $fb_1_1_b = Feedbackable::create(array(
+    $fb_1_1_b = Personal::create(array(
       'type' => 1, // character
       'name' => 'A new character name',
       'user_id' => $bruno->id,
       'child_id' => $fb_1_b->id,
     ));
-    $fb_1_1_1_b = Feedbackable::create(array(
+    $fb_1_1_1_b = Personal::create(array(
       'type' => 1, // character
       'name' => 'Newest character name',
       'user_id' => $bruno->id,
       'child_id' => $fb_1_1_b->id,
     ));
-    $fb_2_b = Feedbackable::create(array(
+    $fb_2_b = Personal::create(array(
       'type' => 2, // destiny
       'name' => 'A destiny name',
       'user_id' => $bruno->id,
     ));
-    $fb_2_2_b = Feedbackable::create(array(
+    $fb_2_2_b = Personal::create(array(
       'type' => 2, // destiny
       'name' => 'Newest destiny name',
       'user_id' => $bruno->id,
       'child_id' => $fb_2_b->id,
     ));
-    $fb_3_b = Feedbackable::create(array(
+    $fb_3_b = Personal::create(array(
       'type' => 3, // vision
       'name' => 'A vision name',
       'user_id' => $bruno->id,

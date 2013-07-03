@@ -28,6 +28,7 @@ return array(
   'destroy'               => 'Remove',
   'restore'               => 'Restore',
   'goalname'              => 'Enter your goal here...',
+  'endorsementname'       => 'Enter your endorsement here...',
   'feedback'              => 'Enter your feedback here...',
   'ready'                 => 'Ready',
   'dont-agree'            => "Don't agree anymore",

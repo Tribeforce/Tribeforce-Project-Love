@@ -209,6 +209,14 @@ class User extends SentryUserModel {
     }
 
   /**
+   * Set the relation with the endorsements
+   * @return The relationship
+   */
+    public function endorsements() {
+      return $this->hasMany('Endorsement');
+    }
+
+  /**
    * Set the relation with the feedbackables
    * @return The relationship
    */

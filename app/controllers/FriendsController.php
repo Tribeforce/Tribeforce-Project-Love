@@ -17,9 +17,21 @@ class FriendsController extends BaseController {
 
 
   public function getGoals($id) {
-    $all = Goal::where('user_id', '=', $id)
-               ->where('child_id', '=', 0)
-               ->get();
+    return $this->getObjects($id, 'goal');
+  }
+
+
+  public function getEndorsements($id) {
+    return $this->getObjects($id, 'endorsement');
+  }
+
+  private function getObjects($id, $type) {
+    $c = ucfirst($type);
+
+    $all = $c::where('user_id', '=', $id)
+             ->where('child_id', '=', 0)
+             ->orderBy('created_at', 'desc')
+             ->get();
 
     $cu = User::current();
 
@@ -28,16 +40,18 @@ class FriendsController extends BaseController {
     if($cu->id === $id) {
       $allowed = $all;
     } else {
-      // Filter out all the goals accessible to the current user
+      // Filter out all the objects accessible to the current user
       $allowed = $all->filter(function($element) {
         return Right::allowed($element);
       });
     }
 
-    return View::make('goals.index')->with(array(
-      'title' => trans('ui.goals.title_goals', array('name' => User::find($id)->full_name)),
+    return View::make($type . 's.index')->with(array(
+      'title' => trans('ui.' . $type . 's.title_' . $type . 's',
+                                   array('name' => User::find($id)->full_name)),
       'd' => $allowed,
       'p' => array('own_page' => $cu->id === $id),
+      'user_id' => $id,
     ));
   }
 

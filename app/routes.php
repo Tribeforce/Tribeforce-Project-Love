@@ -15,7 +15,9 @@ Route::resource('users', 'UsersController');
 Route::resource('files', 'FilesController');
 Route::resource('feedback', 'FeedbackController');
 Route::resource('goals', 'GoalsController');
+Route::resource('endorsements', 'EndorsementsController');
 Route::resource('agree', 'AgreeController');
+Route::resource('circles', 'CirclesController');
 
 Route::controller('friends/{id}', 'FriendsController');
 Route::controller('tribe', 'TribeController');

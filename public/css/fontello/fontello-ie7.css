@@ -23,6 +23,7 @@
 .icon-export { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe715;&nbsp;'); }
 .icon-comment { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe718;&nbsp;'); }
 .icon-chat { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe720;&nbsp;'); }
+.icon-logout { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe741;&nbsp;'); }
 .icon-left-open { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe75d;&nbsp;'); }
 .icon-right-open { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe75e;&nbsp;'); }
 .icon-arrows-cw { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe760;&nbsp;'); }
@@ -31,4 +32,8 @@
 .icon-off { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe78e;&nbsp;'); }
 .icon-angle-left { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf104;&nbsp;'); }
 .icon-angle-right { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf105;&nbsp;'); }
+.icon-flag-checkered { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf11e;&nbsp;'); }
+.icon-target { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f3af;&nbsp;'); }
+.icon-award { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f3c9;&nbsp;'); }
+.icon-users { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f465;&nbsp;'); }
 .icon-wrench { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x1f527;&nbsp;'); }

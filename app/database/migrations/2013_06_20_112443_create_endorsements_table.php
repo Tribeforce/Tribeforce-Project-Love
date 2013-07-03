@@ -10,13 +10,12 @@ class CreateEndorsementsTable extends Migration {
    *
    * @return void
    */
-  public function up()
-  {
-    Schema::create('endorsements', function(Blueprint $table)
-    {
+  public function up() {
+    Schema::create('endorsements', function(Blueprint $table) {
       $table->increments('id');
       $table->string('name');
       $table->integer('user_id')->unsigned();
+      $table->integer('child_id')->unsigned();
       $table->integer('created_by')->unsigned();
       $table->timestamps();
       $table->softDeletes();
@@ -28,9 +27,7 @@ class CreateEndorsementsTable extends Migration {
    *
    * @return void
    */
-  public function down()
-  {
+  public function down() {
     Schema::drop('endorsements');
   }
-
 }

@@ -121,7 +121,8 @@ $(document).ready(function() {
             $(selector).find('input:not([type=submit])').val('');
             break;
           case 'focus':
-            $(selector).find('input').focus();
+          console.log('foxus');
+            $(selector).focus();
             break;
         }
       }
