@@ -25,7 +25,7 @@ if(!isset($type)) $type = 'feedbackable';
       <li id="create">
         <div class="actions">
           {{link_to_route($type . 's.create',trans('ui.' . $type . 's.create'),
-             array('own_page' => $p['own_page']),
+             array('own_page' => $p['own_page'], 'user_id' => $user_id),
              array('class' => 'ajax button expand')) }}
         </div>
       </li>

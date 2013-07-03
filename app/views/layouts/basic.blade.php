@@ -12,6 +12,7 @@
     {{HTML::style('/css/fontello/fontello.css')}}
     {{HTML::style('https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700')}}
     {{HTML::style('/css/app.css')}}
+    <link rel="apple-touch-icon" HREF="/images/apple-touch-icon.png">
     <style>
     body {
       padding-top: 10px;

@@ -22,6 +22,8 @@
     {{HTML::style('https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700')}}
     {{HTML::style('/css/app.css')}}
 
+    <link rel="apple-touch-icon" HREF="/images/apple-touch-icon.png">
+
     {{HTML::script('/js/vendor/custom.modernizr.js')}}
 
     </head>
