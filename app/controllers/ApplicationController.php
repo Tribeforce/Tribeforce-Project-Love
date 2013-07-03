@@ -2,7 +2,13 @@
 
 class ApplicationController extends BaseController {
   public function __construct() {
-    $this->beforeFilter('auth', array('except' => array('getLogin', 'postLogin')));
+    $this->beforeFilter('auth', array('except' => array(
+      'getLogin',
+      'postLogin',
+      'getFacebook',
+      'anyDone',
+    )));
+
     $this->beforeFilter('csrf', array('on' => array('post', 'put')));
   }
 
