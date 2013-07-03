@@ -41,7 +41,7 @@
       </div>
       <footer class="site-footer row" role="contentinfo">
         <div class="small-12 columns">
-          Footer
+          <small>Last updated: {{lastUpdated()}}</small>
         </div>
       </footer>
     </div>

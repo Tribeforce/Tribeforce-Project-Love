@@ -85,14 +85,16 @@ function randomString() {
 
 
 /**
- * Cast an object to another class, keeping the properties, but changing the methods
+ * Cast an object to another class, keeping the properties,
+ * but changing the methods
  *
  * @param string $class  Class name
  * @param object $object
  * @return object
  */
 function cast($class, $object) {
-  return unserialize(preg_replace('/^O:\d+:"[^"]++"/', 'O:' . strlen($class) . ':"' . $class . '"', serialize($object)));
+  return unserialize(preg_replace('/^O:\d+:"[^"]++"/', 'O:' . strlen($class) .
+                                      ':"' . $class . '"', serialize($object)));
 }
 
 
@@ -145,6 +147,13 @@ function get_poly_object($obj_id, $class_name) {
 
 function make_html_class($string) {
   return strtolower($string);
+}
+
+function lastUpdated() {
+  $git_folder = base_path() . '/.git';
+  date_default_timezone_set('Europe/Brussels');
+
+  return date('l F d, Y \a\t H:i:s', filemtime($git_folder));
 }
 
 /******************
