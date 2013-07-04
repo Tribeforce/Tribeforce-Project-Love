@@ -38,15 +38,9 @@ $agrees_options = array(
           // automatically, here we add it manually
           ?>
           @if($d->trashed())
-            {{ Form::open(array('route' => array('feedback.update', $d->id), 'class' => 'ajax'), 'PUT') }}
-              {{ Form::hidden('_method' , 'PUT')  }}
-              @include('form.field', array('type' => 'submit', 'name' => 'restore', 'size' => 'tiny', 'icon' => 'arrows-cw' ))
-            {{ Form::close() }}
+            {{ ajaxLink(route('feedback.update', $d->id), ' ', 'PUT', 'icon-arrows-cw') }}
           @else
-            {{ Form::open(array('route' => array('feedback.destroy', $d->id), 'class' => 'ajax'), 'DELETE') }}
-              {{ Form::hidden('_method' , 'DELETE')  }}
-              @include('form.field', array('type' => 'submit', 'name' => 'destroy', 'size' => 'tiny', 'icon' => 'cancel'))
-            {{ Form::close() }}
+            {{ ajaxLink(route('feedback.destroy', $d->id), ' ', 'DELETE', 'icon-cancel') }}
           @endif
         @endif
         @include('agrees.widget', $agrees_options)

@@ -38,20 +38,10 @@ $html_id = make_html_class("agrees-$obj_type-$obj_id");
     <div class="actions">
       @if(!isset($trashed) or !$trashed)
         @if($i_agree)
-          <?php
-          // There seems to be a bug in Laravel. The hidden field should be added
-          // automatically, here we add it manually
-          ?>
-          {{ Form::open(array('route' => array('agree.destroy', $agree->id), 'class' => 'ajax'), 'DELETE') }}
-            {{ Form::hidden('_method' , 'DELETE')  }}
-            @include('form.field', array('type' => 'submit', 'name' => 'dont-agree', 'size' => 'tiny', 'icon' => 'heart'))
-          {{ Form::close() }}
+          {{ ajaxLink(route('agree.destroy', $agree->id), ' ', 'DELETE', 'icon-heart') }}
         @else
-          {{ Form::open(array('route' => 'agree.store', 'class' => 'ajax')) }}
-            {{ Form::hidden('obj_id'  , $obj_id)   }}
-            {{ Form::hidden('obj_type', $obj_type) }}
-              @include('form.field', array('type' => 'submit', 'name' => 'agree', 'size' => 'tiny', 'icon' => 'heart-empty'))
-          {{ Form::close() }}
+          {{ ajaxLink(route('agree.store'), ' ', 'POST', 'icon-heart-empty',
+                         array('obj_id' => $obj_id, 'obj_type' => $obj_type)) }}
         @endif
       @endif
     </div>

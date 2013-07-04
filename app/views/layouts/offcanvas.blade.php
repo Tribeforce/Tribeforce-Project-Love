@@ -97,5 +97,6 @@
     {{HTML::script('/jquery-ui/ui/jquery.ui.mouse.js')}}
     {{HTML::script('/jquery-ui/ui/jquery.ui.draggable.js')}}
     {{HTML::script('/jquery-ui/ui/jquery.ui.droppable.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.touch-punch.min.js')}}
   </body>
 </html>

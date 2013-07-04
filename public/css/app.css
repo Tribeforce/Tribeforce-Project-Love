@@ -7158,7 +7158,7 @@ PAGES
   background-color: rgba(250, 250, 250, 0.9);
 }
 /* line 454, ../../app/theme/sass/app.scss */
-[id^=feedback-]:not([id*=index]) .controls > form {
+[id^=feedback-]:not([id*=index]) .controls > .icon-cancel {
   position: absolute;
   width: 2em;
   top: 0;
@@ -7268,22 +7268,23 @@ a.image .image-overlay {
   -moz-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
+  margin-right: 100px;
 }
-/* line 558, ../../app/theme/sass/app.scss */
+/* line 559, ../../app/theme/sass/app.scss */
 #circles-index .icon-cancel {
   visibility: hidden;
 }
-/* line 562, ../../app/theme/sass/app.scss */
+/* line 568, ../../app/theme/sass/app.scss */
 #circles-index [id^=user-]:hover .icon-cancel {
   visibility: visible;
 }
 
-/* line 571, ../../app/theme/sass/app.scss */
+/* line 578, ../../app/theme/sass/app.scss */
 .dragging {
   border: 2px dashed #43698f !important;
 }
 
-/* line 575, ../../app/theme/sass/app.scss */
+/* line 582, ../../app/theme/sass/app.scss */
 .hovering {
   border: 2px solid #ff960e !important;
 }

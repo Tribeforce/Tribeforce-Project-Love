@@ -451,7 +451,7 @@ PAGES
     }
 
     .controls {
-      & > form {
+      & > .icon-cancel { // TODO: Find better selector
         position: absolute;
         width: $icon_size;
         top: 0;
@@ -554,13 +554,20 @@ a.image {
     margin-bottom: $gutter;
     border: 2px solid transparent;
     @include transition;
+    margin-right: 100px;
   }
   .icon-cancel {
     visibility: hidden;
   }
-  [id^=user-]:hover {
-    .icon-cancel {
-      visibility: visible;
+  [id^=user-] {
+//    display: inline-block;
+    .name-element {
+//      display: inline;
+    }
+    &:hover {
+      .icon-cancel {
+        visibility: visible;
+      }
     }
   }
 }

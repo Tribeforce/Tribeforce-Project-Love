@@ -2,6 +2,11 @@
 
 class CirclesController extends \BaseController {
 
+  public function __construct() {
+    $this->beforeFilter('auth');
+//    $this->beforeFilter('csrf', array('on' => array('post', 'put')));
+  }
+
   /**
    * Display a listing of the resource.
    *
