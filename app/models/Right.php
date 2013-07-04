@@ -9,8 +9,8 @@ class Right extends Eloquent {
   public static function allowed($obj, $permission_obj = null) {
     $cu = User::current();
     if(!isset($permission_obj)) $permission_obj = $cu;
-    $obj_type = snake_case(get_class($obj));
-    $permission_type = snake_case(get_class($permission_obj));
+    $obj_type = get_class($obj);
+    $permission_type = get_class($permission_obj);
 
     // We always have the right to see our own stuff
     if($obj->owner == $cu) return true;
@@ -31,10 +31,10 @@ class Right extends Eloquent {
     // circles the object has been granted rights to, to check if the user
     // is in the circle.
     // If it is, we return true. If no match has been found we return false.
-    if($permission_type === 'user') {
+    if($permission_type === 'User') {
       $rights = Right::where('obj_id', '=', $obj->id)
                       ->where('obj_type', '=', $obj_type)
-                      ->where('permission_type', '=', 'circle')
+                      ->where('permission_type', '=', 'Circle')
                       ->get();
       foreach($rights as $right) {
         $circle = Circle::find($right->permission_id);

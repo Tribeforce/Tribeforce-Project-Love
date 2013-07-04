@@ -20,7 +20,7 @@ class Circle extends Eloquent {
   }
 
   public function hasUser($id) {
-    foreach($this->users()->get() as $friend) {
+    foreach($this->users as $friend) {
       if($friend->id === $id) {
         return true;
       }
@@ -41,11 +41,19 @@ class Circle extends Eloquent {
     }
 
   /**
-   * Set the relation with the User this Cicle belongs to
+   * Set the polymorphic relation with the owner
    * @return The relationship
    */
     public function owner() {
-      return $this->belongsTo('User');
+      return $this->morphTo();
+    }
+
+  /**
+   * Set the relation with the Users subscribed to this Cicle
+   * @return The relationship
+   */
+    public function subscribers() {
+      return $this->belongsToMany('User', 'circle_subscriber');
     }
 
   /**

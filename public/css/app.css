@@ -7259,3 +7259,31 @@ a.image .image-overlay {
   left: 0;
   background-color: transparent;
 }
+
+/* line 553, ../../app/theme/sass/app.scss */
+#circles-index [id^=circle-] {
+  margin-bottom: 0.625em;
+  border: 2px solid transparent;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+/* line 558, ../../app/theme/sass/app.scss */
+#circles-index .icon-cancel {
+  visibility: hidden;
+}
+/* line 562, ../../app/theme/sass/app.scss */
+#circles-index [id^=user-]:hover .icon-cancel {
+  visibility: visible;
+}
+
+/* line 571, ../../app/theme/sass/app.scss */
+.dragging {
+  border: 2px dashed #43698f !important;
+}
+
+/* line 575, ../../app/theme/sass/app.scss */
+.hovering {
+  border: 2px solid #ff960e !important;
+}

@@ -4,11 +4,8 @@
 /*
 This template expects following variables:
 - Mandatory
-  $d: the object holding list of circles
-//  $p: the object describing the permissions
-//  $user_id: The ID of the person we are showing feedbackables for
+  $d: the object holding an array of lists of circles
 - Optional
-//  $type: The type of feedbackable (small case)
 */
 ?>
 
@@ -18,9 +15,16 @@ This template expects following variables:
 @section('main')
 <div id="circles-index">
   <ul>
-    @foreach($d as $circle)
-      <li id="circle-{{$circle->id}}" class="row">
-        @include('circles.item', array('d' => $circle))
+    @foreach($d as $type => $circles)
+      <li id="circles-{{$type}}">
+        <h2>@lang('ui.circles.'.$type)</h2>
+        <ul>
+          @foreach($circles as $circle)
+            <li id="circle-{{$circle->id}}">
+              @include('circles.item', array('d' => $circle))
+            </li>
+          @endforeach
+        </ul>
       </li>
     @endforeach
   </ul>

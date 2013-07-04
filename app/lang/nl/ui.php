@@ -32,6 +32,8 @@ return array(
     'title_show' => 'Gebruiker :name',
     'title_edit' => 'Pas :name aan',
     'title_create' => 'Nieuwe gebruiker',
+    'own' => 'Eigen vriendenkringen',
+    'subscribed' => 'Ingeschreven vriendenkringen',
   ),
   'files' => array(
     'title_create' => 'Maak een bestand aan',

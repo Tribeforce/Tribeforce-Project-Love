@@ -548,4 +548,34 @@ a.image {
   }
 }
 
+
+#circles-index {
+  [id^=circle-] {
+    margin-bottom: $gutter;
+    border: 2px solid transparent;
+    @include transition;
+  }
+  .icon-cancel {
+    visibility: hidden;
+  }
+  [id^=user-]:hover {
+    .icon-cancel {
+      visibility: visible;
+    }
+  }
+}
+
+
+
+/////////// DND ////////////
+.dragging {
+  border: 2px dashed $blue !important;
+}
+
+.hovering {
+  border: 2px solid $orange_light !important;
+}
+
+
+
 //

@@ -8,11 +8,15 @@ class CirclesController extends \BaseController {
    * @return Response
    */
   public function index() {
-    $circles = User::current()->ownCircles;
+    $cu = User::current();
+    $d = array(
+      'own' => $cu->ownCircles,
+      'subscribed' => $cu->subscribedCircles
+    );
 
     return View::make('circles.index')->with(array(
       'title' => trans('ui.circles.title_index'),
-      'd' => $circles,
+      'd' => $d,
     ));
   }
 
@@ -64,9 +68,39 @@ class CirclesController extends \BaseController {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
-  {
-    //
+  public function update($id) {
+    $input = Input::all();
+    $circle = Circle::find($id);
+
+    // Handle add request
+    if(isset($input['add'])) {
+      $user = User::find($input['add']);
+      $circle->users()->attach($user);
+
+      $selector = "#circle-$id";
+
+      $commands[] = array(
+        'method' => 'html',
+        'selector' => $selector,
+        'html' => utf8_encode(View::make('circles.item')->with(array(
+          'd' => $circle,
+        ))),
+      );
+    }
+
+    // Handle delete request
+    if(isset($input['del'])) {
+      $user = User::find($input['del']);
+      $circle->users()->detach($user);
+
+      $commands[] = array(
+        'method' => 'remove',
+        'selector' => "#circle-$id #user-" . $user->id,
+      );
+
+    }
+
+    return Response::json($commands);
   }
 
   /**

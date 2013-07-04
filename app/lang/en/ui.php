@@ -69,7 +69,9 @@ return array(
   ),
   'circles' => array(
     'title_index' => 'My friends',
-    'title_friends' => 'Friends of :name'
+    'title_friends' => 'Friends of :name',
+    'own' => 'Own circles',
+    'subscribed' => 'Subscribed circles',
   ),
   'posted' => "Posted by",
   'you' => 'You',

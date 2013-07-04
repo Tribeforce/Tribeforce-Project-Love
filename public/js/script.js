@@ -62,6 +62,51 @@ $(document).ready(function() {
   }
 
 
+/*** DND ***/
+  var drag_conf = {
+    revert: 'invalid',
+    helper: 'clone'
+  };
+
+  var drop_conf = {
+    accept: function(draggable) {
+      var id = draggable.attr('id');
+      if($(this).find('[id=' + id + ']').length > 0) {
+        return false; // If the user already exists in the circle
+      } else if(id.substring(0,5) === 'user-') {
+        return true;  // If the id of the draggable starts with 'user-'
+      } else {
+        return false; // All other cases should not be accepted
+      }
+    },
+    activeClass: "dragging",
+    hoverClass: "hovering",
+    drop: function(event, ui) {
+      var circleId = $(this).attr('id').substring(7);
+      var url = '/circles/' + circleId;
+      var userId = ui.draggable.attr('id').substring(5);
+
+//      $cloned = ui.draggable.clone();
+//      $cloned.draggable(drag_conf);
+//      $(this).find('ul').append($cloned);
+
+      $.ajax(url, {
+        data: { add: userId },
+        type: 'PUT'
+      });
+    }
+  };
+
+  $('#circles-index [id^=user-]').draggable(drag_conf);
+  $('#circles-own [id^=circle-]').droppable(drop_conf);
+
+
+
+
+
+
+
+
   $.ajaxSetup({
     dataType: 'json',
     statusCode: {  // TODO: Show disappearing message for errors
@@ -93,6 +138,13 @@ $(document).ready(function() {
               $(this).replaceWith($h).hide().fadeIn();
             });
             break;
+          case 'html':
+            $h = data[i].html;
+            $(selector).fadeOut(function(){
+              $(this).html($h).hide().fadeIn();
+            });
+            console.log('dddd');
+            break;
           case 'after':
             $(selector).after(data[i].html);
             $(selector + ' div.ajax').slideDown();
@@ -121,7 +173,6 @@ $(document).ready(function() {
             $(selector).find('input:not([type=submit])').val('');
             break;
           case 'focus':
-          console.log('foxus');
             $(selector).focus();
             break;
         }
@@ -132,7 +183,8 @@ $(document).ready(function() {
   // Make sure all AJAX links are handled using AJAX
   $('body').delegate('a.ajax', 'click', function(event) {
     event.preventDefault();
-    url = $(this).attr('href');
+    var url = $(this).attr('href');
+    var method = $(this).data('method') || 'GET';
     // A cancel has to remove what has been added by AJAX
     if($(this).hasClass('cancel')) {
       $(this).parents('.ajax').next().softShow();  // If method was before
@@ -140,7 +192,8 @@ $(document).ready(function() {
       $(this).parents('.ajax').softRemove();
       $(this).parents('li').find('.actions').softShow();
     } else { // Normal case
-      $.ajax(url);
+      console.log(method);
+      $.ajax(url, {type: method});
     }
   });
 
@@ -170,17 +223,11 @@ $(document).ready(function() {
       $.post(url, data);
     });
 
-  //
-  $('[class*=icon-]').click(function(){
-//    $(this).next('input[type=submit]').click();
-  });
-
   // Simulate submit buttons and make sure the buttons added through AJAX
   // also have the simulate functionality
   $('body').delegate('[class*=icon-]', 'click', function(event){
     $(this).next('input[type=submit]').click();
   });
-
 
 
 

@@ -134,50 +134,73 @@ class UserSeeder extends Seeder {
 
     // Create circles for users
     $this->command->info('Creating circles for users...');
+    // FEMI
     $circle1_f = Circle::create(array(
       'name' => 'Family',
-      'user_id' => $femi->id,
+      'owner_id' => $femi->id,
+      'owner_type' => 'User',
     ));
 
     $circle2_f = Circle::create(array(
       'name' => 'Good friends',
-      'user_id' => $femi->id,
+      'owner_id' => $femi->id,
+      'owner_type' => 'User',
     ));
 
     $circle3_f = Circle::create(array(
       'name' => 'Best friends',
-      'user_id' => $femi->id,
+      'owner_id' => $femi->id,
+      'owner_type' => 'User',
     ));
 
+    // STIJN
     $circle1_s = Circle::create(array(
       'name' => 'Family',
-      'user_id' => $stijn->id,
+      'owner_id' => $stijn->id,
+      'owner_type' => 'User',
     ));
 
     $circle2_s = Circle::create(array(
       'name' => 'Good friends',
-      'user_id' => $stijn->id,
+      'owner_id' => $stijn->id,
+      'owner_type' => 'User',
     ));
 
     $circle3_s = Circle::create(array(
       'name' => 'Intimate friends',
-      'user_id' => $stijn->id,
+      'owner_id' => $stijn->id,
+      'owner_type' => 'User',
     ));
 
+    // BRUNO
     $circle1_b = Circle::create(array(
       'name' => 'Family',
-      'user_id' => $bruno->id,
+      'owner_id' => $bruno->id,
+      'owner_type' => 'User',
     ));
 
     $circle2_b = Circle::create(array(
       'name' => 'Good friends',
-      'user_id' => $bruno->id,
+      'owner_id' => $bruno->id,
+      'owner_type' => 'User',
     ));
 
     $circle3_b = Circle::create(array(
       'name' => 'Best friends',
-      'user_id' => $bruno->id,
+      'owner_id' => $bruno->id,
+      'owner_type' => 'User',
     ));
+
+
+    // Subscribe users to circles
+    $this->command->info('Subscribing users to circles...');
+    $femi->subscribedCircles()->attach($circle1_s->id);
+    $femi->subscribedCircles()->attach($circle1_f->id);
+    $stijn->subscribedCircles()->attach($circle1_b->id);
+    $stijn->subscribedCircles()->attach($circle1_s->id);
+    $bruno->subscribedCircles()->attach($circle1_f->id);
+    $bruno->subscribedCircles()->attach($circle1_b->id);
+
 
     // Add users to circles
     $this->command->info('Adding users to circles...');
@@ -494,165 +517,165 @@ class UserSeeder extends Seeder {
       'obj_id' => $goal_1_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_2_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle2_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_3_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_4_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $bruno->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_4_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_1_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_2_2_f->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle2_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     // STIJN
     Right::create(array(
       'obj_id' => $goal_1_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_2_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle2_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_3_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_4_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $bruno->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_4_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_1_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_2_2_s->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle2_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     // BRUNO
     Right::create(array(
       'obj_id' => $goal_1_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_2_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle2_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_3_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_4_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_4_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_1_1_1_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle1_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $goal_2_2_b->id,
       'obj_type' => 'Goal',
       'permission_id' => $circle2_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
 
     // Set permissions on feedbackables
@@ -662,129 +685,129 @@ class UserSeeder extends Seeder {
       'obj_id' => $fb_1_f->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_f->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_1_f->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_2_f->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_2_2_f->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_3_f->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_3_f->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $bruno->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     // STIJN
     Right::create(array(
       'obj_id' => $fb_1_s->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_s->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_1_s->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_2_s->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_2_2_s->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_3_s->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_3_s->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $bruno->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     // BRUNO
     Right::create(array(
       'obj_id' => $fb_1_b->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_b->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_1_1_1_b->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $circle1_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $fb_2_b->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_2_2_b->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_3_b->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $fb_3_b->id,
       'obj_type' => 'Feedbackable',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
 
     // Set permissions on endorsements
@@ -794,93 +817,93 @@ class UserSeeder extends Seeder {
       'obj_id' => $en_1_f->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $circle2_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $en_2_f->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $circle3_f->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $en_3_f->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $bruno->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $en_4_f->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $en_4_f->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $user4->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     // STIJN
     Right::create(array(
       'obj_id' => $en_1_s->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $circle2_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $en_2_s->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $circle3_s->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $en_3_s->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $bruno->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $en_4_s->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $en_4_s->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $user8->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     // BRUNO
     Right::create(array(
       'obj_id' => $en_1_b->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $circle2_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $en_2_b->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $circle3_b->id,
-      'permission_type' => 'circle',
+      'permission_type' => 'Circle',
     ));
     Right::create(array(
       'obj_id' => $en_3_b->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $stijn->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $en_4_b->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $femi->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
     Right::create(array(
       'obj_id' => $en_4_b->id,
       'obj_type' => 'Endorsement',
       'permission_id' => $user6->id,
-      'permission_type' => 'user',
+      'permission_type' => 'User',
     ));
 
     // Set feedback on goals

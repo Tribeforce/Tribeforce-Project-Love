@@ -82,6 +82,16 @@ function randomString() {
   return $randstring;
 }
 
+function ajaxLink($url, $title = null, $method = 'GET', $classes = null,
+                                                        $parameters = array()) {
+  $url .= '?' . http_build_query($parameters);
+
+  return link_to($url, $title, array(
+    'data-method' => $method,
+    'class' => "ajax $classes",
+  ));
+}
+
 
 
 /**

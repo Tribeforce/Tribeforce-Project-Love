@@ -225,11 +225,19 @@ class User extends SentryUserModel {
     }
 
   /**
+   * Set the relation with the circleOwners
+   * @return The relationship
+   */
+    public function subscribedCircles() {
+      return $this->belongsToMany('Circle', 'circle_subscriber');
+    }
+
+  /**
    * Set the relation with the circles
    * @return The relationship
    */
     public function ownCircles() {
-      return $this->hasMany('Circle');
+      return $this->morphMany('Circle', 'owner');
     }
 
   /**
@@ -273,7 +281,7 @@ class User extends SentryUserModel {
   /**
    * Handle a file upload
    *
-   * @param string $name  The name of the file. Can be avatar, cv, motivation, ...
+   * @param string $name The name of the file. Can be avatar, cv, motivation, ..
    *                      The name should correspond with a field on the object
    * @param object $object
    * @return boolean
@@ -291,7 +299,8 @@ class User extends SentryUserModel {
       // Copy over the file
       if($file->move($dest_dir, $filename)) {
   //        Messages::status('ui.upload_succes');
-        // Set the field on the object TODO: Only the extension is strictly needed
+        // Set the field on the object
+        // TODO: Only the extension is strictly needed
         $this->$name = $filename;
         $this->save();
       }

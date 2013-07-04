@@ -22,6 +22,8 @@
     {{HTML::style('https://fonts.googleapis.com/css?family=Titillium+Web:400,200,700')}}
     {{HTML::style('/css/app.css')}}
 
+
+
     <link rel="apple-touch-icon" HREF="/images/apple-touch-icon.png">
 
     {{HTML::script('/js/vendor/custom.modernizr.js')}}
@@ -89,5 +91,11 @@
         console.log(response.errors);
       });
     </script>
+
+    {{HTML::script('/jquery-ui/ui/jquery.ui.core.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.widget.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.mouse.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.draggable.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.droppable.js')}}
   </body>
 </html>
