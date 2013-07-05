@@ -9,6 +9,7 @@ This template expects following variables:
 */
 
 if(!isset($type)) $type = 'endorsement';
+$own_page = (isset($p['own_page']) and $p['own_page']);
 
 ?>
 <div class="columns small-12 large-6">
@@ -28,6 +29,20 @@ if(!isset($type)) $type = 'endorsement';
   </div>
 
   @include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => ucfirst($type), 'i_agree' => $d->iAgree()))
+
+  @if($own_page)
+    <div class="controls">
+      <div class="columns small-3">
+        {{ link_to_route('rights.index', ' ',
+           array('obj_id' => $d->id, 'obj_type' => ucfirst($type)),
+           array(
+             'class' => 'ajax icon-users',
+             'title' => trans('ui.rights.title_widget'),
+           )
+         ) }}
+      </div>
+    </div>
+  @endif
 
 </div>
 <div class="columns small-12 large-6">

@@ -73,6 +73,11 @@ return array(
     'own' => 'Own circles',
     'subscribed' => 'Subscribed circles',
   ),
+  'rights' => array(
+    'title_widget' => 'Rights',
+     'user' => 'Friends',
+     'circle' => 'Circles',
+  ),
   'posted' => "Posted by",
   'you' => 'You',
   'about' => 'About me',

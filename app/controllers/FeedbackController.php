@@ -4,7 +4,7 @@ class FeedbackController extends \BaseController {
 
   public function __construct() {
     $this->beforeFilter('auth');
-//    $this->beforeFilter('csrf', array('on' => array('post', 'put')));
+    $this->beforeFilter('csrf', array('on' => array('post', 'put', 'delete')));
   }
 
 

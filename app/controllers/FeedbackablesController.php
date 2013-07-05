@@ -235,9 +235,81 @@ class FeedbackablesController extends \BaseController {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
-  {
-    //
+  public function update($id) {
+    $cu = User::current();
+    $input = Input::all();
+    $c = $input['obj_type'];
+    $feedbackable = $c::find($id);
+
+    // Fix the fact that if no permissions are checked, the array is empty
+    if(empty($input['permissions'])) {
+      $input['permissions'] = array();
+    }
+
+    if(Request::ajax()) {
+      switch($input['action']) {
+        case 'rights';
+          $friends = $cu->friends;
+          $circles = $cu->subscribedCircles;
+
+          // Normalize the input array
+          // TODO: merge arrays or collections to have 1 loop
+          foreach($friends as $perm) {
+            $normalizedInput[get_class($perm) . '-' . $perm->id] = false;
+          }
+          foreach($circles as $perm) {
+            $normalizedInput[get_class($perm) . '-' . $perm->id] = false;
+          }
+          $normalizedInput=array_merge($normalizedInput, $input['permissions']);
+
+          foreach($normalizedInput as $key => $item) {
+            list($permission_type, $permission_id) = explode('-', $key);
+
+            // Find if a Right exists yet
+            $rights = Right::where('obj_id', '=', $id)
+                          ->where('obj_type', '=', $input['obj_type'])
+                          ->where('permission_id', '=', $permission_id)
+                          ->where('permission_type', '=', $permission_type)
+                          ->get();
+
+            if($item)  { // The right needs to exist
+              // If it doesn't exist, create it
+              if(count($rights) === 0) {
+                $right = Right::create(array(
+                  'permission_id'   => $permission_id,
+                  'permission_type' => $permission_type,
+                  ));
+                $feedbackable->permissions()->save($right);
+              }
+            } else {  // The Right should not exist
+              // If at least 1 exists, delete all of them
+                if(count($rights) > 0) {
+                  foreach($rights as $right) {
+                    $right->delete();
+                  }
+                }
+            }
+          }
+          break;
+      }
+
+      // Remove the overlay injected by AJAX
+      $commands[] = array(
+        'method' => 'removeOverlay',
+        'selector' => "body > div.ajax",
+      );
+
+      // Remove the form injected by AJAX
+      $commands[] = array(
+        'method' => 'remove',
+        'selector' => "body > div.ajax",
+      );
+
+      return $commands;
+
+    } else {
+      // TODO what if no AJAX call?
+    }
   }
 
   /**

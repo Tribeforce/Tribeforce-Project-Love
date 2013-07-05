@@ -3085,9 +3085,9 @@ abstract class ServiceProvider
         }
         return $namespace;
     }
-    public function commands()
+    public function commands($commands)
     {
-        $commands = func_get_args();
+        $commands = is_array($commands) ? $commands : func_get_args();
         $events = $this->app['events'];
         $events->listen('artisan.start', function ($artisan) use($commands) {
             $artisan->resolveCommands($commands);

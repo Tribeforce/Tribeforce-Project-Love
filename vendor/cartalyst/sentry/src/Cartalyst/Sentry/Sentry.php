@@ -237,7 +237,7 @@ class Sentry {
 	}
 
 	/**
-	 * Check to see if the user is logged in and activated.
+	 * Check to see if the user is logged in and activated, and hasn't been banned or suspended.
 	 *
 	 * @return bool
 	 */
@@ -287,6 +287,16 @@ class Sentry {
 		if ( ! $user = $this->getUser() or ! $user->isActivated())
 		{
 			return false;
+		}
+		// If throttling is enabled we check it's status
+		if( $this->getThrottleProvider()->isEnabled())
+		{
+			// Check the throttle status
+			$throttle = $this->getThrottleProvider()->findByUserId( $user->getId() );
+			if( $throttle->isBanned() or $throttle->isSuspended())
+			{
+				return false;
+			}
 		}
 
 		return true;

@@ -18,6 +18,7 @@ Route::resource('goals', 'GoalsController');
 Route::resource('endorsements', 'EndorsementsController');
 Route::resource('agree', 'AgreeController');
 Route::resource('circles', 'CirclesController');
+Route::resource('rights', 'RightsController');
 
 Route::controller('friends/{id}', 'FriendsController');
 Route::controller('tribe', 'TribeController');

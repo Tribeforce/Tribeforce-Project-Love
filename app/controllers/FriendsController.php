@@ -26,20 +26,12 @@ class FriendsController extends BaseController {
   }
 
   public function getFriends($id) {
-    $thisUser = User::find($id);
-    $circles = $thisUser->ownCircles;
-
-   $friends = array();
-
-    foreach($circles as $circle) {
-      foreach($circle->users as $user) {
-        $friends[$user->id] = $user;
-      }
-    }
+    $user = User::find($id);
+    $friends = $user->getFriends();
 
     return View::make('circles.friends')->with(array(
       'title' => trans('ui.circles.title_friends',
-                                         array('name' => $thisUser->full_name)),
+                                         array('name' => $user->full_name)),
       'd' => $friends,
     ));
   }

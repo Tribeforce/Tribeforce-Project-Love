@@ -128,14 +128,15 @@ Route::filter('own', function($route, $request, $value) {
     case 'circles':
       // TODO: Improve performance by working directly on SQL
       $user_id = $route->getParameter('id');
-      $current_id = User::current()->id;
+      $cu = User::current();
 
       // Off course the current user always has access to his own data
-      if($current_id != $user_id) {
+      if($cu->id != $user_id) {
         // For every circle of the current user, we check if that circle has the
         // given $user_id. If it has, we set the $found to true and stop looking
         $found = false;
-        foreach(Circle::where('user_id', '=', $current_id)->get() as $circle) {
+
+        foreach($cu->subscribedCircles as $circle) {
           if($circle->hasUser($user_id)) {
             $found = true;
             break;

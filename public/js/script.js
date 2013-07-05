@@ -85,13 +85,10 @@ $(document).ready(function() {
       var circleId = $(this).attr('id').substring(7);
       var url = '/circles/' + circleId;
       var userId = ui.draggable.attr('id').substring(5);
-
-//      $cloned = ui.draggable.clone();
-//      $cloned.draggable(drag_conf);
-//      $(this).find('ul').append($cloned);
+      var csrf_token = $('#circles-index > [name=_token]').val();
 
       $.ajax(url, {
-        data: { add: userId },
+        data: { add: userId, _token: csrf_token },
         type: 'PUT'
       });
     }
@@ -143,7 +140,6 @@ $(document).ready(function() {
             $(selector).fadeOut(function(){
               $(this).html($h).hide().fadeIn();
             });
-            console.log('dddd');
             break;
           case 'after':
             $(selector).after(data[i].html);
@@ -175,6 +171,14 @@ $(document).ready(function() {
           case 'focus':
             $(selector).focus();
             break;
+          case 'overlay':
+            $h = data[i].html;
+            $('body').append($h).children().last().show().find('.reveal-modal')
+                                                  .foundation('reveal', 'open');
+            break;
+          case 'removeOverlay':
+            $(selector).find('.reveal-modal').foundation('reveal', 'close');
+            break;
         }
       }
     }
@@ -192,7 +196,6 @@ $(document).ready(function() {
       $(this).parents('.ajax').softRemove();
       $(this).parents('li').find('.actions').softShow();
     } else { // Normal case
-      console.log(method);
       $.ajax(url, {type: method});
     }
   });
@@ -230,8 +233,27 @@ $(document).ready(function() {
   });
 
 
+  // Handle key presses for filter fields added through AJAX
+  $('body').delegate('input[name=filter]', 'keyup', function(event){
+    var searchText = $(this).val().toLowerCase();
+
+    // Search in the content of the objects
+    $('[id^=user-], [id^=circle-]').each(function(f, d, g) {
+      text = $(this).text().trim().toLowerCase();
+      if(text.indexOf(searchText) === -1) {  // -1 is not found
+        $(this).softHide();
+      } else {
+        $(this).softShow();
+      }
+  console.log(searchText);
+    });
+  });
 
 
+
+/////// FILTER
+$('input[name=filter]').keypress(function(event) {
+});
 
 
 

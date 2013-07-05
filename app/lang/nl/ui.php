@@ -94,6 +94,11 @@ return array(
     'title_index' => 'Mijn vrienden',
     'title_friends' => 'Vrienden van :name'
   ),
+  'rights' => array(
+    'title_widget' => 'Rechten',
+     'user' => 'Vrienden',
+     'circle' => 'Vriendenkringen',
+  ),
   'posted' => "Gepost door",
   'you' => 'Jijzelf',
 );

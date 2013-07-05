@@ -526,10 +526,10 @@ PAGES
     width: $icon_size;
   }
   .avatar,
-  .full_name {
+  .name {
     display: inline-block;
   }
-  .full_name {
+  .name {
     padding-right: $gutter/2;
     white-space: nowrap;
   }

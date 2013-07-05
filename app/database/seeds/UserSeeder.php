@@ -196,6 +196,7 @@ class UserSeeder extends Seeder {
     $this->command->info('Subscribing users to circles...');
     $femi->subscribedCircles()->attach($circle1_s->id);
     $femi->subscribedCircles()->attach($circle1_f->id);
+    $femi->subscribedCircles()->attach($circle2_f->id);
     $stijn->subscribedCircles()->attach($circle1_b->id);
     $stijn->subscribedCircles()->attach($circle1_s->id);
     $bruno->subscribedCircles()->attach($circle1_f->id);

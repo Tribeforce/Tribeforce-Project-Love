@@ -23,7 +23,7 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
 
   @if($parent or $own_page or $child)
     <div class="controls">
-      <div class="columns small-4">
+      <div class="columns small-3">
         @if(isset($parent))
           <div class="parent left">
             {{ link_to_route($type . 's.show', ' ', $parent->id,
@@ -35,7 +35,7 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
           </div>
         @endif
       </div>
-      <div class="columns small-4">
+      <div class="columns small-3">
         @if($own_page)
           {{ link_to_route($type . 's.create', ' ',
              array('original' => $d->id, 'own_page' => $p['own_page'], 'user_id' => $user_id),
@@ -46,7 +46,18 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
            ) }}
         @endif
       </div>
-      <div class="columns small-4">
+      <div class="columns small-3">
+        @if($own_page)
+          {{ link_to_route('rights.index', ' ',
+             array('obj_id' => $d->id, 'obj_type' => ucfirst($type)),
+             array(
+               'class' => 'ajax icon-users',
+               'title' => trans('ui.rights.title_widget'),
+             )
+           ) }}
+        @endif
+      </div>
+      <div class="columns small-3">
         @if(isset($child))
           <div class="child right">
             {{ link_to_route($type . 's.show', ' ', $child->id,

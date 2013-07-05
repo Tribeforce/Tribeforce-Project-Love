@@ -82,7 +82,7 @@
     @endif
     {{HTML::script('/js/script.js')}}
     <script>
-      $(document).foundation('alerts topbar section tooltips dropdown',
+      $(document).foundation('alerts topbar section tooltips dropdown reveal',
                              { deep_linking: true,
                                one_up: false,
                                callback: accordeonSlide,

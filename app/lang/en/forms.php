@@ -31,6 +31,7 @@ return array(
   'endorsementname'       => 'Enter your endorsement here...',
   'feedback'              => 'Enter your feedback here...',
   'ready'                 => 'Ready',
+  'filter'                => 'Filter results...',
   'dont-agree'            => "Don't agree anymore",
   'fb_connect'            => 'Connect with Facebook',
   'fb_login'              => 'Login with Facebook',

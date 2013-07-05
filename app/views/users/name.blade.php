@@ -14,7 +14,7 @@ This template expects following variables:
       @include('field', array('name' => 'avatar'))
     @endif
     <a href="{{ action('FriendsController@getIndex', $d->id) }}" class="user-{{$d->id}}">
-      @include('field', array('name' => 'full_name'))
+      @include('field', array('name' => 'name'))
     </a>
   </div>
 @endif

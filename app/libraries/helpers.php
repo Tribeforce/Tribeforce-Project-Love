@@ -84,6 +84,9 @@ function randomString() {
 
 function ajaxLink($url, $title = null, $method = 'GET', $classes = null,
                                                         $parameters = array()) {
+//  if($method === 'PUT' or $method === 'POST') {
+    $parameters['_token'] = csrf_token();
+//  }
   $url .= '?' . http_build_query($parameters);
 
   return link_to($url, $title, array(

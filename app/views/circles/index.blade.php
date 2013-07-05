@@ -14,6 +14,7 @@ This template expects following variables:
 
 @section('main')
 <div id="circles-index">
+  @include('form.field', array('type' => 'text', 'name' => 'filter', 'sl' => false))
   <ul>
     @foreach($d as $type => $circles)
       <li id="circles-{{$type}}">

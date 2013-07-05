@@ -59,6 +59,25 @@ class User extends SentryUserModel {
   }
 
   /**
+   * Returns an array of all friends in all circles of the current user.
+   *
+   * @return array
+   */
+  public function getFriendsAttribute() {
+    $circles = $this->subscribedCircles;
+
+    $friends = array();
+
+    foreach($circles as $circle) {
+      foreach($circle->users as $user) {
+        $friends[$user->id] = $user;
+      }
+    }
+
+    return $friends;
+  }
+
+  /**
    * Returns the current User object.
    *
    * @return User
@@ -77,6 +96,14 @@ class User extends SentryUserModel {
     return $this->first_name . " ". strtoupper($this->last_name);
   }
 
+  /**
+   * Returns the first name concatenated with the last name.
+   *
+   * @return string
+   */
+  public function getNameAttribute() {
+    return $this->getFullNameAttribute();
+  }
 
 
 

@@ -7236,11 +7236,11 @@ PAGES
 }
 /* line 529, ../../app/theme/sass/app.scss */
 .name-element .avatar,
-.name-element .full_name {
+.name-element .name {
   display: inline-block;
 }
 /* line 532, ../../app/theme/sass/app.scss */
-.name-element .full_name {
+.name-element .name {
   padding-right: 0.3125em;
   white-space: nowrap;
 }

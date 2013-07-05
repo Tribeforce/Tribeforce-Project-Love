@@ -1,6 +1,10 @@
 <?php
 
 class Right extends Eloquent {
+
+  protected $fillable = array('permission_id', 'permission_type');
+
+
   /**
    * Check if an object has the right to be viewed by a "permission object"
    *                                                              (user, circle)
