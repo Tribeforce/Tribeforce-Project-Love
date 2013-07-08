@@ -30,9 +30,29 @@ class CirclesController extends \BaseController {
    *
    * @return Response
    */
-  public function create()
-  {
-    //
+  public function create() {
+    if(Request::ajax()) {
+      $selector = '#circles-own #create';
+
+      $commands[] = array(
+        'method' => 'hide',
+        'selector' => "$selector > .actions",
+      );
+
+      $commands[] = array(
+        'method' => 'append',
+        'selector' => $selector,
+        'html' => html4ajax(View::make('circles.create')),
+      );
+
+      $commands[] = array(
+        'method' => 'focus',
+        'selector' => "$selector [name=circlename]",
+      );
+
+      return Response::json($commands);
+    }
+
   }
 
   /**
@@ -40,9 +60,59 @@ class CirclesController extends \BaseController {
    *
    * @return Response
    */
-  public function store()
-  {
-    //
+  public function store() {
+    $input = Input::all();
+
+    if(Request::ajax()) {
+      if(!empty($input['name'])) {
+        // TODO: Add validation
+        $cu = User::current();
+        $circle = new Circle(array('name' => $input['name']));
+        $cu->ownCircles()->save($circle);
+        $commands = Messages::show('status', 'ui.circles.success');
+      } else {
+        $commands = Messages::show('warning', 'ui.circles.empty');
+      }
+
+
+      // THE AJAX COMMANDS
+      if(isset($circle)) {
+        // Prepare the HTML to be inserted
+        $html = '<li id="circle-' . $circle->id . '">'
+              . View::make('circles.item')->with(array(
+                  'd' => $circle,
+                ))
+              . '</li>';
+      } else {
+        $html = '';
+      }
+
+      // The selector for the parent object
+      $selector = '#circles-own #create';
+
+      // Show the button again
+      $commands[] = array(
+        'method' => 'show',
+        'selector' => "$selector .actions",
+      );
+
+      // Remove the form injected by AJAX
+      $commands[] = array(
+        'method' => 'remove',
+        'selector' => "$selector div.ajax",
+      );
+
+      // Insert the HTML
+      $commands[] = array(
+        'method' => 'after',
+        'selector' => $selector,
+        'html' => utf8_encode($html),
+      );
+      return $commands;
+
+    } else {
+      // TODO: Code for non AJAX call
+    }
   }
 
   /**

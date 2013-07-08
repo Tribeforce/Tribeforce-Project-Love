@@ -93,6 +93,10 @@ return array(
   'circles' => array(
     'title_index' => 'Mijn vrienden',
     'title_friends' => 'Vrienden van :name'
+    'own' => 'Eigen vriendenkringen',
+    'subscribed' => 'Ingeschreven vriendenkringen',
+    'create' => 'Maak een nieuwe vriendenkringen aan',
+    'empty' => 'De naam van jouw vriendenkring zou niet leeg mogen zijn',
   ),
   'rights' => array(
     'title_widget' => 'Rechten',

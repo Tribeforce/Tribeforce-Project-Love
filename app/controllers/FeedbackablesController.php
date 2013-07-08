@@ -96,9 +96,6 @@ class FeedbackablesController extends \BaseController {
 
       return Response::json($commands);
     }
-
-
-
   }
 
   /**

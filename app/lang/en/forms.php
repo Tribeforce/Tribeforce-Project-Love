@@ -32,6 +32,7 @@ return array(
   'feedback'              => 'Enter your feedback here...',
   'ready'                 => 'Ready',
   'filter'                => 'Filter results...',
+  'name'                  => 'Name',
   'dont-agree'            => "Don't agree anymore",
   'fb_connect'            => 'Connect with Facebook',
   'fb_login'              => 'Login with Facebook',

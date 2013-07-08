@@ -39,6 +39,7 @@ return array(
   'dont-agree'            => "Niet meer akkoord",
   'add'                   => 'Voeg toe',
   'filter'                => 'Filter',
+  'name'                  => 'Naam...',
   'search'                => 'Zoek',
   'fb_connect'            => 'Verbind met Facebook',
   'fb_login'              => 'Login met Facebook',

@@ -72,6 +72,9 @@ return array(
     'title_friends' => 'Friends of :name',
     'own' => 'Own circles',
     'subscribed' => 'Subscribed circles',
+    'create' => 'Create a new circle',
+    'empty' => 'Your circle name should not be empty',
+    'success' => 'Your new circle has been created',
   ),
   'rights' => array(
     'title_widget' => 'Rights',
