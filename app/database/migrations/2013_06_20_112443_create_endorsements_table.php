@@ -16,7 +16,7 @@ class CreateEndorsementsTable extends Migration {
       $table->string('name');
       $table->integer('user_id')->unsigned();
       $table->integer('child_id')->unsigned();
-      $table->integer('created_by')->unsigned();
+      $table->integer('created_for')->unsigned();
       $table->timestamps();
       $table->softDeletes();
     });

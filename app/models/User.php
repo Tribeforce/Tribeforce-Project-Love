@@ -235,13 +235,6 @@ class User extends SentryUserModel {
       return $this->hasMany('Goal');
     }
 
-  /**
-   * Set the relation with the endorsements
-   * @return The relationship
-   */
-    public function endorsements() {
-      return $this->hasMany('Endorsement');
-    }
 
   /**
    * Set the relation with the feedbackables
@@ -276,7 +269,7 @@ class User extends SentryUserModel {
     }
 
   /**
-   * Set the relation with the endorsements received by others
+   * Set the relation with the agrees received by others
    * @return The relationship
    */
     public function agrees() {
@@ -288,7 +281,7 @@ class User extends SentryUserModel {
    * @return The relationship
    */
     public function receivedEndorsements() {
-      return $this->hasMany('Endorsement');
+      return $this->hasMany('Endorsement', 'created_for');
     }
 
   /**
@@ -296,7 +289,7 @@ class User extends SentryUserModel {
    * @return The relationship
    */
     public function providedEndorsements() {
-      return $this->hasMany('Endorsement', 'created_by');
+      return $this->hasMany('Endorsement');
     }
 
 

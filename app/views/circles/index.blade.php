@@ -21,12 +21,14 @@ This template expects following variables:
       <li id="circles-{{$type}}" class="columns small-12 large-6">
         <h2>@lang('ui.circles.'.$type)</h2>
         <ul>
-          <li id="create">
-            <div class="actions">
-              {{link_to_route('circles.create',trans('ui.circles.create'),
-                 array(), array('class' => 'ajax button expand')) }}
-            </div>
-          </li>
+          @if($type === 'own')
+            <li id="create">
+              <div class="actions">
+                {{link_to_route('circles.create',trans('ui.circles.create'),
+                   array(), array('class' => 'ajax button expand')) }}
+              </div>
+            </li>
+          @endif
           @foreach($circles as $circle)
             <li id="circle-{{$circle->id}}">
               @include('circles.item', array('d' => $circle))

@@ -97,6 +97,8 @@ return array(
     'subscribed' => 'Ingeschreven vriendenkringen',
     'create' => 'Maak een nieuwe vriendenkringen aan',
     'empty' => 'De naam van jouw vriendenkring zou niet leeg mogen zijn',
+    'success' => 'Je nieuwe vriendenkring is aangemaakt
+    ',
   ),
   'rights' => array(
     'title_widget' => 'Rechten',

@@ -126,6 +126,41 @@ class UserSeeder extends Seeder {
       'activated' => true,
     ));
 
+    // Handle the avatars
+    $this->command->info('Handling the avatars...');
+    $users = array(
+      $femi,
+      $stijn,
+      $bruno,
+      $user1,
+      $user2,
+      $user3,
+      $user4,
+      $user5,
+      $user6,
+      $user7,
+      $user8,
+      $user9,
+    );
+
+    $avatar_dir = storage_path() . '/files/avatar';
+
+    $avatars = scandir($avatar_dir);
+    // We only need the 12 first users and we omit the . and .. folders
+    $avatars = array_slice($avatars, 2, 12);
+
+    for($i = 0; $i < count($avatars); $i++) {
+      // Rename the files
+      $full_oldname = "$avatar_dir/" . $avatars[$i];
+      $newname = "avatar." . $users[$i]->id . ".jpeg";
+      $full_newname = "$avatar_dir/$newname";
+      rename($full_oldname, $full_newname);
+
+      // Store the new filename in the db
+      $users[$i]->avatar = $newname;
+      $users[$i]->save();
+    }
+
 
     // Add femi to the admin group
     $this->command->info('Adding Femi to the admin group...');
@@ -197,10 +232,15 @@ class UserSeeder extends Seeder {
     $femi->subscribedCircles()->attach($circle1_s->id);
     $femi->subscribedCircles()->attach($circle1_f->id);
     $femi->subscribedCircles()->attach($circle2_f->id);
+    $femi->subscribedCircles()->attach($circle3_f->id);
     $stijn->subscribedCircles()->attach($circle1_b->id);
     $stijn->subscribedCircles()->attach($circle1_s->id);
+    $stijn->subscribedCircles()->attach($circle2_s->id);
+    $stijn->subscribedCircles()->attach($circle3_s->id);
     $bruno->subscribedCircles()->attach($circle1_f->id);
     $bruno->subscribedCircles()->attach($circle1_b->id);
+    $bruno->subscribedCircles()->attach($circle2_b->id);
+    $bruno->subscribedCircles()->attach($circle3_b->id);
 
 
     // Add users to circles
@@ -449,65 +489,65 @@ class UserSeeder extends Seeder {
     // FEMI
     $en_1_f = Endorsement::create(array(
       'name' => 'Endorsement 1',
-      'user_id' => $femi->id,
-      'created_by' => $user1->id,
+      'created_for' => $femi->id,
+      'user_id' => $user1->id,
     ));
     $en_2_f = Endorsement::create(array(
       'name' => 'Endorsement 2',
-      'user_id' => $femi->id,
-      'created_by' => $stijn->id,
+      'created_for' => $femi->id,
+      'user_id' => $stijn->id,
     ));
     $en_3_f = Endorsement::create(array(
       'name' => 'Endorsement 3',
-      'user_id' => $femi->id,
-      'created_by' => $user5->id,
+      'created_for' => $femi->id,
+      'user_id' => $user5->id,
     ));
     $en_4_f = Endorsement::create(array(
       'name' => 'Endorsement 4',
-      'user_id' => $femi->id,
-      'created_by' => $user3->id,
+      'created_for' => $femi->id,
+      'user_id' => $user3->id,
     ));
     // STIJN
     $en_1_s = Endorsement::create(array(
       'name' => 'Endorsement 1',
-      'user_id' => $stijn->id,
-      'created_by' => $user8->id,
+      'created_for' => $stijn->id,
+      'user_id' => $user8->id,
     ));
     $en_2_s = Endorsement::create(array(
       'name' => 'Endorsement 2',
-      'user_id' => $stijn->id,
-      'created_by' => $bruno->id,
+      'created_for' => $stijn->id,
+      'user_id' => $bruno->id,
     ));
     $en_3_s = Endorsement::create(array(
       'name' => 'Endorsement 3',
-      'user_id' => $stijn->id,
-      'created_by' => $user5->id,
+      'created_for' => $stijn->id,
+      'user_id' => $user5->id,
     ));
     $en_4_s = Endorsement::create(array(
       'name' => 'Endorsement 4',
-      'user_id' => $stijn->id,
-      'created_by' => $user3->id,
+      'created_for' => $stijn->id,
+      'user_id' => $user3->id,
     ));
     // BRUNO
     $en_1_b = Endorsement::create(array(
       'name' => 'Endorsement 1',
-      'user_id' => $bruno->id,
-      'created_by' => $user7->id,
+      'created_for' => $bruno->id,
+      'user_id' => $user7->id,
     ));
     $en_2_b = Endorsement::create(array(
       'name' => 'Endorsement 2',
-      'user_id' => $bruno->id,
-      'created_by' => $stijn->id,
+      'created_for' => $bruno->id,
+      'user_id' => $stijn->id,
     ));
     $en_3_b = Endorsement::create(array(
       'name' => 'Endorsement 3',
-      'user_id' => $bruno->id,
-      'created_by' => $user5->id,
+      'created_for' => $bruno->id,
+      'user_id' => $user5->id,
     ));
     $en_4_b = Endorsement::create(array(
       'name' => 'Endorsement 4',
-      'user_id' => $bruno->id,
-      'created_by' => $user3->id,
+      'created_for' => $bruno->id,
+      'user_id' => $user3->id,
     ));
 
 

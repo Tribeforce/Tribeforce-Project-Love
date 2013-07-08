@@ -179,6 +179,9 @@ $(document).ready(function() {
           case 'removeOverlay':
             $(selector).find('.reveal-modal').foundation('reveal', 'close');
             break;
+          case 'makeDroppable':
+            $(selector).droppable(drop_conf);
+            break;
         }
       }
     }

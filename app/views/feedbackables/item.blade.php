@@ -38,7 +38,7 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
       <div class="columns small-3">
         @if($own_page)
           {{ link_to_route($type . 's.create', ' ',
-             array('original' => $d->id, 'own_page' => $p['own_page'], 'user_id' => $user_id),
+             array('original' => $d->id, 'own_page' => $p['own_page']),
              array(
                'class' => 'ajax icon-plus',
                'title' => trans('ui.' . $type . 's.new'),

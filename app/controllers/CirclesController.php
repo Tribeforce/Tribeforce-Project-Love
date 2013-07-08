@@ -47,7 +47,7 @@ class CirclesController extends \BaseController {
 
       $commands[] = array(
         'method' => 'focus',
-        'selector' => "$selector [name=circlename]",
+        'selector' => "$selector [name=name]",
       );
 
       return Response::json($commands);
@@ -76,16 +76,6 @@ class CirclesController extends \BaseController {
 
 
       // THE AJAX COMMANDS
-      if(isset($circle)) {
-        // Prepare the HTML to be inserted
-        $html = '<li id="circle-' . $circle->id . '">'
-              . View::make('circles.item')->with(array(
-                  'd' => $circle,
-                ))
-              . '</li>';
-      } else {
-        $html = '';
-      }
 
       // The selector for the parent object
       $selector = '#circles-own #create';
@@ -102,12 +92,28 @@ class CirclesController extends \BaseController {
         'selector' => "$selector div.ajax",
       );
 
-      // Insert the HTML
-      $commands[] = array(
-        'method' => 'after',
-        'selector' => $selector,
-        'html' => utf8_encode($html),
-      );
+      if(isset($circle)) {
+        // Prepare the HTML to be inserted
+        $html = '<li id="circle-' . $circle->id . '">'
+              . View::make('circles.item')->with(array(
+                  'd' => $circle,
+                ))
+              . '</li>';
+
+        // Insert the HTML
+        $commands[] = array(
+          'method' => 'after',
+          'selector' => $selector,
+          'html' => utf8_encode($html),
+        );
+
+        // Make the newly entered item droppable
+        $commands[] = array(
+          'method' => 'makeDroppable',
+          'selector' => '#circles-own #circle-' . $circle->id,
+        );
+      }
+
       return $commands;
 
     } else {

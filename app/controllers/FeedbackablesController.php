@@ -32,7 +32,7 @@ class FeedbackablesController extends \BaseController {
       'title' => trans('ui.' . $this->type . 's.title_index'),
       'd' => $d,
       'p' => array('own_page' => true),
-      'user_id' => $cu->id,
+//      'user_id' => $cu->id,
     ));
   }
 
@@ -43,15 +43,23 @@ class FeedbackablesController extends \BaseController {
    */
   public function create() {
     if(Request::ajax()) {
+      $withArray = array(
+        'p' => array('own_page' => $_GET['own_page']),
+      );
+
+      if($this->type === 'endorsement') {
+        $withArray['created_for'] = $_GET['created_for'];
+      }
+      if(isset($_GET['original'])) {
+        $withArray['original'] = $_GET['original'];
+      }
+
+      $html = View::make($this->type . 's.create')->with($withArray);
+
       if(isset($_GET['original'])) {
         $selector = "#" . $this->type . "-".$_GET['original'];
         $timestamp = $_GET['original'];
 
-        $html = View::make($this->type . 's.create')->with(array(
-          'original' => $_GET['original'],
-          'p' => array('own_page' => $_GET['own_page']),
-          'user_id' => $_GET['user_id'],
-        ));
         $html = '<li id="' . $this->type . '-' . $_GET['original']
               . '-new-version">'.$html.'</li>';
         $html = html4ajax($html, $timestamp);
@@ -82,10 +90,7 @@ class FeedbackablesController extends \BaseController {
         $commands[] = array(
           'method' => 'append',
           'selector' => $selector,
-          'html' => html4ajax(View::make($this->type . 's.create')->with(array(
-            'p' => array('own_page' => $_GET['own_page']),
-            'user_id' => $_GET['user_id'],
-          ))),
+          'html' => html4ajax($html),
         );
 
         $commands[] = array(

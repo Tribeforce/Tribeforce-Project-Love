@@ -38,14 +38,19 @@ class FriendsController extends BaseController {
 
 
   private function getObjects($id, $type) {
+    $cu = User::current();
     $c = ucfirst($type);
 
-    $all = $c::where('user_id', '=', $id)
-             ->where('child_id', '=', 0)
-             ->orderBy('created_at', 'desc')
-             ->get();
+    if($type === 'endorsement') {
+      $all = $c::where('created_for', '=', $id);
+    } else {
+      $all = $c::where('user_id', '=', $id);
+    }
 
-    $cu = User::current();
+    $all = $all->where('child_id', '=', 0)
+               ->orderBy('created_at', 'desc')
+               ->get();
+
 
     // For performace:
     // If the current user corresponds to the $id, no filtering has to be done
@@ -58,13 +63,15 @@ class FriendsController extends BaseController {
       });
     }
 
-    return View::make($type . 's.index')->with(array(
+    $withArray = array(
       'title' => trans('ui.' . $type . 's.title_' . $type . 's',
                                    array('name' => User::find($id)->full_name)),
       'd' => $allowed,
       'p' => array('own_page' => $cu->id === $id),
-      'user_id' => $id,
-    ));
+      'created_for' => $id,
+    );
+
+    return View::make($type . 's.index')->with($withArray);
   }
 
 }

@@ -6,7 +6,7 @@ This template expects following variables:
 - Mandatory
   $d: the object holding list of endorsements
   $p: the object describing the permissions
-  $user_id: The ID of the person we are showing endorsements for
+  $created_for: The ID of the person we are showing endorsements for
 - Optional
   $type: The type of feedbackable (small case)
 */
@@ -25,7 +25,7 @@ if(!isset($type)) $type = 'endorsement';
       <li id="create">
         <div class="actions">
           {{link_to_route($type . 's.create',trans('ui.' . $type . 's.create'),
-             array('own_page' => $p['own_page'], 'user_id' => $user_id),
+             array('own_page' => $p['own_page'], 'created_for' => $created_for),
              array('class' => 'ajax button expand')) }}
         </div>
       </li>
