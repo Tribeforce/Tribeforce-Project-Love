@@ -86,7 +86,9 @@
                              { deep_linking: true,
                                one_up: false,
                                callback: accordeonSlide,
-                               small_breakpoint: 520},
+                               small_breakpoint: 520,
+                               close: revealClose
+                             },
                              function(response) {
         console.log(response.errors);
       });

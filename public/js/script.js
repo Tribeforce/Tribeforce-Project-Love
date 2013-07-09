@@ -201,10 +201,9 @@ $(document).ready(function() {
             $('body').append($h);
             $('.ajax').show();             // Unhide the AJAX if needed
             $('.reveal-modal').foundation('reveal', 'open');
-
             break;
           case 'removeOverlay':
-            $(selector).find('.reveal-modal').foundation('reveal', 'close');
+            $('.reveal-modal').foundation('reveal', 'close');
             break;
           case 'makeDroppable':
             $(selector).droppable(drop_conf);
@@ -294,3 +293,9 @@ accordeonSlide = function(options) {
 //  $('.section-container .content').slideUp();
   $('.section-container .active .content').css('display', 'none').slideDown();
 };
+
+revealClose = function() {
+  setTimeout(function() {
+    $('.reveal-modal.remove-on-close').remove();
+  }, 500);
+}

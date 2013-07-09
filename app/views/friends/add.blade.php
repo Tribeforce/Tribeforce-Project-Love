@@ -1,4 +1,4 @@
-<div id="friends-add" class="reveal-modal ui-front">
+<div id="friends-add" class="reveal-modal remove-on-close ui-front">
   <h2>@lang('ui.friends.title_add')</h2>
   <div id="autocomplete">
     @include('form.field', array('type' => 'text', 'name' => 'autocomplete', 'sl' => false))
