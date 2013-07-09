@@ -62,7 +62,8 @@ $(document).ready(function() {
   }
 
 
-/*** DND ***/
+
+/*** CONFIGURATIONS ***/
   var drag_conf = {
     revert: 'invalid',
     helper: 'clone'
@@ -93,6 +94,27 @@ $(document).ready(function() {
       });
     }
   };
+
+  var ac_conf = {
+    minLength: 3,
+    source: '/friends/autocomplete',
+    html: true,
+    select: function( event, ui ) {
+      $('#friends-add #autocomplete').softHide();
+      $('#friends-add form [name=friend]').val(ui.item.id);
+      $('#friends-add form').softShow();
+      $('#friends-add #result .result').html(ui.item.label);
+      $('#friends-add #result').softShow();
+      $('#friends-add .delete').click(function() {
+        $('#friends-add form').softHide();
+        $('#friends-add #result .result').html('');
+        $('#friends-add #autocomplete').softShow();
+        $('#friends-add #autocomplete input').val('').focus();
+      });
+
+    }
+  };
+
 
   $('#circles-index [id^=user-]').draggable(drag_conf);
   $('#circles-own [id^=circle-]').droppable(drop_conf);
@@ -171,16 +193,22 @@ $(document).ready(function() {
           case 'focus':
             $(selector).focus();
             break;
+          case 'click':
+            $(selector).click();
+            break;
           case 'overlay':
             $h = data[i].html;
-            $('body').append($h).children().last().show().find('.reveal-modal')
-                                                  .foundation('reveal', 'open');
+            $('body').append($h)
+                     .find('.reveal-modal').foundation('reveal', 'open');
             break;
           case 'removeOverlay':
             $(selector).find('.reveal-modal').foundation('reveal', 'close');
             break;
           case 'makeDroppable':
             $(selector).droppable(drop_conf);
+            break;
+          case 'makeAutocomplete':
+            $(selector).autocomplete(ac_conf);
             break;
         }
       }
@@ -248,15 +276,12 @@ $(document).ready(function() {
       } else {
         $(this).softShow();
       }
-  console.log(searchText);
     });
   });
 
 
 
-/////// FILTER
-$('input[name=filter]').keypress(function(event) {
-});
+
 
 
 

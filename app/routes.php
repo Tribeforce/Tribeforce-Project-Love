@@ -20,8 +20,13 @@ Route::resource('agree', 'AgreeController');
 Route::resource('circles', 'CirclesController');
 Route::resource('rights', 'RightsController');
 
+Route::get('friends/add', 'FriendsController@getAdd');
+Route::post('friends/add', 'FriendsController@postAdd');
+Route::get('friends/autocomplete', 'FriendsController@getAutocomplete');
+
 Route::controller('friends/{id}', 'FriendsController');
 Route::controller('tribe', 'TribeController');
+
 
 
 Route::controller('/', 'ApplicationController');

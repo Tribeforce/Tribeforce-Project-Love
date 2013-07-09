@@ -3,7 +3,11 @@
 class FriendsController extends BaseController {
   public function __construct() {
     $this->beforeFilter('auth');
-    $this->beforeFilter('own:circles');
+    $this->beforeFilter('own:circles', array('except' => array(
+      'postAdd',
+      'getAdd',
+      'getAutocomplete'
+    )));
     $this->beforeFilter('csrf', array('on' => array('post', 'put')));
   }
 
@@ -34,6 +38,85 @@ class FriendsController extends BaseController {
                                          array('name' => $user->full_name)),
       'd' => $friends,
     ));
+  }
+
+  public function getAdd() {
+    if(Request::ajax()) {
+      $cu = User::current();
+      $circles =  array();
+
+      // TODO: Make more elegant
+      foreach($cu->ownCircles as $circle) {
+        $circles[$circle->id] = $circle->name;
+      }
+
+      $html = View::make('friends.add')->with(array(
+        'title' => trans('ui.friends.title_add'),
+        'circles' => $circles,
+      ));
+
+      $selector = '#friends-add #autocomplete input';
+
+      $commands[] = array(
+        'method' => 'overlay',
+        'html' => utf8_encode($html),
+      );
+
+      $commands[] = array(
+        'method' => 'makeAutocomplete',
+        'selector' => $selector,
+      );
+
+      $commands[] = array(
+        'method' => 'click',
+        'selector' => $selector,
+      );
+
+      return Response::json($commands);
+    } else {
+      // TODO What to do if no AJAX?
+    }
+  }
+
+  public function getAutocomplete() {
+    if(Request::ajax()) {
+      $term = Input::get('term');
+
+      $results = User::where('first_name', 'LIKE', "%$term%")
+                     ->orWhere('last_name', 'LIKE', "%$term%")
+                     ->orWhere('email', 'LIKE', "%$term%")
+                     ->get();
+
+
+      $jsonArray = array();
+      foreach($results as $user) {
+        $html = View::make('users.name')->with(array('d' => $user));
+
+        $jsonArray[] = array(
+          'id' => $user->id,
+          'label' => utf8_encode($html),
+          'value' => $user->full_name,
+        );
+      }
+
+      return Response::json($jsonArray);
+    } else {
+      // TODO What to do if no AJAX?
+    }
+  }
+
+  public function postAdd() {
+    $input = Input::all();
+    $circle = Circle::find($input['circle']);
+
+    // Handle request to add a friend to a circle
+    // TODO validation
+    // TODO check that the circle is of own
+    if(!$circle->hasUser($input['friend'])) {
+      $circle->users()->attach($input['friend']);
+    }
+
+    return Redirect::route('circles.index');
   }
 
 

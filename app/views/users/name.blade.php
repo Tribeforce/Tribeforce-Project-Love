@@ -13,8 +13,6 @@ This template expects following variables:
     @if(!isset($avatar) or $avatar)
       @include('field', array('name' => 'avatar'))
     @endif
-    <a href="{{ action('FriendsController@getIndex', $d->id) }}" class="user-{{$d->id}}">
-      @include('field', array('name' => 'name'))
-    </a>
+    @include('field', array('name' => 'name'))
   </div>
 @endif

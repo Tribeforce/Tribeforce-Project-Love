@@ -98,5 +98,9 @@
     {{HTML::script('/jquery-ui/ui/jquery.ui.draggable.js')}}
     {{HTML::script('/jquery-ui/ui/jquery.ui.droppable.js')}}
     {{HTML::script('/jquery-ui/ui/jquery.ui.touch-punch.min.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.menu.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.position.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.autocomplete.js')}}
+    {{HTML::script('/jquery-ui/ui/jquery.ui.autocomplete.html.js')}}
   </body>
 </html>

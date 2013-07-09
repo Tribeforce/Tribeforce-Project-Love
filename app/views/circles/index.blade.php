@@ -14,6 +14,9 @@ This template expects following variables:
 
 @section('main')
 <div id="circles-index">
+  {{link_to_action('FriendsController@getAdd', trans('ui.friends.title_add'),
+     null, array('class' => 'ajax button expand')) }}
+
   {{ Form::hidden('_token', csrf_token())}}
   @include('form.field', array('type' => 'text', 'name' => 'filter', 'sl' => false))
   <ul>

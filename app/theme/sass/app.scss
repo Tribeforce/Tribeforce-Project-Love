@@ -528,6 +528,9 @@ PAGES
   .avatar,
   .name {
     display: inline-block;
+    height: $icon-size;
+    overflow: hidden;
+    vertical-align: middle;
   }
   .name {
     padding-right: $gutter/2;
@@ -573,6 +576,51 @@ a.image {
 }
 
 
+#rights-widget {
+  input[type=checkbox] {
+    margin: 0 $gutter 0 0;
+    height: $icon_size;
+    vertical-align: middle;
+  }
+  label {
+    font-size: 1em;
+    height: $icon_size;
+  }
+}
+
+
+.name-autocomplete {
+  [role=status] {
+    display: none;
+  }
+}
+.ui-autocomplete {
+  border: 1px solid $blue;
+  background-color: rgba($white, .9);
+  a {
+    display: block;
+    color: $black;
+  }
+  .ui-state-focus {
+    background-color: $orange_light;
+  }
+}
+
+#friends-add {
+  form,
+  #result {
+    display: none;
+  }
+  .result .name-element {
+    height: 36px;
+  }
+  .delete {
+    visibility: hidden;
+  }
+  #result:hover .delete {
+    visibility: visible;
+  }
+}
 
 /////////// DND ////////////
 .dragging {

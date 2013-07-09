@@ -105,6 +105,9 @@ return array(
      'user' => 'Vrienden',
      'circle' => 'Vriendenkringen',
   ),
+  'friends' => array(
+    'title_add' => 'Een vriend of vriendin toevoegen',
+  ),
   'posted' => "Gepost door",
   'you' => 'Jijzelf',
 );

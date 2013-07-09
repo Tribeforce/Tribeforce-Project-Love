@@ -5,6 +5,7 @@ This template expects following variables:
   - $type: the type of the field. Needs to correspond to a Blade form function
   - $name: the name attribute for the input field
   - $default: only for the switch
+  - $values: Only for select
 - Optional
   - $sl: show_label indicates if label needs to be shown or not. TRUE or FALSE
   - $classes: Classes to be set on the container
@@ -73,7 +74,7 @@ if($type === 'switch') {
     </div>
 
   @elseif($type === 'select')
-    {{ Form::select($name, $values, $default) }}
+    {{ Form::select($name, $values, $def) }}
 
   @elseif($type === 'image')
     @if(empty($def))

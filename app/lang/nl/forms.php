@@ -1,6 +1,7 @@
 <?php
 
 return array(
+  'autocomplete'          => 'Zoek...',
   'agree'                 => 'Akkoord',
   'id'                    => 'ID',
   'avatar'                => 'Avatar',
@@ -17,6 +18,7 @@ return array(
   'character'             => 'Karakter',
   'calling'               => 'Roeping',
   'last_login'            => 'Laatst ingelogd',
+  'group'                 => 'Groep',
   'groups'                => 'Groepen',
   'groups[admin]'         => 'Beheerders',
   'groups[roles]'         => 'Rollen',
@@ -32,6 +34,7 @@ return array(
   'save'                  => 'Bewaar',
   'cancel'                => 'Annuleer',
   'destroy'               => 'Verwijder',
+  'add'                   => 'Voeg toe',
   'restore'               => 'Herstel',
   'goalname'              => 'Geef je doelstelling hier in...',
   'endorsementname'       => 'Geef je endorsement hier in...',

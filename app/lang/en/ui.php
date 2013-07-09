@@ -78,8 +78,11 @@ return array(
   ),
   'rights' => array(
     'title_widget' => 'Rights',
-     'user' => 'Friends',
-     'circle' => 'Circles',
+    'user' => 'Friends',
+    'circle' => 'Circles',
+  ),
+  'friends' => array(
+    'title_add' => 'Add a friend',
   ),
   'posted' => "Posted by",
   'you' => 'You',

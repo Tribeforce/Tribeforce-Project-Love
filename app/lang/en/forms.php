@@ -1,6 +1,7 @@
 <?php
 
 return array(
+  'autocomplete'          => 'Search...',
   'agree'                 => 'I agree',
   'id'                    => 'ID',
   'email'                 => 'E-Mail',
@@ -11,6 +12,7 @@ return array(
   'birth_date'            => 'Birth date',
   'activated'             => 'Status',
   'last_login'            => 'Last login',
+  'group'                 => 'Group',
   'groups'                => 'Groups',
   'groups[admin]'         => 'Administrators',
   'groups[roles]'         => 'Roles',
@@ -25,6 +27,7 @@ return array(
   'edit'                  => 'Edit',
   'save'                  => 'Save',
   'cancel'                => 'Cancel',
+  'add'                   => 'Add',
   'destroy'               => 'Remove',
   'restore'               => 'Restore',
   'goalname'              => 'Enter your goal here...',

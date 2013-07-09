@@ -7238,19 +7238,22 @@ PAGES
 .name-element .avatar,
 .name-element .name {
   display: inline-block;
+  height: 2em;
+  overflow: hidden;
+  vertical-align: middle;
 }
-/* line 532, ../../app/theme/sass/app.scss */
+/* line 535, ../../app/theme/sass/app.scss */
 .name-element .name {
   padding-right: 0.3125em;
   white-space: nowrap;
 }
 
-/* line 538, ../../app/theme/sass/app.scss */
+/* line 541, ../../app/theme/sass/app.scss */
 a.image {
   position: relative;
   display: block;
 }
-/* line 541, ../../app/theme/sass/app.scss */
+/* line 544, ../../app/theme/sass/app.scss */
 a.image .image-overlay {
   position: absolute;
   top: 0;
@@ -7260,7 +7263,7 @@ a.image .image-overlay {
   background-color: transparent;
 }
 
-/* line 553, ../../app/theme/sass/app.scss */
+/* line 556, ../../app/theme/sass/app.scss */
 #circles-index [id^=circle-] {
   margin-bottom: 0.625em;
   border: 2px solid transparent;
@@ -7270,21 +7273,71 @@ a.image .image-overlay {
   transition: all 1s;
   margin-right: 100px;
 }
-/* line 559, ../../app/theme/sass/app.scss */
+/* line 562, ../../app/theme/sass/app.scss */
 #circles-index .icon-cancel {
   visibility: hidden;
 }
-/* line 568, ../../app/theme/sass/app.scss */
+/* line 571, ../../app/theme/sass/app.scss */
 #circles-index [id^=user-]:hover .icon-cancel {
   visibility: visible;
 }
 
-/* line 578, ../../app/theme/sass/app.scss */
+/* line 580, ../../app/theme/sass/app.scss */
+#rights-widget input[type=checkbox] {
+  margin: 0 0.625em 0 0;
+  height: 2em;
+  vertical-align: middle;
+}
+/* line 585, ../../app/theme/sass/app.scss */
+#rights-widget label {
+  font-size: 1em;
+  height: 2em;
+}
+
+/* line 593, ../../app/theme/sass/app.scss */
+.name-autocomplete [role=status] {
+  display: none;
+}
+
+/* line 597, ../../app/theme/sass/app.scss */
+.ui-autocomplete {
+  border: 1px solid #43698f;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+/* line 600, ../../app/theme/sass/app.scss */
+.ui-autocomplete a {
+  display: block;
+  color: #505050;
+}
+/* line 604, ../../app/theme/sass/app.scss */
+.ui-autocomplete .ui-state-focus {
+  background-color: #ff960e;
+}
+
+/* line 611, ../../app/theme/sass/app.scss */
+#friends-add form,
+#friends-add #result {
+  display: none;
+}
+/* line 614, ../../app/theme/sass/app.scss */
+#friends-add .result .name-element {
+  height: 36px;
+}
+/* line 617, ../../app/theme/sass/app.scss */
+#friends-add .delete {
+  visibility: hidden;
+}
+/* line 620, ../../app/theme/sass/app.scss */
+#friends-add #result:hover .delete {
+  visibility: visible;
+}
+
+/* line 626, ../../app/theme/sass/app.scss */
 .dragging {
   border: 2px dashed #43698f !important;
 }
 
-/* line 582, ../../app/theme/sass/app.scss */
+/* line 630, ../../app/theme/sass/app.scss */
 .hovering {
   border: 2px solid #ff960e !important;
 }
