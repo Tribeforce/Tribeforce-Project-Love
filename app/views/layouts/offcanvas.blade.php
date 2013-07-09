@@ -87,7 +87,7 @@
                                one_up: false,
                                callback: accordeonSlide,
                                small_breakpoint: 520,
-                               close: revealClose
+                               closed: revealClosed
                              },
                              function(response) {
         console.log(response.errors);

@@ -294,8 +294,6 @@ accordeonSlide = function(options) {
   $('.section-container .active .content').css('display', 'none').slideDown();
 };
 
-revealClose = function() {
-  setTimeout(function() {
-    $('.reveal-modal.remove-on-close').remove();
-  }, 500);
+revealClosed = function() {
+  $('.reveal-modal.remove-on-close').remove();
 }

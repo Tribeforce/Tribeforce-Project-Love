@@ -50,7 +50,7 @@ return array(
   'login_with'            => 'Login met',
   'connect_with'          => 'Verbind met',
   'ready'                 => 'Klaar',
-  'filter'                => 'Filter resultaten'
+  'filter'                => 'Filter resultaten',
   'feedback'              => 'Geef uw feedback...',
   'settings_name'         => 'Instellingen',
   'settings[language]'    => 'Taal',

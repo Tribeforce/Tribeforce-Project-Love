@@ -92,13 +92,12 @@ return array(
   ),
   'circles' => array(
     'title_index' => 'Mijn vrienden',
-    'title_friends' => 'Vrienden van :name'
+    'title_friends' => 'Vrienden van :name',
     'own' => 'Eigen vriendenkringen',
     'subscribed' => 'Ingeschreven vriendenkringen',
     'create' => 'Maak een nieuwe vriendenkringen aan',
     'empty' => 'De naam van jouw vriendenkring zou niet leeg mogen zijn',
-    'success' => 'Je nieuwe vriendenkring is aangemaakt
-    ',
+    'success' => 'Je nieuwe vriendenkring is aangemaakt',
   ),
   'rights' => array(
     'title_widget' => 'Rechten',
