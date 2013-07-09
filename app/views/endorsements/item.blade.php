@@ -15,7 +15,7 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
 <div class="columns small-12 large-6">
   <div class="row">
     <div class="columns small-5">
-      @include('field', array('name' => 'avatar', 'd' => $d->creator))
+      @include('field', array('name' => 'avatar', 'd' => $d->creator, 'link' => true))
     </div>
     <div class="columns small-7">
       <small>

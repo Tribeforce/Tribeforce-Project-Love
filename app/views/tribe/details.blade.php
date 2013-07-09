@@ -11,7 +11,7 @@
   {{ link_to_action('FriendsController@getFriends', trans('ui.menu.circles'), $d->id, array('class' => 'button small')) }}
   <div data-section-content class="row">
     <div class="columns small-12 large-6">
-    @include('field', array('name' => 'avatar'))
+    @include('field', array('name' => 'avatar', 'link' => false))
     </div>
     <div class="columns small-12 large-6">
     @include('field', array('name' => 'full_name'))

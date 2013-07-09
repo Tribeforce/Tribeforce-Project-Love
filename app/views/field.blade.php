@@ -4,6 +4,7 @@ This template expects following variables:
 - Mandatory
   $name: The name of the field
   $d: the object holding the fields
+  $link: only for avatar
 - Optional
   $label
 
@@ -33,14 +34,22 @@ switch($name) {
 ?>
 
 @if($type === 'image')
-  <a href="{{ action('FriendsController@getIndex', $d->id) }}" class="image {{$name}}">
+  @if($link)
+    <a href="{{ action('FriendsController@getIndex', $d->id) }}" class="image {{$name}}">
+  @else
+    <div class="image {{$name}}">
+  @endif
   @if(empty($val))
     <img src="/images/{{$name}}.png" title="{{$d->full_name}}">
   @else
     <img src="/files/{{$val}}.small">
   @endif
     <div class="image-overlay" title="{{$d->full_name}}"></div>
-  </a>
+  @if($link)
+    </a>
+  @else
+    </div>
+  @endif
 @else
   @if(!empty($val))
   <div class="{{$name}}">

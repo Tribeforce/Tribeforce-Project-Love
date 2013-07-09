@@ -12,7 +12,7 @@ return array(
   'birth_date'            => 'Birth date',
   'activated'             => 'Status',
   'last_login'            => 'Last login',
-  'group'                 => 'Group',
+  'circle'                => 'Circle',
   'groups'                => 'Groups',
   'groups[admin]'         => 'Administrators',
   'groups[roles]'         => 'Roles',

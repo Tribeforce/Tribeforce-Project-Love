@@ -18,7 +18,7 @@ return array(
   'character'             => 'Karakter',
   'calling'               => 'Roeping',
   'last_login'            => 'Laatst ingelogd',
-  'group'                 => 'Groep',
+  'circle'                => 'Circle',
   'groups'                => 'Groepen',
   'groups[admin]'         => 'Beheerders',
   'groups[roles]'         => 'Rollen',

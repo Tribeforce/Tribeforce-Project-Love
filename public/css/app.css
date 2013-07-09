@@ -7249,12 +7249,12 @@ PAGES
 }
 
 /* line 541, ../../app/theme/sass/app.scss */
-a.image {
+.image {
   position: relative;
   display: block;
 }
 /* line 544, ../../app/theme/sass/app.scss */
-a.image .image-overlay {
+.image .image-overlay {
   position: absolute;
   top: 0;
   bottom: 0;

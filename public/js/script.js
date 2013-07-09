@@ -198,8 +198,10 @@ $(document).ready(function() {
             break;
           case 'overlay':
             $h = data[i].html;
-            $('body').append($h)
-                     .find('.reveal-modal').foundation('reveal', 'open');
+            $('body').append($h);
+            $('.ajax').show();             // Unhide the AJAX if needed
+            $('.reveal-modal').foundation('reveal', 'open');
+
             break;
           case 'removeOverlay':
             $(selector).find('.reveal-modal').foundation('reveal', 'close');

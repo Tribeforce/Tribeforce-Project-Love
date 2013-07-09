@@ -90,7 +90,10 @@ class FriendsController extends BaseController {
 
       $jsonArray = array();
       foreach($results as $user) {
-        $html = View::make('users.name')->with(array('d' => $user));
+        $html = View::make('users.name')->with(array(
+          'd' => $user,
+          'link' => false,
+        ));
 
         $jsonArray[] = array(
           'id' => $user->id,

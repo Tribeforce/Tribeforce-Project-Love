@@ -21,7 +21,7 @@ $agrees_options = array(
 <li id="feedback-{{$d->id}}" class="{{$classes}}">
   <div class="row">
     <div class="columns small-3">
-      @include('field', array('name' => 'avatar', 'd' => $d->owner))
+      @include('field', array('name' => 'avatar', 'd' => $d->owner, 'link' => true))
     </div>
     <div class="columns small-9">
       <small>
