@@ -309,13 +309,6 @@ $(document).ready(function() {
       }
     });
   });
-
-
-
-
-
-
-
 });
 
 /**** GLOBAL FUNCTIONS ****/
@@ -325,5 +318,9 @@ accordeonSlide = function(options) {
 };
 
 revealClosed = function() {
-  $('.reveal-modal.remove-on-close').remove();
+  setTimeout(function() {
+    $('.reveal-modal.remove-on-close').remove();
+    $('body > .ajax').remove();
+    $('.reveal-modal-bg').remove();
+  }, 500);
 };

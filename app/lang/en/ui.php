@@ -88,4 +88,10 @@ return array(
   'you' => 'You',
   'about' => 'About me',
   'updated' => ':name has been updated',
+  'feedbackables' => array(
+    'next' => 'Next',
+    'prev' => 'Previous',
+    'new'  => 'New version',
+    'permissions'  => 'Permissions',
+  ),
 );

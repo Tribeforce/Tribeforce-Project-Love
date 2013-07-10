@@ -431,15 +431,19 @@ PAGES
   border-bottom: 1px solid $blue;
   margin-bottom: $gutter;
   padding: $gutter;
-
   &:hover {
-    & > .columns > .controls {
-      visibility: visible;
+    .name + .controls-button,
+    & > div > .agrees .text {
+      display: block;
     }
+  }
+
+  & > .columns {
+    position: relative;
   }
 }
 
-/// GOALS
+/// FEEDBACK
 [id^=feedback-] {
   &:not([id*=index]) {
     border-top: 1px solid $grey_medium;
@@ -450,34 +454,34 @@ PAGES
       }
     }
 
-    .controls {
-      & > .icon-cancel { // TODO: Find better selector
-        position: absolute;
-        width: $icon_size;
-        top: 0;
-      }
-      .agrees {
-        margin-left: $icon_size;
-      }
+    .agrees {
+      margin-left: $icon_size;
     }
-
     &:hover {
-      .controls {
-        visibility: visible;
+      .agrees .text,
+      .controls-button {
+        display: block;
       }
     }
-
   }
 }
 
 .controls {
-  height: $icon_size;
-  visibility: hidden;
-  position: relative;
   background-color: rgba($grey_medium, .9);
+  a {
+    font-size: 1em;
+    display: block;
+    margin: $gutter 0;
+    text-align: right;
+  }
 }
 
-
+.controls-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 .agrees {
   height: $icon_size;
@@ -489,6 +493,7 @@ PAGES
     font-size: 80%;
     left: $icon_size;
     right: $icon_size;
+    display: none;
   }
   .text,
   .actions {
@@ -563,10 +568,6 @@ PAGES
     visibility: hidden;
   }
   [id^=user-] {
-//    display: inline-block;
-    .name-element {
-//      display: inline;
-    }
     &:hover {
       .icon-cancel {
         visibility: visible;

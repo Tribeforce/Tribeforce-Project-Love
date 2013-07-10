@@ -31,19 +31,16 @@ $agrees_options = array(
         </span>
       </small>
       @include('field', array('name' => 'feedback'))
-      <div class="controls">
+      @include('agrees.widget', $agrees_options)
+      <a href="#" data-dropdown="dd-feedback-{{$d->id}}" class="icon-cog controls-button"></a>
+      <div id="dd-feedback-{{$d->id}}" class="controls dropdown" data-dropdown-content>
         @if($d->deletable())
-          <?php
-          // There seems to be a bug in Laravel. The hidden field should be added
-          // automatically, here we add it manually
-          ?>
           @if($d->trashed())
-            {{ ajaxLink(route('feedback.update', $d->id), ' ', 'PUT', 'icon-arrows-cw') }}
+            {{ ajaxLink(route('feedback.update', $d->id), trans('forms.restore'), 'PUT', 'icon-arrows-cw') }}
           @else
-            {{ ajaxLink(route('feedback.destroy', $d->id), ' ', 'DELETE', 'icon-cancel') }}
+            {{ ajaxLink(route('feedback.destroy', $d->id), trans('forms.destroy'), 'DELETE', 'icon-cancel') }}
           @endif
         @endif
-        @include('agrees.widget', $agrees_options)
       </div>
     </div>
   </div>

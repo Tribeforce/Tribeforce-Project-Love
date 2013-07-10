@@ -25,24 +25,24 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
         </span>
       </small>
       @include('field', array('name' => 'name'))
+
+      @if($own_page)
+        <a href="#" data-dropdown="dd-{{$type}}-{{$d->id}}" class="icon-cog controls-button"></a>
+
+        <div id="dd-{{$type}}-{{$d->id}}" class="controls dropdown" data-dropdown-content>
+          {{ link_to_route('rights.index', trans('ui.feedbackables.permissions'),
+             array('obj_id' => $d->id, 'obj_type' => ucfirst($type)),
+             array(
+               'class' => 'ajax icon-users',
+               'title' => trans('ui.rights.title_widget'),
+             )
+           ) }}
+        </div>
+      @endif
     </div>
   </div>
 
   @include('agrees.widget', array('d' => $d->agrees, 'obj_id' => $d->id, 'obj_type' => ucfirst($type), 'i_agree' => $d->iAgree()))
-
-  @if($own_page)
-    <div class="controls">
-      <div class="columns small-3">
-        {{ link_to_route('rights.index', ' ',
-           array('obj_id' => $d->id, 'obj_type' => ucfirst($type)),
-           array(
-             'class' => 'ajax icon-users',
-             'title' => trans('ui.rights.title_widget'),
-           )
-         ) }}
-      </div>
-    </div>
-  @endif
 
 </div>
 <div class="columns small-12 large-6">

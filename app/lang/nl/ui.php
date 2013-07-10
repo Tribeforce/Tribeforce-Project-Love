@@ -109,4 +109,10 @@ return array(
   ),
   'posted' => "Gepost door",
   'you' => 'Jijzelf',
+  'feedbackables' => array(
+    'next' => 'Volgende',
+    'prev' => 'Vorige',
+    'new'  => 'Nieuwe versie',
+    'permissions'  => 'Rechten',
+  ),
 );
