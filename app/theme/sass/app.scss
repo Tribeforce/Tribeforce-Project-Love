@@ -632,5 +632,14 @@ PAGES
 }
 
 
+#slider-outer {
+  overflow: hidden;
+}
+
+#slider-inner {
+  li {
+    float: left;
+  }
+}
 
 //

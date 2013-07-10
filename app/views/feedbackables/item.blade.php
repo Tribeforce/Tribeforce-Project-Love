@@ -26,12 +26,8 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
       <div class="columns small-3">
         @if(isset($parent))
           <div class="parent left">
-            {{ link_to_route($type . 's.show', ' ', $parent->id,
-               array(
-                 'class' => 'icon-left-open',
-                 'title' => trans('ui.' . $type . 's.parent'),
-                )
-            ) }}
+            {{ ajaxLink(route($type . 's.show', $parent->id), ' ', 'GET',
+              'icon-left-open', array('direction' => 'left', 'original' => $d->id)) }}
           </div>
         @endif
       </div>
@@ -60,12 +56,8 @@ $own_page = (isset($p['own_page']) and $p['own_page']);
       <div class="columns small-3">
         @if(isset($child))
           <div class="child right">
-            {{ link_to_route($type . 's.show', ' ', $child->id,
-               array(
-                 'class' => 'icon-right-open',
-                 'title' => trans('ui.' . $type . 's.child'),
-                )
-            ) }}
+            {{ ajaxLink(route($type . 's.show', $child->id), ' ', 'GET',
+              'icon-right-open', array('direction' => 'right', 'original' => $d->id)) }}
           </div>
         @endif
       </div>

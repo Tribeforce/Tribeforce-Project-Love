@@ -211,13 +211,36 @@ class FeedbackablesController extends \BaseController {
    * @return Response
    */
   public function show($id) {
-   $c = ucfirst($this->type);
-   $d = $c::find($id);
+    $c = ucfirst($this->type);
+    $d = $c::find($id);
 
-    return View::make($this->type . 's.show')->with(array(
-      'title' => trans('ui.' . $this->type . 's.title_show'),
-      'd' => $d,
-    ));
+    if(Request::ajax()) {
+      $input = Input::all();
+
+      $html = View::make($this->type . 's.item')->with(array(
+        'title' => trans('ui.' . $this->type . 's.title_show'),
+        'd' => $d,
+      ));
+
+      $html = '<li id="' .$this->type. '-' .$id. '" class="row">'.$html.'</li>';
+
+      $commands[] = array(
+        'method' => 'slide',
+        'selector' => '#' . $this->type . '-' . $input['original'],
+        'direction' => $input['direction'],
+        'html' => utf8_encode($html),
+      );
+
+      return $commands;
+
+    } else {
+      $html = View::make($this->type . 's.show')->with(array(
+        'title' => trans('ui.' . $this->type . 's.title_show'),
+        'd' => $d,
+      ));
+      return $html;
+
+    }
   }
 
   /**

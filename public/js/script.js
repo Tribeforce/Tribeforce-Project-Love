@@ -211,6 +211,36 @@ $(document).ready(function() {
           case 'makeAutocomplete':
             $(selector).autocomplete(ac_conf);
             break;
+          case 'slide':
+            $h = data[i].html;
+            $(selector).wrap('<div id="slider-outer" />')
+                       .wrap('<div id="slider-inner" />');
+            var w = $(selector).width();
+            $('#slider-outer').width(w);
+            $('#slider-inner').width(2*w);
+            if(data[i].direction === 'left') {
+              $('#slider-inner ' + selector).before($h);
+              $('#slider-inner > li').width(w);
+              $('#slider-inner > li').first().css('marginLeft', -1*w);
+              $('#slider-inner > li').first().animate({marginLeft: ''},
+                function() {
+                  $('#slider-inner > li').last().remove();
+                  $(this).unwrap().unwrap().css({marginLeft: '', width: ''});
+                }
+              );
+            } else if(data[i].direction === 'right') {
+              $('#slider-inner ' + selector).after($h);
+              $('#slider-inner > li').width(w);
+              $('#slider-inner > li').first().animate({marginLeft: -1*w},
+                function() {
+                  $next = $(this).next();
+                  $(this).remove();
+                  $next.unwrap().unwrap().css({marginLeft: '', width: ''});
+                }
+              );
+            }
+
+            break;
         }
       }
     }
@@ -296,4 +326,4 @@ accordeonSlide = function(options) {
 
 revealClosed = function() {
   $('.reveal-modal.remove-on-close').remove();
-}
+};
