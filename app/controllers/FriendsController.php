@@ -31,7 +31,7 @@ class FriendsController extends BaseController {
 
   public function getFriends($id) {
     $user = User::find($id);
-    $friends = $user->getFriends();
+    $friends = $user->friends;
 
     return View::make('circles.friends')->with(array(
       'title' => trans('ui.circles.title_friends',

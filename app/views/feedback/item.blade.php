@@ -32,16 +32,17 @@ $agrees_options = array(
       </small>
       @include('field', array('name' => 'feedback'))
       @include('agrees.widget', $agrees_options)
-      <a href="#" data-dropdown="dd-feedback-{{$d->id}}" class="icon-cog controls-button"></a>
-      <div id="dd-feedback-{{$d->id}}" class="controls dropdown" data-dropdown-content>
-        @if($d->deletable())
+
+      @if($d->deletable())
+        <a href="#" data-dropdown="dd-feedback-{{$d->id}}" class="icon-cog controls-button"></a>
+        <div id="dd-feedback-{{$d->id}}" class="controls dropdown" data-dropdown-content>
           @if($d->trashed())
             {{ ajaxLink(route('feedback.update', $d->id), trans('forms.restore'), 'PUT', 'icon-arrows-cw') }}
           @else
             {{ ajaxLink(route('feedback.destroy', $d->id), trans('forms.destroy'), 'DELETE', 'icon-cancel') }}
           @endif
-        @endif
-      </div>
+        </div>
+      @endif
     </div>
   </div>
 </li>
